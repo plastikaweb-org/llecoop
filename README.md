@@ -1,26 +1,98 @@
 # Llecoop
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-## Development server
+### Main packages
+- [Angular 5.x](https://angular.io/)
+- [Angular Material 5](https://github.com/angular/material2) and [Teradata Covalent](https://teradata.github.io/covalent/#/) as UX frameworks.
+- [@ngrx platform](https://github.com/ngrx/platform) as state control.
+- [flexbox](https://www.w3.org/TR/css-flexbox-1) as CSS3 box layout.
+- [Angular CLI 1.6.5](https://github.com/angular/angular-cli) to generate, serve, testing, create, and lint.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Global requirements
+- [Git](http://git-scm.com/)
+- [Node 6.9+ and NPM 4+](http://nodejs.org/)
+- [Angular CLI](https://cli.angular.io/)
 
-## Code scaffolding
+```shell
+# Uninstall previous versions
+npm uninstall -g angular-cli @angular/cli
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Clean caché
+npm cache clean
 
-## Build
+# Install Angular CLI globally
+npm install -g @angular/cli@latest
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Implementation
+```sh
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Clone the fork
+git clone git@github.com:plastikaweb/llecoop.git
 
-## Running end-to-end tests
+# Go to the app directory
+cd llecoop
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Install dependencies
+yarn
+```
+
+
+## @ngrx store - debug
+Redux DevTools for debugging application's state changes.
+- [Google Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+- [Mozilla Firefox](https://addons.mozilla.org/es/firefox/addon/remotedev/)
+
+
+## Main commands
+```sh
+yarn start
+```
+Navigate to `http://localhost:4200/` in your browser (recommended [Google chrome](https://www.google.com/chrome/browser/desktop/index.html) or [Mozilla firefox](https://www.mozilla.org/firefox/new/)). The app will automatically reload if you change any of the source files.
+
+```sh
+yarn build
+```
+The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+```sh
+yarn build:server
+```
+Build with AOT and build-optimizer `flags`.
+
+```sh
+yarn test
+```
+To execute the unit tests via [Karma](https://karma-runner.github.io).
+
+```sh
+yarn test:single
+```
+To execute the unit tests once, not in `watch` mode.
+
+```sh
+yarn e2e
+```
+To execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+```sh
+yarn lint
+```
+To execute the code lint via tslint.
+
+```sh
+yarn reinstall
+```
+Reinstall dependencies.
+
+```sh
+yarn compodoc
+```
+To install documentation via [Compodoc](https://github.com/compodoc/compodoc).
 
 ## Further help
 
