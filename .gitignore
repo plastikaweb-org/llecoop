@@ -18,6 +18,7 @@
 *.launch
 .settings/
 *.sublime-workspace
+/coverage
 
 # IDE - VSCode
 .vscode/*
@@ -29,7 +30,6 @@
 # misc
 /.sass-cache
 /connect.lock
-/coverage
 /libpeerconnection.log
 npm-debug.log
 testem.log
@@ -44,3 +44,7 @@ testem.log
 Thumbs.db
 #log files
 *.log
+
+# Config data
+/src/conf/firebase.config.ts
+/.firebaserc
