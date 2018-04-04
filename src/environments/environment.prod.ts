@@ -1,3 +1,9 @@
+import { MetaReducer } from '@ngrx/store';
+
+const metaReducers: MetaReducer<any>[] = [];
+
 export const environment = {
-  production: true
+  production: true,
+  imports: [],
+  metaReducers: { metaReducers }
 };

@@ -29,8 +29,7 @@
     "clean": "rimraf node_modules",
     "clean:all": "npm run clean -- dist dll && npm cache clean",
     "clean:build": "rimraf build",
-    "reinstall": "npm run clean -- && rm -f package-lock.json && npm install",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json"
+    "reinstall": "npm run clean -- && rm -f package-lock.json && npm install"
   },
   "private": false,
   "dependencies": {
@@ -67,7 +66,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "codelyzer": "^4.2.1",
+    "codelyzer": "^4.0.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",

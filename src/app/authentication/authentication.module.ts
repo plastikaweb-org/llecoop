@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 @NgModule({
@@ -9,4 +9,4 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
   ],
   declarations: []
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

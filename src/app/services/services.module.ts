@@ -1,10 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
-})
-export class ServicesModule { }
+@NgModule({})
+export class ServicesModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: ServicesModule,
+      providers: [
+        AuthService
+      ]
+    };
+  }
+}
