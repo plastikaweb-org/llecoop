@@ -17,8 +17,8 @@ $typography: mat-typography-config(
 
 @include mat-core($typography); // $typography is an **optional** argument for the mat-core
 
-$primary: mat-palette($mat-blue-grey, 800, 100, 900);
-$accent: mat-palette($mat-grey, 600, 100, 900);
+$primary: mat-palette($mat-orange, 500, 100, 900);
+$accent: mat-palette($mat-grey, 100, 500, 900);
 $warn: mat-palette($mat-red, 600, 100, 900);
 
 $theme: mat-light-theme($primary, $accent, $warn);

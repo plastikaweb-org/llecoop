@@ -1,3 +1,9 @@
 // GLOBALS (typography, variables, mixins...)
 @import "_colors";
 @import "_mixins";
+
+// GENERAL STYLES
+@import "_general";
+
+// COMPONENTS STYLES
+@import "_auth";

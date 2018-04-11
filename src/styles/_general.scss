@@ -1,0 +1,18 @@
+@import 'theme';
+
+a {
+  text-decoration: none;
+  color: mat-color($primary, 600);
+  &:hover {
+    color: mat-color($primary, 800);
+  }
+}
+
+.mat-icon.full-content-size {
+  height: 100%;
+  width: 100%;
+}
+.full-width-and-height {
+  height: 100vh;
+  width: 100vw;
+}

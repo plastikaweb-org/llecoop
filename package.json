@@ -51,6 +51,8 @@
     "@ngrx/router-store": "^5.2.0",
     "@ngrx/store": "^5.2.0",
     "@ngrx/store-devtools": "^5.2.0",
+    "@ngx-formly/core": "^2.0.0-rc.54",
+    "@ngx-formly/material": "^2.0.0-rc.54",
     "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.4.1",
     "firebase": "^4.12.1",

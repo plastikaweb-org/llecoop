@@ -1,0 +1,20 @@
+<div class="full-width-and-height bgc-grey-200" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="auth-card">
+    <mat-toolbar
+      fxFlex fxLayout="column" fxLayoutAlign="center center"
+      fxLayoutGap="5px" color="accent" class="text-upper">
+      <div mat-card-avatar>
+        <mat-icon class="full-content-size" svgIcon="llecoop"></mat-icon>
+      </div>
+      <ng-content select="[title]"></ng-content>
+    </mat-toolbar>
+    <ng-content select="app-card-content-form"></ng-content>
+    <mat-card-footer fxFlex fxLayoutAlign="center center">
+      <div class="mat-caption">
+        <a [href]="appConfig.ownerLink" target="_blank">{{appConfig.owner}}</a> -
+        {{appConfig.product | uppercase}} {{appConfig.slogan}} &copy; {{appConfig.year}}
+        by <a [href]="appConfig.developerLink" target="_blank">{{appConfig.developer}}</a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

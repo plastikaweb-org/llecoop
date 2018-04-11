@@ -153,6 +153,12 @@
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.2.3.tgz#b858c1cd3740b29de145a6d60b2562eef391d3b3"
 
+"@angular/material@>=5.0.0":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.4.tgz#9e823798324283d23ea839156fac5bcb73443d55"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/material@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.0.tgz#8599e3149d48487e3e92e941fa9dc55176e3a0cf"
@@ -330,6 +336,20 @@
     source-map "^0.5.6"
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
+
+"@ngx-formly/core@2.0.0-rc.54", "@ngx-formly/core@^2.0.0-rc.54":
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/@ngx-formly/core/-/core-2.0.0-rc.54.tgz#9ba4a6618a12a98aecfadd501997e9734f5d005e"
+  dependencies:
+    tslib "^1.7.1"
+
+"@ngx-formly/material@^2.0.0-rc.54":
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/@ngx-formly/material/-/material-2.0.0-rc.54.tgz#a474781a1665b5cae912da76223c2e469716a1f3"
+  dependencies:
+    "@angular/material" ">=5.0.0"
+    "@ngx-formly/core" "2.0.0-rc.54"
+    tslib "^1.7.1"
 
 "@schematics/angular@0.3.2":
   version "0.3.2"
