@@ -16,8 +16,6 @@ export class GetAuthenticationFail implements Action {
 
 export class GetAuthenticationSuccess implements Action {
   readonly type = GET_AUTHENTICATION_SUCCESS;
-  //
-  // constructor(public payload: boolean) {}
 }
 
 // login

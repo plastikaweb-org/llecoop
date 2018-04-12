@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
+
+import * as fromRouter from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
 
-
 import { of } from 'rxjs/observable/of';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, first, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import * as fromActivity from '../../../../activity/store';
 import { AuthService } from '../../../../services';
 import { Credentials } from '../../../../shared/models';
 import * as fromActions from '../../actions';
+import * as fromSelectors from '../../selectors';
 import * as fromState from '../../state';
 
 @Injectable()
@@ -44,20 +46,20 @@ export class AuthEffects {
 
 
   /**
-   * force on any route change to check for valid token
-   * if it is not valid, redirect to login page
+   * force on any route change to check for authentitcation
+   * if it is not, redirect to login page
    * @type {Observable<void>}
    */
-    // @Effect({ dispatch: false })
-    // routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
-    //   withLatestFrom(this.store.select(fromSelectors.getIsAuthenticated)),
-    //   first(),
-    //   map(([ router, authenticated ]) => {
-    //     if (!authenticated) {
-    //       this.router.navigate([ '/auth' ]);
-    //     }
-    //   })
-    // );
+  @Effect({ dispatch: false })
+  routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
+    withLatestFrom(this.store.select(fromSelectors.getIsAuthenticated)),
+    first(),
+    map(([ router, authenticated ]) => {
+      if (!authenticated) {
+        this.router.navigate([ '/login' ]);
+      }
+    })
+  );
 
   @Effect()
   login$ = this.actions$.ofType(fromActions.AUTHENTICATE).pipe(

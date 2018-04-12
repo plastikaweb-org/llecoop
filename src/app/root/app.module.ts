@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -14,15 +13,14 @@ import { firebaseConf } from '../../conf/firebase.config';
 import { environment } from '../../environments/environment';
 import { ActivityModule } from '../activity/activity.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
-import { MaterialCovalentModule } from '../material-covalent/material-covalent.module';
 import { ServicesModule } from '../services/services.module';
 import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppSandbox } from './app.sandbox';
-import { AppComponent } from './containers/app/app.component';
+import { AppComponent } from './containers';
+import { IsAuthGuard } from './guards';
 import { effects } from './store/effects';
 import { CustomSerializer, reducers } from './store/reducers';
-
-export const ROUTES: Routes = [];
 
 @NgModule({
   declarations: [
@@ -32,10 +30,11 @@ export const ROUTES: Routes = [];
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES),
+    AppRoutingModule,
     SharedModule,
     // Activity indicators
     ActivityModule,
+    // Authentication module
     AuthenticationModule,
     AngularFireModule.initializeApp(firebaseConf),
     AngularFireAuthModule,
@@ -50,6 +49,7 @@ export const ROUTES: Routes = [];
   ],
   providers: [
     AppSandbox,
+    IsAuthGuard,
     { provide: RouterStateSerializer, useClass: CustomSerializer },
     { provide: CONFIG_TOKEN, useValue: config }
   ],
