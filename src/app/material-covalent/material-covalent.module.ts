@@ -8,7 +8,7 @@ import {
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import { CovalentDialogsModule, CovalentLayoutModule } from '@covalent/core';
+import { CovalentDialogsModule, CovalentLayoutModule, CovalentMessageModule } from '@covalent/core';
 
 const MATERIAL_MODULES: any[] = [
   MatButtonModule,
@@ -22,7 +22,8 @@ const MATERIAL_MODULES: any[] = [
 
 const COVALENT_MODULES: any[] = [
   CovalentLayoutModule,
-  CovalentDialogsModule
+  CovalentDialogsModule,
+  CovalentMessageModule
 ];
 
 

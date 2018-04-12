@@ -5,7 +5,8 @@ import { Store } from '@ngrx/store';
 
 
 import { of } from 'rxjs/observable/of';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import * as fromActivity from '../../../../activity/store';
 import { AuthService } from '../../../../services';
 import { Credentials } from '../../../../shared/models';
 import * as fromActions from '../../actions';
@@ -81,12 +82,7 @@ export class AuthEffects {
   errorsAuth$ = this.actions$
     .ofType(fromActions.AUTHENTICATE_FAIL)
     .pipe(
-      map(
-        (ac: fromActions.AuthenticateFail) => {
-          this.router.navigate([ '/auth' ]);
-          // new fromActivity.ShowErrorMessage(ac.payload)
-        }
-      )
+      map((ac: fromActions.AuthenticateFail) => new fromActivity.ShowErrorMessage(ac.payload))
     );
 
   @Effect()
