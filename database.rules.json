@@ -1,0 +1,67 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null && (root.child('users').child(auth.uid).child('active').val() == true)",
+    "products": {
+      ".read": "true",
+      ".indexOn": "active",
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "categories": {
+      ".read": "true",
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "productsPerCategory": {
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "tags": {
+      ".read": "true",
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "tagsPerProduct": {
+      ".read": "true",
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "config": {
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "weekOrder": {
+      ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+    },
+    "orders": {
+      ".write": "(root.child('orders').child('userKey').val() == auth.uid) || (root.child('users').child(auth.uid).child('role').val() == 'admin')"
+    },
+    "ordersPerUser": {
+      "$uid": {
+        ".write": "($uid == auth.uid) || (root.child('users').child(auth.uid).child('role').val() == 'admin')"
+      }
+    },
+    "users": {
+      ".indexOn": "role",
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        "name": {
+          ".validate": "newData.isString()"
+        },
+        "secondName": {
+          ".validate": "newData.isString()"
+        },
+        "address": {
+          ".validate": "newData.isString()"
+        },
+        "city": {
+          ".validate": "newData.isString()"
+        },
+        "email": {
+          ".validate": "newData.isString()"
+        },
+        "role": {
+          ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+        },
+        "active": {
+          ".write": "root.child('users').child(auth.uid).child('role').val() == 'admin'"
+        }
+      }
+    }
+  }
+}

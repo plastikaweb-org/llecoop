@@ -1,0 +1,34 @@
+codecov:
+  token: 9b816a43-368a-4745-bf62-b931d99478fe
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project: yes
+    patch: yes
+    changes: no
+
+parsers:
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      method: no
+      macro: no
+
+comment:
+  layout: "header, diff"
+  behavior: default
+  require_changes: no
+
+ignore:
+  - "src/app/models"
+  - "src/app/mocks"
+  - "src/conf"
+  - "src/assets"
+  - "src/polyfills.*"
