@@ -10,7 +10,7 @@ export class ActivitySandbox extends BaseSandbox {
   // selectors
   snackBarVisible$ = this.store.select(fromStore.getSnackBarVisible);
   snackBarConfiguration$ = this.store.select(fromStore.getSnackBarConfiguration);
-  progressBarVisible$ = this.store.select(fromStore.getProgressBarVisible);
+  progressBarVisible$ = this.store.select(fromStore.getLoadingStateVisibility);
   errorVisibility$ = this.store.select(fromStore.getErrorMessageVisible);
   errorDescription$ = this.store.select(fromStore.getErrorMessageDescription);
   warningVisibility$ = this.store.select(fromStore.getWarningMessageVisible);

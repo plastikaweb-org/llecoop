@@ -23,7 +23,7 @@ export class ActivityEffects {
       this.store.select(fromSelectors.getErrorMessageVisible),
       this.store.select(fromSelectors.getWarningMessageVisible)
     ),
-    tap(([router, visibleError, visibleWarning]) => {
+    tap(([ router, visibleError, visibleWarning ]) => {
       if (visibleError) {
         this.store.dispatch(new fromActions.ResetErrorMessage());
       }
@@ -42,10 +42,10 @@ export class ActivityEffects {
   showErrorMessage$ = this.actions$
     .ofType(fromActions.SHOW_ERROR_MESSAGE, fromActions.SHOW_WARNING_MESSAGE)
     .pipe(
-      withLatestFrom(this.store.select(fromSelectors.getProgressBarVisible)),
-      tap(([router, visible]) => {
+      withLatestFrom(this.store.select(fromSelectors.getLoadingStateVisibility)),
+      tap(([ router, visible ]) => {
         if (visible) {
-          this.store.dispatch(new fromActions.ProgressbarVisibility(false));
+          this.store.dispatch(new fromActions.HideLoading());
         }
       })
     );

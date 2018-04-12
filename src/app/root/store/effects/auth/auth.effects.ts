@@ -62,17 +62,20 @@ export class AuthEffects {
   @Effect()
   login$ = this.actions$.ofType(fromActions.AUTHENTICATE).pipe(
     map((action: fromActions.Authenticate) => action.payload),
-    switchMap((credentials: Credentials) =>
-      this.authService.login(credentials).pipe(
-        map((response: any) => new fromActions.AuthenticateSuccess()),
-        catchError(error => of(new fromActions.AuthenticateFail(error)))
-      )
+    switchMap((credentials: Credentials) => {
+        this.store.dispatch(new fromActivity.ShowLoading());
+        return this.authService.login(credentials).pipe(
+          map((response: any) => new fromActions.AuthenticateSuccess()),
+          catchError(error => of(new fromActions.AuthenticateFail(error)))
+        );
+      }
     )
   );
 
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.ofType(fromActions.AUTHENTICATE_SUCCESS).pipe(
     map(() => {
+      this.store.dispatch(new fromActivity.HideLoading());
       this.store.dispatch(new fromActions.GetAuthentication());
       this.router.navigate([ '/' ]);
     })

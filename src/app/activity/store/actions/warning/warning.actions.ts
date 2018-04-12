@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-export const SHOW_WARNING_MESSAGE = '[Root] Show warning message';
-export const RESET_WARNING_MESSAGE = '[Root] Hide/Reset warning message';
+export const SHOW_WARNING_MESSAGE = '[Activity] Show warning message';
+export const RESET_WARNING_MESSAGE = '[Activity] Hide/Reset warning message';
 
 export class ShowWarningMessage implements Action {
   readonly type = SHOW_WARNING_MESSAGE;

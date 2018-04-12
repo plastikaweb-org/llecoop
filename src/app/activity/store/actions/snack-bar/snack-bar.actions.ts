@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-export const SHOW_SNACKBAR = '[Root] Show Snackbar';
-export const RESET_SNACKBAR = '[Root] Hide/Reset Snackbar';
+export const SHOW_SNACKBAR = '[Activity] Show Snackbar';
+export const RESET_SNACKBAR = '[Activity] Hide/Reset Snackbar';
 
 export class ShowSnackBar implements Action {
   readonly type = SHOW_SNACKBAR;
