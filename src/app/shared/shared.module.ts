@@ -9,19 +9,19 @@ import { CardContentFormComponent } from './components';
 import { CapitalizePipe } from './pipes';
 
 export function minlengthValidationMessage(err, field) {
-  return `Àquest camp ha de tenir ${field.templateOptions.minLength} caràcters com a mínim`;
+  return `${field.templateOptions.minLength} caràcters com a mínim`;
 }
 
 export function maxlengthValidationMessage(err, field) {
-  return `Aquest camp ha de tenir ${field.templateOptions.maxLength} caràcters com a màxim`;
+  return `${field.templateOptions.maxLength} caràcters com a màxim`;
 }
 
 export function minValidationMessage(err, field) {
-  return `El valor ha de ser com a mínim ${field.templateOptions.min}`;
+  return `com a mínim ${field.templateOptions.min}`;
 }
 
 export function maxValidationMessage(err, field) {
-  return `El valor ha de ser com a máxim ${field.templateOptions.max}`;
+  return `com a máxim ${field.templateOptions.max}`;
 }
 
 @NgModule({
@@ -31,12 +31,12 @@ export function maxValidationMessage(err, field) {
     FlexLayoutModule, MaterialCovalentModule,
     FormlyModule.forRoot({
       validationMessages: [
-        { name: 'required', message: 'Camp obligatori' },
+        { name: 'required', message: 'camp obligatori' },
         { name: 'minlength', message: minlengthValidationMessage },
         { name: 'maxlength', message: maxlengthValidationMessage },
         { name: 'min', message: minValidationMessage },
         { name: 'max', message: maxValidationMessage },
-        { name: 'email', message: 'Es requereix una adreça de correu vàlida' }
+        { name: 'email', message: 'adreça de correu no vàlida' }
       ]
     }),
     FormlyMaterialModule

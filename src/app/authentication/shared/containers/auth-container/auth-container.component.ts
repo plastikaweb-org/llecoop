@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { AppConfig, CONFIG_TOKEN } from '../../../../conf/config';
+import { AppConfig, CONFIG_TOKEN } from '../../../../../conf/config';
 
 @Component({
   selector: 'app-auth-container',

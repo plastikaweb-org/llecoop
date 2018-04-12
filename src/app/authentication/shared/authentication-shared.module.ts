@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { AuthContainerComponent } from './auth-container/auth-container.component';
+import { AuthContainerComponent } from './containers/auth-container/auth-container.component';
 
 @NgModule({
   imports: [ SharedModule ],

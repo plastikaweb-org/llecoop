@@ -11,9 +11,13 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
           [formGroup]="form"
           (ngSubmit)="onSubmit($event)"
           class="push-top-md">
+      <!-- form construct -->
       <mat-card-content>
         <formly-form [form]="form" [options]="options" [fields]="fields"></formly-form>
       </mat-card-content>
+      <!-- recover pass or go to login page links if necessary -->
+        <ng-content select="[otherAction]"></ng-content>
+      <!-- buttons -->
       <mat-card-actions>
         <mat-toolbar color="primary" fxFlex fxLayout="column"
                     fxLayoutAlign="center center">

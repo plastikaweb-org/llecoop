@@ -14,9 +14,11 @@ import { LoginSandbox } from '../../login.sandbox';
                                  [model]="model"
                                  [submitTitle]="'Enviar'"
                                  (submit)="onSubmit($event)">
+            <!-- login recover pass -->
+            <div otherAction class="mat-caption pad pad-top-none text-right">
+              <a href="#">Has oblidat la teva clau?</a>
+            </div>
           </app-card-content-form>
-        <!-- login recover pass -->
-        <!--<a href="#" title="legal">Recuperar contrassenya</a>-->
     </app-auth-container>
   `
 })

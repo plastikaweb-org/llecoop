@@ -9,8 +9,8 @@
       <ng-content select="[title]"></ng-content>
     </mat-toolbar>
     <ng-content select="app-card-content-form"></ng-content>
-    <mat-card-footer fxFlex fxLayoutAlign="center center">
-      <div class="mat-caption">
+    <mat-card-footer fxFlex fxLayout="column" fxLayoutAlign="center center">
+      <div class="mat-caption pad-top-xs">
         <a [href]="appConfig.ownerLink" target="_blank">{{appConfig.owner}}</a> -
         {{appConfig.product | uppercase}} {{appConfig.slogan}} &copy; {{appConfig.year}}
         by <a [href]="appConfig.developerLink" target="_blank">{{appConfig.developer}}</a>

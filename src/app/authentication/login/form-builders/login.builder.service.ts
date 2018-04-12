@@ -25,8 +25,8 @@ export class LoginBuilderService {
       type: 'input',
       templateOptions: {
         type: 'password',
-        label: 'password',
-        placeholder: 'password',
+        label: 'clau',
+        placeholder: 'clau',
         required: true,
         minLength: 8
       }
