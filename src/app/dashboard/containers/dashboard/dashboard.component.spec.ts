@@ -3,7 +3,7 @@ import { MatIconModule, MatListModule, MatMenuModule, MatSidenavModule } from '@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CovalentLayoutModule, CovalentMediaModule, CovalentMenuModule } from '@covalent/core';
 import { StoreModule } from '@ngrx/store';
-import { config, CONFIG_TOKEN } from '../../../../conf/config';
+import { config, CONFIG_TOKEN } from '../../../../config/config';
 import { DashboardFooterComponent, ThemeSelectorComponent } from '../../components';
 import { DashboardSandbox } from '../../dashboard.sandbox';
 

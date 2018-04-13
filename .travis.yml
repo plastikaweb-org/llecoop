@@ -1,9 +1,11 @@
 language: node_js
+install:
+  - npm install codecov -g
 node_js:
-  - '6.9'
+  - "6.9"
 cache:
   directories:
-  - node_modules
+    - node_modules
 notifications:
   email: false
 sudo: required
@@ -28,8 +30,9 @@ script:
   - ./ci/setup.sh
   - ./ci/test.sh
 after_success:
+  - codecov
   - npm run report-coverage
   - 'if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then ./ci/deploy.sh; fi'
 branches:
   only:
-  - master
+    - master

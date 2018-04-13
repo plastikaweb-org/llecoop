@@ -29,6 +29,6 @@ comment:
 ignore:
   - "src/app/models"
   - "src/app/mocks"
-  - "src/conf"
+  - "src/config"
   - "src/assets"
   - "src/polyfills.*"

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Credentials, WarningTypes, WarningTypesConfigList } from '../../../../shared/models';
+import { loginBuilder } from '../../form-builders/login.builder';
 
 import { LoginSandbox } from '../../login.sandbox';
 
@@ -23,7 +23,8 @@ import { LoginSandbox } from '../../login.sandbox';
   `
 })
 export class LoginComponent {
-  fields: Array<FormlyFieldConfig> = this.sandBox.builder;
+  // fields: Array<FormlyFieldConfig> = this.sandBox.builder;
+  fields: Array<FormlyFieldConfig> = loginBuilder;
   model = {} as Credentials;
   type = WarningTypesConfigList[ WarningTypes.Error ];
 

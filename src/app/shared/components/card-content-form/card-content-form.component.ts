@@ -1,4 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef,
+  Component, EventEmitter, Input, Output
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
@@ -11,7 +14,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
           [formGroup]="form"
           (ngSubmit)="onSubmit($event)"
           class="push-top-md">
-      <!-- form construct -->
+      <!--&lt;!&ndash; form construct &ndash;&gt;-->
       <mat-card-content>
         <formly-form [form]="form" [options]="options" [fields]="fields"></formly-form>
       </mat-card-content>

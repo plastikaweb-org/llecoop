@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import { AppConfig, CONFIG_TOKEN } from '../../conf/config';
+import { AppConfig, CONFIG_TOKEN } from '../../config/config';
 
 import { BaseSandbox } from '../shared/base.sandbox';
 import * as fromStore from './store';

@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -8,8 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { config, CONFIG_TOKEN } from '../../conf/config';
-import { firebaseConf } from '../../conf/firebase.config';
+import { config, CONFIG_TOKEN } from '../../config/config';
+import { firebaseConf } from '../../config/firebase.config';
 import { environment } from '../../environments/environment';
 import { ActivityModule } from '../activity/activity.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
@@ -29,6 +30,7 @@ import { CustomSerializer, reducers } from './store/reducers';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,

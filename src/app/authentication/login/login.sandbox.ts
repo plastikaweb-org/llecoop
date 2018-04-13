@@ -1,24 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FormlyConfig, FormlyFieldConfig } from '@ngx-formly/core';
-import { BaseSandbox } from '../../shared/base.sandbox';
-import { Credentials } from '../../shared/models/index';
-import { LoginBuilderService } from './form-builders/login.builder.service';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import * as fromStore from '../../root/store';
+import { Credentials } from '../../shared';
+import { BaseSandbox } from '../../shared/base.sandbox';
+import { loginBuilder } from './form-builders/login.builder';
 
 @Injectable()
 export class LoginSandbox extends BaseSandbox {
   // form builders
-  builder: FormlyFieldConfig[];
+  builder: FormlyFieldConfig[] = loginBuilder;
   // credentials
   credentials: Credentials;
 
-  constructor(private appState: Store<any>,
-              private formlyConfig: FormlyConfig,
-              private loginBuilderService: LoginBuilderService) {
+  constructor(private appState: Store<any>) {
     super(appState);
-    // formly login builder
-    this.builder = this.loginBuilderService.getBuilder();
   }
 
   // action dispatchers - company

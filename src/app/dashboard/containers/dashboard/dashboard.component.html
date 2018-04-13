@@ -1,5 +1,5 @@
 <td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
-           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'" [class]="activeTheme">
+           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'">
   <td-navigation-drawer flex sidenavTitle="Llecoop" logo="llecoop">
     <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">
       <a *ngFor="let item of routes" mat-list-item>

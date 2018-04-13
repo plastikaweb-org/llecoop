@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppConfig, CONFIG_TOKEN } from '../../conf/config';
+import { AppConfig, CONFIG_TOKEN } from '../../config/config';
 import * as fromStore from '../root/store';
 
 import { BaseSandbox } from '../shared/base.sandbox';
