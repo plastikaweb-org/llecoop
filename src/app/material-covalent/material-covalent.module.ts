@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatListModule,
-  MatProgressBarModule,
-  MatSidenavModule,
-  MatToolbarModule
+  MatAutocompleteModule,
+  MatButtonModule, MatButtonToggleModule,
+  MatCardModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatGridListModule,
+  MatIconModule, MatInputModule,
+  MatListModule, MatMenuModule, MatNativeDateModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule,
+  MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatTabsModule,
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
-import { CovalentDialogsModule, CovalentLayoutModule, CovalentMessageModule } from '@covalent/core';
+import {
+  CovalentCommonModule,
+  CovalentDataTableModule,
+  CovalentDialogsModule, CovalentExpansionPanelModule,
+  CovalentLayoutModule, CovalentLoadingModule, CovalentMediaModule,
+  CovalentMenuModule,
+  CovalentMessageModule, CovalentNotificationsModule, CovalentPagingModule,
+  CovalentSearchModule, CovalentStepsModule
+} from '@covalent/core';
 
 const MATERIAL_MODULES: any[] = [
   MatButtonModule,
@@ -17,13 +26,17 @@ const MATERIAL_MODULES: any[] = [
   MatListModule,
   MatSidenavModule,
   MatProgressBarModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatMenuModule
 ];
 
 const COVALENT_MODULES: any[] = [
+  CovalentCommonModule,
   CovalentLayoutModule,
   CovalentDialogsModule,
-  CovalentMessageModule
+  CovalentMessageModule,
+  CovalentMenuModule,
+  CovalentMediaModule
 ];
 
 

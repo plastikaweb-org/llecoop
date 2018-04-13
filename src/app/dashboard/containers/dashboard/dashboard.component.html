@@ -1,0 +1,51 @@
+<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
+           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'" [class]="activeTheme">
+  <td-navigation-drawer flex sidenavTitle="Llecoop" logo="llecoop">
+    <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon matListIcon>{{item.icon}}</mat-icon>
+        {{item.title}}</a>
+    </mat-nav-list>
+  </td-navigation-drawer>
+  <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Llecoop' : ''" logo="llecoop"
+                 navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div td-toolbar-content layout="row" layout-align="end center" flex>
+      <span>
+        <button mat-icon-button matTooltip="Alerts" [matMenuTriggerFor]="notificationsMenu">
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <mat-menu #notificationsMenu="matMenu">
+          <td-menu>
+            <div td-menu-header class="mat-subhead">Notifications</div>
+            <mat-nav-list dense>
+              <ng-template let-last="last" ngFor [ngForOf]="[0,1,2]">
+                <a mat-list-item>
+                  <mat-icon matListAvatar>today</mat-icon>
+                  <h4 mat-line><span class="text-wrap">Candy sales are on the rise!</span></h4>
+                  <p mat-line>22 minutes ago</p>
+                </a>
+                <mat-divider *ngIf="!last"></mat-divider>
+              </ng-template>
+            </mat-nav-list>
+            <button mat-button color="accent" td-menu-footer>
+              See All Notifications
+            </button>
+          </td-menu>
+        </mat-menu>
+      </span>
+      <span>
+        <!-- theme light or dark selector -->
+        <app-theme-selector></app-theme-selector>
+      </span>
+    </div>
+    <!-- footer -->
+    <td-layout-footer>
+      <app-dashboard-footer [config]="config"></app-dashboard-footer>
+    </td-layout-footer>
+  </td-layout-nav>
+</td-layout>
+

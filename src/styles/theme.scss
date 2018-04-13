@@ -17,7 +17,7 @@ $typography: mat-typography-config(
 
 @include mat-core($typography); // $typography is an **optional** argument for the mat-core
 
-$primary: mat-palette($mat-orange, 500, 100, 900);
+$primary: mat-palette($mat-green, 500, 100, 900);
 $accent: mat-palette($mat-grey, 100, 500, 900);
 $warn: mat-palette($mat-red, 600, 100, 900);
 
@@ -25,3 +25,27 @@ $theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
 @include covalent-theme($theme, $typography); // $typography is an **optional** argument for the covalent-theme
+
+// Dark theme
+.theme-dark {
+  $primary-dark: mat-palette($mat-blue-grey, 900);
+  $accent-dark:  mat-palette($mat-deep-orange, A400);
+  $warn-dark:    mat-palette($mat-red, 600);
+  $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+  @include angular-material-theme($theme-dark);
+  @include covalent-theme($theme-dark);
+
+  .tc-primary {
+    color: mat-color($primary-dark);
+  }
+  .tc-accent,
+  a {
+    color: mat-color($accent-dark);
+  }
+  a:hover {
+    color: darken(mat-color($accent-dark), 10%);
+  }
+  .tc-warn {
+    color: mat-color($warn-dark);
+  }
+}

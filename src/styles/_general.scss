@@ -16,3 +16,10 @@ a {
   height: 100vh;
   width: 100vw;
 }
+.mat-toolbar {
+  .mat-icon.mat-icon-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+  }
+}

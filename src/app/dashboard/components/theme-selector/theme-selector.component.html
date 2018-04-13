@@ -1,0 +1,13 @@
+<button mat-icon-button matTooltip="Disseny de la pàgina" [mat-menu-trigger-for]="design">
+  <mat-icon>settings_brightness</mat-icon>
+</button>
+<mat-menu xPosition="before" #design="matMenu">
+  <button mat-menu-item *ngIf="activeTheme === 'theme-dark'" (click)="theme('theme-light')">
+    <mat-icon>brightness_high</mat-icon>
+    <span>Estil lluminós</span>
+  </button>
+  <button mat-menu-item *ngIf="activeTheme != 'theme-dark'" (click)="theme('theme-dark')">
+    <mat-icon>brightness_low</mat-icon>
+    <span>Estil fosc</span>
+  </button>
+</mat-menu>
