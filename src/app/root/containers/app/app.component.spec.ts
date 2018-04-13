@@ -4,6 +4,7 @@ import { MatIconModule, MatProgressBarModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { CovalentMessageModule } from '@covalent/core';
 import { StoreModule } from '@ngrx/store';
+import { config, CONFIG_TOKEN } from '../../../../conf/config';
 import { ActivitySandbox } from '../../../activity/activity.sandbox';
 import { AlertComponent, ProgressBarComponent } from '../../../activity/components';
 import { AppSandbox } from '../../app.sandbox';
@@ -23,6 +24,7 @@ describe('AppComponent', () => {
       providers: [
         AppSandbox,
         ActivitySandbox,
+        { provide: CONFIG_TOKEN, useValue: config },
         { provide: APP_BASE_HREF, useValue: '/' }
       ]
     }).compileComponents();

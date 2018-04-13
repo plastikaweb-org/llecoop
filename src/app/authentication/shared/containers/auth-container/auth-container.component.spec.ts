@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule, MatIconModule, MatToolbarModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
 import { config, CONFIG_TOKEN } from '../../../../../conf/config';
+import { AppSandbox } from '../../../../root/app.sandbox';
 
 import { AuthContainerComponent } from './auth-container.component';
 
@@ -10,9 +13,10 @@ describe('AuthContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [ MatIconModule, MatToolbarModule, MatCardModule ],
+        imports: [ HttpClientModule, MatIconModule, MatToolbarModule,
+          MatCardModule, StoreModule.forRoot({}) ],
         declarations: [ AuthContainerComponent ],
-        providers: [ { provide: CONFIG_TOKEN, useValue: config } ]
+        providers: [ { provide: CONFIG_TOKEN, useValue: config }, AppSandbox ]
       })
       .compileComponents();
   }));

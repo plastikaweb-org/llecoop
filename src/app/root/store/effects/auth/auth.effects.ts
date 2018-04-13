@@ -33,21 +33,29 @@ export class AuthEffects {
       ));
 
   /**
-   * begin timeout for idle when authentication is successful
+   *  when authentication is successful
    * @type {Observable<void>}
    */
-  // @Effect({ dispatch: false })
-  // getAuthenticationSuccess$ = this.actions$
-  //   .ofType(fromActions.GET_AUTHENTICATION_SUCCESS)
-  //   .pipe(map(() => {
-  //     this.store.dispatch(new fromActions.IdleReset());
-  //     this.store.dispatch(new fromActions.GetUserBasicInfo());
-  //   }));
+  @Effect({ dispatch: false })
+  getAuthenticationSuccess$ = this.actions$
+    .ofType(fromActions.GET_AUTHENTICATION_SUCCESS)
+    .pipe(map(() => this.router.navigate([ '/' ])));
 
+  /**
+   *  when authentication is fail
+   * @type {Observable<void>}
+   */
+  @Effect({ dispatch: false })
+  getAuthenticationFail$ = this.actions$
+    .ofType(fromActions.GET_AUTHENTICATION_FAIL)
+    .pipe(map(() => this.router.navigate([ '/login' ])));
 
   /**
    * force on any route change to check for authentitcation
    * if it is not, redirect to login page
+   * with is-auth guard would be sufficient
+   * but in this way it is faster
+   * (prevents to seeing for sec the home page)
    * @type {Observable<void>}
    */
   @Effect({ dispatch: false })
@@ -75,27 +83,34 @@ export class AuthEffects {
   );
 
   @Effect({ dispatch: false })
-  loginSuccess$ = this.actions$.ofType(fromActions.AUTHENTICATE_SUCCESS).pipe(
-    map(() => {
-      this.store.dispatch(new fromActivity.HideLoading());
-      this.store.dispatch(new fromActions.GetAuthentication());
-      this.router.navigate([ '/' ]);
-    })
-  );
+  loginOrLogoutSuccess$ = this.actions$
+    .ofType(fromActions.AUTHENTICATE_SUCCESS, fromActions.LOGOUT_SUCCESS)
+    .pipe(
+      map((action) => {
+        this.store.dispatch(new fromActivity.HideLoading());
+        this.store.dispatch(new fromActions.GetAuthentication());
+      })
+    );
 
   @Effect()
   errorsAuth$ = this.actions$
     .ofType(fromActions.AUTHENTICATE_FAIL)
     .pipe(
-      map((ac: fromActions.AuthenticateFail) => new fromActivity.ShowErrorMessage(ac.payload))
+      map(
+        (ac: fromActions.AuthenticateFail) =>
+          new fromActivity.ShowErrorMessage(ac.payload)
+      )
     );
 
   @Effect()
   logout$ = this.actions$.ofType(fromActions.LOGOUT).pipe(
-    map(() => {
-        this.store.dispatch(new fromActions.GetAuthentication());
-      }
-    )
-  );
+    switchMap(() => {
+      this.store.dispatch(new fromActivity.ShowLoading());
+      return this.authService.logout()
+        .pipe(
+          map((response: any) => new fromActions.LogoutSuccess()),
+          catchError(error => of(new fromActions.LogoutFail(error)))
+        );
+    }));
 
 }

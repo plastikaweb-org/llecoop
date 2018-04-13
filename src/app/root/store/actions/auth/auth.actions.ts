@@ -41,9 +41,21 @@ export class AuthenticateSuccess implements Action {
 
 // logout
 export const LOGOUT = '[Authentication] Logout';
+export const LOGOUT_FAIL = '[Authentication] Logout Error';
+export const LOGOUT_SUCCESS = '[Authentication] Logout Success';
 
 export class Logout implements Action {
   readonly type = LOGOUT;
+}
+
+export class LogoutFail implements Action {
+  readonly type = LOGOUT_FAIL;
+
+  constructor(public payload: any) {}
+}
+
+export class LogoutSuccess implements Action {
+  readonly type = LOGOUT_SUCCESS;
 }
 
 export type AuthActions =
@@ -53,4 +65,6 @@ export type AuthActions =
   | Authenticate
   | AuthenticateFail
   | AuthenticateSuccess
-  | Logout;
+  | Logout
+  | LogoutFail
+  | LogoutSuccess;

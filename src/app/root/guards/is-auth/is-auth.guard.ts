@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterSt
 import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
-import { filter, map } from 'rxjs/operators';
+import { filter, first, map } from 'rxjs/operators';
 
 import { isNil } from '../../../shared/helpers';
 import * as fromRoot from '../../store';
@@ -21,6 +21,7 @@ export class IsAuthGuard implements CanActivate, CanActivateChild {
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.store.select(fromRoot.getIsAuthenticated).pipe(
       filter(auth => !isNil(auth)),
+      first(),
       map(auth => {
         if (auth) {
           this.router.navigate([ '/' ]);

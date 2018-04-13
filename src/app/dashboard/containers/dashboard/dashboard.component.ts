@@ -40,4 +40,8 @@ export class DashboardComponent implements AfterViewInit {
     this._changeDetectorRef.detectChanges();
   }
 
+  logout() {
+    this.sandbox.doLogout();
+  }
+
 }

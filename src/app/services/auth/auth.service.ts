@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    return Observable.fromPromise(this.afAuth.auth.signOut());
   }
 
 }

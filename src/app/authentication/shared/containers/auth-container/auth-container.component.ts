@@ -1,11 +1,13 @@
-import { Component, Inject } from '@angular/core';
-import { AppConfig, CONFIG_TOKEN } from '../../../../../conf/config';
+import { Component } from '@angular/core';
+import { AppSandbox } from '../../../../root/app.sandbox';
 
 @Component({
   selector: 'app-auth-container',
   templateUrl: './auth-container.component.html'
 })
 export class AuthContainerComponent {
-  constructor(@Inject(CONFIG_TOKEN) public appConfig: AppConfig) { }
+  config = this.sandbox.appConfig;
+
+  constructor(private sandbox: AppSandbox) { }
 
 }

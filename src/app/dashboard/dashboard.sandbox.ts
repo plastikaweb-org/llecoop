@@ -12,4 +12,8 @@ export class DashboardSandbox extends BaseSandbox {
               @Inject(CONFIG_TOKEN) public appConfig: AppConfig) {
     super(rootStore);
   }
+
+  doLogout() {
+    this.store.dispatch(new fromStore.Logout());
+  }
 }

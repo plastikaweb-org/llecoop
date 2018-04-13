@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
+import { AppConfig, CONFIG_TOKEN } from '../../conf/config';
 
 import { BaseSandbox } from '../shared/base.sandbox';
 import * as fromStore from './store';
@@ -10,6 +11,7 @@ import * as fromStore from './store';
 export class AppSandbox extends BaseSandbox {
 
   constructor(protected rootStore: Store<fromStore.RootState>,
+              @Inject(CONFIG_TOKEN) public appConfig: AppConfig,
               private iconRegistry: MatIconRegistry,
               private domSanitizer: DomSanitizer) {
     super(rootStore);

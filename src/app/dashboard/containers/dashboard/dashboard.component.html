@@ -15,24 +15,21 @@
 
     <div td-toolbar-content layout="row" layout-align="end center" flex>
       <span>
-        <button mat-icon-button matTooltip="Alerts" [matMenuTriggerFor]="notificationsMenu">
-            <mat-icon>notifications</mat-icon>
+        <button mat-icon-button matTooltip="Sòcia" [matMenuTriggerFor]="notificationsMenu">
+            <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #notificationsMenu="matMenu">
           <td-menu>
-            <div td-menu-header class="mat-subhead">Notifications</div>
+            <div td-menu-header class="mat-subhead">Carlos Matheu</div>
             <mat-nav-list dense>
-              <ng-template let-last="last" ngFor [ngForOf]="[0,1,2]">
-                <a mat-list-item>
-                  <mat-icon matListAvatar>today</mat-icon>
-                  <h4 mat-line><span class="text-wrap">Candy sales are on the rise!</span></h4>
-                  <p mat-line>22 minutes ago</p>
+                <a mat-list-item (click)="logout()">
+                  <mat-icon matListAvatar>close</mat-icon>
+                  <h4 mat-line><span class="text-wrap">Logout</span></h4>
+                  <p mat-line>Tancar sessió</p>
                 </a>
-                <mat-divider *ngIf="!last"></mat-divider>
-              </ng-template>
             </mat-nav-list>
-            <button mat-button color="accent" td-menu-footer>
-              See All Notifications
+            <button mat-button td-menu-footer>
+              <mat-icon matListAvatar>edit</mat-icon> Veure el meu perfil
             </button>
           </td-menu>
         </mat-menu>
