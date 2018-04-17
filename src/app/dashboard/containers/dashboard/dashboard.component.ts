@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
+import { Theme } from '../../../shared';
 import { DashboardSandbox } from '../../dashboard.sandbox';
 
 @Component({
@@ -27,6 +28,7 @@ export class DashboardComponent implements AfterViewInit {
   }
   ];
   config = this.sandbox.appConfig;
+  theme$ = this.sandbox.theme$;
 
   constructor(private sandbox: DashboardSandbox,
               public media: TdMediaService,
@@ -42,6 +44,10 @@ export class DashboardComponent implements AfterViewInit {
 
   logout() {
     this.sandbox.doLogout();
+  }
+
+  changeTheme(theme: Theme) {
+    this.sandbox.changeTheme(theme);
   }
 
 }

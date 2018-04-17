@@ -35,8 +35,8 @@
         </mat-menu>
       </span>
       <span>
-        <!-- theme light or dark selector -->
-        <app-theme-selector></app-theme-selector>
+        <!-- ui light or dark selector -->
+        <app-theme-selector (emitTheme)="changeTheme($event)" [currentTheme]="theme$ | async"></app-theme-selector>
       </span>
     </div>
     <!-- footer -->

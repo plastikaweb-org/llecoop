@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { uiThemes } from '../../../../config/theme';
+import { Theme } from '../../../shared';
 
 @Component({
   selector: 'app-theme-selector',
@@ -6,12 +8,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThemeSelectorComponent {
+  @Output() emitTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
+  @Input() currentTheme: Theme;
+  themes = uiThemes;
 
-  theme(theme: string): void {
-    localStorage.setItem('theme', theme);
-  }
-  // Theme toggle
-  get activeTheme(): string {
-    return localStorage.getItem('theme');
+  changeTheme(theme: Theme): void {
+    this.emitTheme.emit(theme);
   }
 }

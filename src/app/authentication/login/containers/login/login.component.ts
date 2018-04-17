@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Credentials, WarningTypes, WarningTypesConfigList } from '../../../../shared/models';
+import { Credentials, WarningTypes, WarningTypesConfigList } from '../../../../shared';
 import { loginBuilder } from '../../form-builders/login.builder';
 
 import { LoginSandbox } from '../../login.sandbox';

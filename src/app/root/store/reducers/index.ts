@@ -3,6 +3,7 @@ import * as fromRouter from '@ngrx/router-store';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 import * as fromState from '../state';
 import * as fromAuth from './auth/auth.reducer';
+import * as fromUi from './ui/ui.reducer';
 
 export interface RouterStateUrl {
   url: string;
@@ -14,16 +15,19 @@ export interface RouterStateUrl {
 export interface RootState {
   router: fromRouter.RouterReducerState<RouterStateUrl>;
   auth: fromState.AuthState;
+  ui: fromState.UiState;
 }
 
 export const reducers: ActionReducerMap<RootState> = {
   router: fromRouter.routerReducer,
-  auth: fromAuth.reducer
+  auth: fromAuth.reducer,
+  ui: fromUi.reducer
 };
 
 // Feature selectors
 export const getRouterState = createFeatureSelector<fromRouter.RouterReducerState<RouterStateUrl>>('router');
 export const getAuthState = createFeatureSelector<fromState.AuthState>('auth');
+export const getUiState = createFeatureSelector<fromState.UiState>('ui');
 
 export class CustomSerializer
   implements fromRouter.RouterStateSerializer<RouterStateUrl> {
@@ -35,7 +39,7 @@ export class CustomSerializer
       state = state.firstChild;
     }
     const { params } = state;
-    const title = state.data['title'];
+    const title = state.data[ 'title' ];
     return { url, params, queryParams, title };
   }
 }

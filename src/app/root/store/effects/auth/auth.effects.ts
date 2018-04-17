@@ -9,7 +9,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, first, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import * as fromActivity from '../../../../activity/store';
 import { AuthService } from '../../../../services';
-import { Credentials } from '../../../../shared/models';
+import { Credentials } from '../../../../shared';
 import * as fromActions from '../../actions';
 import * as fromSelectors from '../../selectors';
 import * as fromState from '../../state';

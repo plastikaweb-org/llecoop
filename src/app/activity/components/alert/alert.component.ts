@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { ServerError, WarningTypeConfig } from '../../../shared';
 
 import { toggleAnimation } from '../../../shared/animations/toggle.animation';
-import { WarningTypes, WarningTypesConfigList } from '../../../shared/models';
+import { WarningTypes, WarningTypesConfigList } from '../../../shared';
 import { ActivitySandbox } from '../../activity.sandbox';
 
 @Component({
