@@ -9,6 +9,70 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+<app-root>
+  <style>
+    app-root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: rgba(224, 225, 227, 0.72);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica, sans-serif;
+      font-size: 1.4em;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      background: #557d63;
+      margin: 0;
+      padding: 0;
+    }
+
+    @keyframes dots {
+      50% {
+        transform: translateY(-.6rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .loading {
+      line-height: 1em;
+    }
+
+    .d {
+      margin-left: 3px;
+      animation: dots 0.9s ease-out infinite;
+    }
+
+    .d-2 {
+      animation-delay: .3s;
+    }
+
+    .d-3 {
+      animation-delay: 0.6s;
+    }
+  </style>
+
+  <svg
+    width="50px" height="50px" viewBox="0 200 595.276 841.89">
+    <g>
+      <path
+        d="M 6 553.82C 6 553.82 -15.42 623 29.34 717.19C 45.34 750.87 86.69 795.55 133.7 841.56C 217.72 841.89 303.4 841.56 303.4 841.56C 303.4 841.56 288.34 732.15 220.72 652.51C 170.28 593.11 78.36 556.39 6 553.82z"
+        fill="#000000"/>
+      <path
+        d="M 571.13 633.84C 571.13 633.84 371.83 625.59 350.58 810.13C 378.34 813.88 494.61 806.38 545.62 715.36C 563.66 683.17 571.13 633.84 571.13 633.84z"
+        fill="#b9aa00"/>
+      <path style="stroke:none"
+            d="M 397.09 306.77C 397.09 306.77 251.39 349.44 254.39 561.83C 255.38 631.53 295.73 691.86 319.41 687.19C 415.43 643.18 462.77 507.15 438.77 389.45C 428.36 338.43 397.09 306.77 397.09 306.77z"
+            fill="#b9aa00"/>
+    </g>
+  </svg>
+  <span class="loading">loading </span>
+  <span class="d"> .</span>
+  <span class="d d-2"> .</span>
+  <span class="d d-3"> .</span>
+</app-root>
 </body>
 </html>
