@@ -1,9 +1,10 @@
-.auth-card {
-  &.mat-card {
+app-auth-container {
+  .mat-card {
+    min-width: 400px;
     .mat-toolbar {
       &:first-child {
-      height: auto;
-      padding: 16px;
+        height: auto;
+        padding: 16px;
       }
       &:last-child {
         padding: 0;

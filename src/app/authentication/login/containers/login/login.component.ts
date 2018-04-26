@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Credentials, WarningTypes, WarningTypesConfigList } from '../../../../shared';
-import { loginBuilder } from '../../form-builders/login.builder';
 
 import { LoginSandbox } from '../../login.sandbox';
 
@@ -16,7 +15,7 @@ import { LoginSandbox } from '../../login.sandbox';
                                  (submit)="onSubmit($event)">
             <!-- login recover pass -->
             <div otherAction class="mat-caption pad pad-top-none text-right">
-              <a href="#">Has oblidat la teva clau?</a>
+              <a [routerLink]="['../forgot']">Has oblidat la teva clau?</a>
             </div>
           </app-card-content-form>
     </app-auth-container>
@@ -24,12 +23,11 @@ import { LoginSandbox } from '../../login.sandbox';
 })
 export class LoginComponent {
   // fields: Array<FormlyFieldConfig> = this.sandBox.builder;
-  fields: Array<FormlyFieldConfig> = loginBuilder;
+  fields: Array<FormlyFieldConfig> = this.sandBox.builder;
   model = {} as Credentials;
-  type = WarningTypesConfigList[ WarningTypes.Error ];
+  type = WarningTypesConfigList[WarningTypes.Error];
 
-  constructor(protected sandBox: LoginSandbox) {
-  }
+  constructor(protected sandBox: LoginSandbox) {}
 
   onSubmit(e: Credentials) {
     this.sandBox.login({ ...e });

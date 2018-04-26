@@ -10,12 +10,11 @@ export class AuthException {
 
 @Injectable()
 export class AuthService {
-
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) {}
 
   isAuthenticated() {
     return this.afAuth.authState.pipe(
-      map((data) => {
+      map(data => {
         if (data) {
           return data;
         }
@@ -25,15 +24,19 @@ export class AuthService {
   }
 
   login(credentials: Credentials) {
-    return Observable.fromPromise(this.afAuth.auth
-      .signInAndRetrieveDataWithEmailAndPassword(
+    return Observable.fromPromise(
+      this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
         credentials.email,
         credentials.password
-      ));
+      )
+    );
   }
 
   logout() {
     return Observable.fromPromise(this.afAuth.auth.signOut());
   }
 
+  resetPassword(email: string) {
+    return Observable.fromPromise(this.afAuth.auth.sendPasswordResetEmail(email));
+  }
 }

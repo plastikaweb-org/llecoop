@@ -1,5 +1,6 @@
 <div class="full-width-and-height bgc-grey-200" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="auth-card">
+  <mat-card>
+    <!-- toolbar header -->
     <mat-toolbar
       fxFlex fxLayout="column" fxLayoutAlign="center center"
       fxLayoutGap="5px" color="accent" class="text-upper">
@@ -8,7 +9,11 @@
       </div>
       <ng-content select="[title]"></ng-content>
     </mat-toolbar>
+    <!-- main card content on init -->
     <ng-content select="app-card-content-form"></ng-content>
+    <!-- main card content on response when some action has taken ( correctly sending a form ) -->
+    <ng-content select="[postSending]"></ng-content>
+    <!-- footer -->
     <mat-card-footer fxFlex fxLayout="column" fxLayoutAlign="center center">
       <div class="mat-caption pad-top-xs">
         <a [href]="config.ownerLink" target="_blank">{{config.owner}}</a> -

@@ -13,11 +13,11 @@ export class LoginSandbox extends BaseSandbox {
   // credentials
   credentials: Credentials;
 
-  constructor(private appState: Store<any>) {
-    super(appState);
+  constructor(protected store: Store<any>) {
+    super(store);
   }
 
-  // action dispatchers - company
+  // action dispatchers
   login(credentials: Credentials) {
     this.credentials = credentials;
     this.store.dispatch(new fromStore.Authenticate(this.credentials));

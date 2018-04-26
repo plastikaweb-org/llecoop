@@ -5,6 +5,7 @@ import { DashboardComponent } from './containers';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSandbox } from './dashboard.sandbox';
+import { IsNotAuthGuard } from './guards';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { DashboardSandbox } from './dashboard.sandbox';
     DashboardRoutingModule
   ],
   declarations: [ DashboardComponent, ThemeSelectorComponent, DashboardFooterComponent ],
-  providers: [ DashboardSandbox ]
+  providers: [ DashboardSandbox, IsNotAuthGuard ]
 })
 export class DashboardModule {}
