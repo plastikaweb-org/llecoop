@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ForgotSandbox } from '../../forgot.sandbox';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { User, WarningTypesConfigList, WarningTypes } from '../../../../shared';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { AuthService } from '../../../../services';
 
 @Component({
   selector: 'app-forgot',
@@ -28,22 +30,34 @@ import { Observable } from 'rxjs/Observable';
     </app-auth-container>
   `
 })
-export class ForgotComponent implements OnInit {
+export class ForgotComponent implements OnInit, OnDestroy {
   fields: Array<FormlyFieldConfig>;
   resetOk: boolean;
   model = {} as User;
   type = WarningTypesConfigList[WarningTypes.Error];
+  recoverSubscription: Subscription;
 
-  constructor(protected sandBox: ForgotSandbox) {}
+  constructor(
+    protected sandBox: ForgotSandbox,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.sandBox.resetSubject$.subscribe(
-      (val: boolean) => (this.resetOk = val)
-    );
     this.fields = this.sandBox.builder;
   }
 
+  ngOnDestroy() {
+    this.recoverSubscription.unsubscribe();
+  }
+
   onSubmit(e: User) {
-    this.sandBox.recover({ ...e });
+    this.sandBox.user = e;
+    this.sandBox.resetError();
+    this.recoverSubscription = this.authService
+      .resetPassword(e.email)
+      .subscribe(
+        () => (this.resetOk = true),
+        err => this.sandBox.showError(err)
+      );
   }
 }

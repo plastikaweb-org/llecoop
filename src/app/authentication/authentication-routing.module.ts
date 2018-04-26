@@ -3,13 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { IsAuthGuard } from '../root/guards';
 
 const routes: Routes = [
-  { path: 'login', loadChildren: './login/login.module#LoginModule', canActivate: [ IsAuthGuard ] },
-  { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotModule', canActivate: [ IsAuthGuard ] }
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule',
+    canActivate: [IsAuthGuard]
+  },
+  {
+    path: 'forgot',
+    loadChildren: './forgot/forgot.module#ForgotModule',
+    canActivate: [IsAuthGuard]
+  },
+  { path: 'reset', loadChildren: './reset/reset.module#ResetModule' }
   // { path: 'recover', loadChildren: '' }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class AuthenticationRoutingModule {}

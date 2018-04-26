@@ -37,6 +37,18 @@ export class AuthService {
   }
 
   resetPassword(email: string) {
-    return Observable.fromPromise(this.afAuth.auth.sendPasswordResetEmail(email));
+    return Observable.fromPromise(
+      this.afAuth.auth.sendPasswordResetEmail(email)
+    );
+  }
+
+  verifyOnReset(code: string) {
+    return Observable.fromPromise(this.afAuth.auth.verifyPasswordResetCode(code));
+  }
+
+  confirmPasswordReset(code: string, newPassword: string) {
+    return Observable.fromPromise(
+      this.afAuth.auth.confirmPasswordReset(code, newPassword)
+    );
   }
 }
