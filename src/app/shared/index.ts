@@ -4,3 +4,4 @@ export * from './containers';
 export * from './components';
 export * from './pipes';
 export * from './helpers';
+export * from './mocks';

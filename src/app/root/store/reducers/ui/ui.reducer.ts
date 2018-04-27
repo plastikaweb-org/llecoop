@@ -5,7 +5,7 @@ export function reducer(state = fromState.initialUiState,
                         action: fromUi.UiActions): fromState.UiState {
   switch (action.type) {
     case fromUi.CHANGE_THEME: {
-      return { ...state, theme: action.payload };
+      return { ...state, theme: action.payload || state.theme };
     }
   }
   return state;
