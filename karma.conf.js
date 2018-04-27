@@ -22,7 +22,7 @@ module.exports = function(config) {
         statements: 75,
         lines: 70,
         branches: 50,
-        functions: 60
+        functions: 50
       }
     },
     angularCli: {
