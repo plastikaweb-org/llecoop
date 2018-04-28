@@ -1,15 +1,18 @@
 # Llecoop
 
+[![Travis](https://img.shields.io/travis/plastikaweb/llecoop.svg)](https://travis-ci.org/plastikaweb/llecoop)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![codecov](https://codecov.io/gh/plastikaweb/llecoop/branch/master/graph/badge.svg)](https://codecov.io/gh/plastikaweb/llecoop)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://choosealicense.com/licenses/mit/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ### Main packages
 - [Angular 5.x](https://angular.io/)
 - [Angular Material 5](https://github.com/angular/material2) and [Teradata Covalent](https://teradata.github.io/covalent/#/) as UX frameworks.
 - [@ngrx platform](https://github.com/ngrx/platform) as state control.
 - [flexbox](https://www.w3.org/TR/css-flexbox-1) as CSS3 box layout.
-- [Angular CLI 1.6.5](https://github.com/angular/angular-cli) to generate, serve, testing, create, and lint.
+- [Angular CLI](https://github.com/angular/angular-cli) to generate, serve, testing, create, and lint.
 
 ## Global requirements
 - [Git](http://git-scm.com/)
