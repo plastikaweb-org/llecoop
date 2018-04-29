@@ -1,10 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ForgotSandbox } from '../../forgot.sandbox';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { User, WarningTypesConfigList, WarningTypes } from '../../../../shared';
+
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+
 import { AuthService } from '../../../../services';
+import { User, WarningTypes, WarningTypesConfigList } from '../../../../shared';
+import { ForgotSandbox } from '../../forgot.sandbox';
 
 @Component({
   selector: 'app-forgot',
@@ -13,13 +15,14 @@ import { AuthService } from '../../../../services';
       <h3 title *ngIf="!resetOk">Regenera la teva clau</h3>
       <h3 title *ngIf="resetOk">Petició de canvi de clau rebuda</h3>
       <!-- form -->
-      <app-card-content-form *ngIf="!resetOk" [fields]="fields"
-                                 [model]="model"
-                                 [submitTitle]="'Enviar'"
-                                 (submit)="onSubmit($event)">
+      <app-card-content-form card-content-form *ngIf="!resetOk"
+      [fields]="fields"
+      [model]="model"
+      [submitTitle]="'Enviar'"
+      (submit)="onSubmit($event)">
           <!-- login with form -->
           <div otherAction class="mat-caption pad pad-top-none text-right">
-              <a [routerLink]="['../login']">Tornar al login</a>
+            <a [routerLink]="['../login']">Tornar al login</a>
           </div>
       </app-card-content-form>
         <!-- login on reset ok -->
@@ -47,7 +50,9 @@ export class ForgotComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.recoverSubscription.unsubscribe();
+    if (this.recoverSubscription) {
+      this.recoverSubscription.unsubscribe();
+    }
   }
 
   onSubmit(e: User) {

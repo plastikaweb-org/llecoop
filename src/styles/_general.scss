@@ -23,3 +23,10 @@ a {
     margin-right: 5px;
   }
 }
+
+// router transition configuration
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
