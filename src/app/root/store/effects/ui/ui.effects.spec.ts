@@ -11,10 +11,14 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { LocalstorageService, WindowRefService } from '../../../../services';
-import { Theme, ThemeMock } from '../../../../shared';
+import { Theme, LocalStorageMock } from '../../../../shared';
 import * as fromActions from '../../actions';
 import { reducers } from '../../reducers';
 import * as fromEffects from './ui.effects';
+
+export class ThemeMock extends LocalStorageMock {
+  ls: any = { 'mat-theme': 'theme-dark' };
+}
 
 describe('Auth Effects', () => {
   let actions: Observable<any> = of({});

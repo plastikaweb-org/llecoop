@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export interface AppConfig {
-  environment: any;
+  environment?: any;
   product: string;
   owner: string;
   ownerLink: string;
