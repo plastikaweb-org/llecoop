@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule, MatListModule, MatMenuModule, MatSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CovalentLayoutModule, CovalentMediaModule, CovalentMenuModule } from '@covalent/core';
 import { StoreModule } from '@ngrx/store';
-import { config, CONFIG_TOKEN } from '../../../../config/config';
+
+import { CONFIG_TOKEN, THEMES_TOKEN } from '../../../../config';
+import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
+import { configMock, Theme, themesMock } from '../../../shared';
 import { DashboardFooterComponent, ThemeSelectorComponent } from '../../components';
 import { DashboardSandbox } from '../../dashboard.sandbox';
-
 import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
@@ -15,21 +15,22 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [
-          BrowserAnimationsModule,
-          MatIconModule,
-          MatMenuModule,
-          CovalentLayoutModule,
-          MatSidenavModule,
-          MatListModule,
-          CovalentMenuModule,
-          CovalentMediaModule,
-          StoreModule.forRoot({})
-        ],
-        declarations: [ DashboardComponent, ThemeSelectorComponent, DashboardFooterComponent ],
-        providers: [ { provide: CONFIG_TOKEN, useValue: config }, DashboardSandbox ]
-      })
-      .compileComponents();
+      imports: [
+        BrowserAnimationsModule,
+        MaterialCovalentModule,
+        StoreModule.forRoot({})
+      ],
+      declarations: [
+        DashboardComponent,
+        ThemeSelectorComponent,
+        DashboardFooterComponent
+      ],
+      providers: [
+        { provide: CONFIG_TOKEN, useValue: configMock },
+        { provide: THEMES_TOKEN, useValue: themesMock },
+        DashboardSandbox
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

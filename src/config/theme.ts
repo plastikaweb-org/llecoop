@@ -1,6 +1,7 @@
-import { Theme } from '../app/shared';
+import { Theme, UiTheme } from '../app/shared';
+import { InjectionToken } from '@angular/core';
 
-export const uiThemes = [
+export const uiThemes: UiTheme[] = [
   {
     class: Theme.Light,
     icon: 'brightness_high',
@@ -12,3 +13,5 @@ export const uiThemes = [
     text: 'Estil fosc'
   }
 ];
+
+export const THEMES_TOKEN = new InjectionToken<UiTheme[]>('themes');

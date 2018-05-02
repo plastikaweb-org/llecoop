@@ -28,18 +28,19 @@ export class DashboardComponent implements AfterViewInit {
   }
   ];
   config = this.sandbox.appConfig;
+  themes = this.sandbox.appThemes;
   theme$ = this.sandbox.theme$;
 
   constructor(private sandbox: DashboardSandbox,
               public media: TdMediaService,
-              private _changeDetectorRef: ChangeDetectorRef) {
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
 
   ngAfterViewInit(): void {
     // broadcast to all listener observables when loading the page
     this.media.broadcast();
-    this._changeDetectorRef.detectChanges();
+    this.changeDetectorRef.detectChanges();
   }
 
   logout() {

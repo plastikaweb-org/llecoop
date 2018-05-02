@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { uiThemes } from '../../../../config/theme';
-import { Theme } from '../../../shared';
+import { Theme, UiTheme } from '../../../shared';
 
 @Component({
   selector: 'app-theme-selector',
@@ -10,7 +9,7 @@ import { Theme } from '../../../shared';
 export class ThemeSelectorComponent {
   @Output() emitTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
   @Input() currentTheme: Theme;
-  themes = uiThemes;
+  @Input() themes: UiTheme[] = [];
 
   changeTheme(theme: Theme): void {
     this.emitTheme.emit(theme);

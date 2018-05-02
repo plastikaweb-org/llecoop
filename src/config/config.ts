@@ -8,7 +8,7 @@ export interface AppConfig {
   slogan: string;
   developer: string;
   developerLink: string;
-  year: any;
+  year: string;
 }
 
 export const config: AppConfig = {
@@ -22,7 +22,7 @@ export const config: AppConfig = {
   slogan: 'Eina Cooperativa',
   developer: 'Plastikaweb',
   developerLink: 'https://www.plastikaweb.com',
-  year: new Date().getFullYear()
+  year: new Date().getFullYear().toString()
 };
 
 export const CONFIG_TOKEN = new InjectionToken<AppConfig>('config');

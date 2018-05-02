@@ -1,5 +1,4 @@
-<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
-           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'">
+<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'" [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'">
   <td-navigation-drawer flex sidenavTitle="Llecoop" logo="llecoop">
     <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">
       <a *ngFor="let item of routes" mat-list-item>
@@ -7,8 +6,7 @@
         {{item.title}}</a>
     </mat-nav-list>
   </td-navigation-drawer>
-  <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Llecoop' : ''" logo="llecoop"
-                 navigationRoute="/">
+  <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Llecoop' : ''" logo="llecoop" navigationRoute="/">
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
@@ -16,17 +14,19 @@
     <div td-toolbar-content layout="row" layout-align="end center" flex>
       <span>
         <button mat-icon-button matTooltip="Sòcia" [matMenuTriggerFor]="notificationsMenu">
-            <mat-icon>account_circle</mat-icon>
+          <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #notificationsMenu="matMenu">
           <td-menu>
             <div td-menu-header class="mat-subhead">Carlos Matheu</div>
             <mat-nav-list dense>
-                <a mat-list-item (click)="logout()">
-                  <mat-icon matListAvatar>close</mat-icon>
-                  <h4 mat-line><span class="text-wrap">Logout</span></h4>
-                  <p mat-line>Tancar sessió</p>
-                </a>
+              <a mat-list-item (click)="logout()">
+                <mat-icon matListAvatar>close</mat-icon>
+                <h4 mat-line>
+                  <span class="text-wrap">Logout</span>
+                </h4>
+                <p mat-line>Tancar sessió</p>
+              </a>
             </mat-nav-list>
             <button mat-button td-menu-footer>
               <mat-icon matListAvatar>edit</mat-icon> Veure el meu perfil
@@ -36,7 +36,10 @@
       </span>
       <span>
         <!-- ui light or dark selector -->
-        <app-theme-selector (emitTheme)="changeTheme($event)" [currentTheme]="theme$ | async"></app-theme-selector>
+        <app-theme-selector 
+        (emitTheme)="changeTheme($event)" 
+        [currentTheme]="theme$ | async" 
+        [themes]="themes"></app-theme-selector>
       </span>
     </div>
     <!-- footer -->
@@ -45,4 +48,3 @@
     </td-layout-footer>
   </td-layout-nav>
 </td-layout>
-

@@ -5,11 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { config, CONFIG_TOKEN } from '../../config/config';
-import { firebaseConf } from '../../config/firebase.config';
+
+import { config, CONFIG_TOKEN, firebaseConf, THEMES_TOKEN, uiThemes } from '../../config';
 import { environment } from '../../environments/environment';
 import { ActivityModule } from '../activity/activity.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
@@ -51,7 +52,8 @@ import { CustomSerializer, reducers } from './store/reducers';
     AppSandbox,
     IsAuthGuard,
     { provide: RouterStateSerializer, useClass: CustomSerializer },
-    { provide: CONFIG_TOKEN, useValue: config }
+    { provide: CONFIG_TOKEN, useValue: config },
+    { provide: THEMES_TOKEN, useValue: uiThemes }
   ],
   bootstrap: [ AppComponent ]
 })

@@ -3,3 +3,9 @@ export enum Theme {
   Dark = 'theme-dark'
 }
 export const themeKeys = Object.keys(Theme);
+
+export interface UiTheme {
+  class: Theme;
+  icon: string;
+  text: string;
+}
