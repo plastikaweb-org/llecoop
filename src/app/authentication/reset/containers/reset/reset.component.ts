@@ -6,7 +6,7 @@ import { pluck, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../../../services';
 
 import { WarningTypes, WarningTypesConfigList } from '../../../../shared';
-import { ResetSandbox } from '../../reset.sandbox';
+import { ResetSandbox } from '../../sandbox/reset.sandbox';
 
 @Component({
   selector: 'app-recover',

@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { CovalentMessageModule } from '@covalent/core';
 import { StoreModule } from '@ngrx/store';
 import { config, CONFIG_TOKEN } from '../../../../config/config';
-import { ActivitySandbox } from '../../../activity/activity.sandbox';
+import { ActivitySandbox } from '../../../activity/sandbox/activity.sandbox';
 import { AlertComponent, ProgressBarComponent } from '../../../activity/components';
-import { AppSandbox } from '../../app.sandbox';
+import { AppSandbox } from '../../sandbox/app.sandbox';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

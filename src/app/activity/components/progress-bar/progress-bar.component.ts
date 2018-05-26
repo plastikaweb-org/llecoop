@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ActivitySandbox } from '../../activity.sandbox';
+import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 
 @Component({
   selector: 'app-progress-bar',

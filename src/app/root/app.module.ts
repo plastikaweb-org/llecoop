@@ -17,7 +17,7 @@ import { AuthenticationModule } from '../authentication/authentication.module';
 import { ServicesModule } from '../services/services.module';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppSandbox } from './app.sandbox';
+import { AppSandbox } from './sandbox/app.sandbox';
 import { AppComponent } from './containers';
 import { IsAuthGuard } from './guards';
 import { effects } from './store/effects';

@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
-import { AppSandbox } from '../../../../root/app.sandbox';
+import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
 
 @Component({
   selector: 'app-auth-container',

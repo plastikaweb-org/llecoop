@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
-import { ActivitySandbox } from './activity.sandbox';
+import { ActivitySandbox } from './sandbox/activity.sandbox';
 import { AlertComponent, ProgressBarComponent, SnackBarComponent } from './components';
 import { effects, reducers } from './store';
 

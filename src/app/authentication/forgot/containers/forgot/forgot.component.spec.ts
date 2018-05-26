@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { MatCardModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { APP_BASE_HREF } from '@angular/common';
-import { ForgotSandbox } from '../../forgot.sandbox';
+import { ForgotSandbox } from '../../sandbox/forgot.sandbox';
 import { StoreModule } from '@ngrx/store';
 import { AuthService } from '../../../../services';
 

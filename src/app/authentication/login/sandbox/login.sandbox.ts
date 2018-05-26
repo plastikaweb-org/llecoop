@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import * as fromStore from '../../root/store';
-import { Credentials } from '../../shared';
-import { BaseSandbox } from '../../shared/base.sandbox';
-import { loginBuilder } from './form-builders/login.builder';
+import * as fromStore from '../../../root/store/index';
+import { Credentials } from '../../../shared/index';
+import { BaseSandbox } from '../../../shared/base.sandbox';
+import { loginBuilder } from '../form-builders/login.builder';
 
 @Injectable()
 export class LoginSandbox extends BaseSandbox {

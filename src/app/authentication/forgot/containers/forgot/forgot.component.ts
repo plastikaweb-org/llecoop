@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { AuthService } from '../../../../services';
 import { User, WarningTypes, WarningTypesConfigList } from '../../../../shared';
-import { ForgotSandbox } from '../../forgot.sandbox';
+import { ForgotSandbox } from '../../sandbox/forgot.sandbox';
 
 @Component({
   selector: 'app-forgot',

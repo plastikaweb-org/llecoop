@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 
-import { ActivitySandbox } from '../../activity.sandbox';
+import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 import { SnackBarConfiguration } from '../../store/state';
 
 @Component({

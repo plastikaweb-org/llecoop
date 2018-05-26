@@ -3,11 +3,11 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppConfig, CONFIG_TOKEN } from '../../config/config';
-import { Theme } from '../shared';
+import { AppConfig, CONFIG_TOKEN } from '../../../config/config';
+import { Theme } from '../../shared/index';
 
-import { BaseSandbox } from '../shared/base.sandbox';
-import * as fromStore from './store';
+import { BaseSandbox } from '../../shared/base.sandbox';
+import * as fromStore from '../store/index';
 
 @Injectable()
 export class AppSandbox extends BaseSandbox {

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { routeAnimation, Theme, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '../../../shared';
-import { AppSandbox } from '../../app.sandbox';
+import { AppSandbox } from '../../sandbox/app.sandbox';
 
 @Component({
   selector: 'app-root',

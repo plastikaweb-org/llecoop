@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { Observable } from 'rxjs';
 import { ServerError, toggleAnimation, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '../../../shared';
 
-import { ActivitySandbox } from '../../activity.sandbox';
+import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 
 @Component({
   selector: 'app-alert',

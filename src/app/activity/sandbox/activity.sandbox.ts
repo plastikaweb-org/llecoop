@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BaseSandbox } from '../shared/base.sandbox';
-import { WarningTypes } from '../shared';
+import { BaseSandbox } from '../../shared/base.sandbox';
+import { WarningTypes } from '../../shared/index';
 
-import * as fromStore from './store';
+import * as fromStore from '../store/index';
 
 @Injectable()
 export class ActivitySandbox extends BaseSandbox {

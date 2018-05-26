@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Credentials, WarningTypes, WarningTypesConfigList } from '../../../../shared';
 
-import { LoginSandbox } from '../../login.sandbox';
+import { LoginSandbox } from '../../sandbox/login.sandbox';
 
 @Component({
   selector: 'app-login',

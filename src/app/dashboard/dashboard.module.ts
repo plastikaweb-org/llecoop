@@ -4,7 +4,7 @@ import { DashboardFooterComponent, ThemeSelectorComponent } from './components';
 import { DashboardComponent } from './containers';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardSandbox } from './dashboard.sandbox';
+import { DashboardSandbox } from './sandbox/dashboard.sandbox';
 import { IsNotAuthGuard } from './guards';
 
 @NgModule({
