@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
-import { themesMock } from '../../../shared';
+import { Theme, themesMock } from '../../../shared';
 import { ThemeSelectorComponent } from './theme-selector.component';
 
 describe('ThemeSelectorComponent', () => {
@@ -28,10 +28,23 @@ describe('ThemeSelectorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  xit('should show the themes texts', () => {
-    const button = nativeEl.querySelector('button[mat-icon-button]');
-    button.dispatchEvent(new Event('click'));
-    const names = nativeEl.querySelector('.theme-text').innerHTML;
-    expect(names.length).toBe(themesMock.length);
+  it('should raise event emitter when change theme', () => {
+    let currentTheme = null;
+    const result = Theme.Dark;
+    component.emitTheme.subscribe((theme) => {
+      currentTheme = theme;
+    });
+
+    component.changeTheme(result);
+
+    expect(currentTheme).toBe(result);
   });
+
+  // xit('should show the themes texts', () => {
+  //   const button = nativeEl.querySelector('button[mat-icon-button]');
+  //   console.log(button);
+  //   button.dispatchEvent(new Event('click'));
+  //   const names = nativeEl.querySelector('.theme-text').innerHTML;
+  //   expect(names.length).toBe(themesMock.length);
+  // });
 });
