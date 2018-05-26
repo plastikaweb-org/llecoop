@@ -5,20 +5,19 @@ import { RouterModule } from '@angular/router';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';
+import { AngularFireModule } from 'angularfire2';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { cold, hot } from 'jasmine-marbles';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs';
+import { firebaseConf } from '../../../../../config/firebase.config';
+
 
 import * as fromActivity from '../../../../activity/store';
 import { AuthService } from '../../../../services';
-import { User } from '../../../../shared';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromEffects from './auth.effects';
-import { AngularFireModule } from 'angularfire2';
-import { firebaseConf } from '../../../../../config/firebase.config';
 
 describe('Auth Effects', () => {
   let actions: Observable<any>;

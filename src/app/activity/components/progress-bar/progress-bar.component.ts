@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { ActivitySandbox } from '../../activity.sandbox';
 
 @Component({
   selector: 'app-progress-bar',
   styles: [
-    `
+      `
       mat-progress-bar {
         position: absolute;
         top: 0;
@@ -14,7 +14,7 @@ import { ActivitySandbox } from '../../activity.sandbox';
       }`
   ],
   template: `
-	<mat-progress-bar *ngIf="visible$ | async" color="accent" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar *ngIf="visible$ | async" color="accent" mode="indeterminate"></mat-progress-bar>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

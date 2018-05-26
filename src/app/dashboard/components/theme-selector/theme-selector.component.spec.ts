@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
-import { UiTheme, Theme, themesMock } from '../../../shared';
+import { themesMock } from '../../../shared';
 import { ThemeSelectorComponent } from './theme-selector.component';
 
 describe('ThemeSelectorComponent', () => {
@@ -10,8 +10,8 @@ describe('ThemeSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialCovalentModule],
-      declarations: [ThemeSelectorComponent]
+      imports: [ MaterialCovalentModule ],
+      declarations: [ ThemeSelectorComponent ]
     }).compileComponents();
   }));
 
@@ -20,7 +20,7 @@ describe('ThemeSelectorComponent', () => {
     component = fixture.componentInstance;
     nativeEl = fixture.nativeElement;
     component.themes = themesMock;
-    component.currentTheme = themesMock[0].class;
+    component.currentTheme = themesMock[ 0 ].class;
     fixture.detectChanges();
   });
 

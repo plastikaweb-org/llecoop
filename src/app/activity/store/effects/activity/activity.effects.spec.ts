@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { combineReducers, StoreModule } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
 import * as fromReducers from '../../reducers/index';
 import * as fromEffects from './activity.effects';
 

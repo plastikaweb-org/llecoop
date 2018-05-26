@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CardContentFormComponent } from '../../../../shared/components';
 import { AuthContainerComponent } from '../../../shared/containers/auth-container/auth-container.component';
 

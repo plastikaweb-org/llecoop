@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { CONFIG_TOKEN, THEMES_TOKEN } from '../../../../config';
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
-import { configMock, Theme, themesMock } from '../../../shared';
+import { configMock, themesMock } from '../../../shared';
 import { DashboardFooterComponent, ThemeSelectorComponent } from '../../components';
 import { DashboardSandbox } from '../../dashboard.sandbox';
 import { DashboardComponent } from './dashboard.component';

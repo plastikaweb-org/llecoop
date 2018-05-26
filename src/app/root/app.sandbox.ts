@@ -2,11 +2,11 @@ import { Inject, Injectable } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AppConfig, CONFIG_TOKEN } from '../../config/config';
+import { Theme } from '../shared';
 
 import { BaseSandbox } from '../shared/base.sandbox';
-import { Theme } from '../shared';
 import * as fromStore from './store';
 
 @Injectable()

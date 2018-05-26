@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs/internal/observable/from';
 import { map } from 'rxjs/operators';
 import { Credentials } from '../../shared/index';
 
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   login(credentials: Credentials) {
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
         credentials.email,
         credentials.password
@@ -33,21 +33,21 @@ export class AuthService {
   }
 
   logout() {
-    return Observable.fromPromise(this.afAuth.auth.signOut());
+    return from(this.afAuth.auth.signOut());
   }
 
   resetPassword(email: string) {
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.sendPasswordResetEmail(email)
     );
   }
 
   verifyOnReset(code: string) {
-    return Observable.fromPromise(this.afAuth.auth.verifyPasswordResetCode(code));
+    return from(this.afAuth.auth.verifyPasswordResetCode(code));
   }
 
   confirmPasswordReset(code: string, newPassword: string) {
-    return Observable.fromPromise(
+    return from(
       this.afAuth.auth.confirmPasswordReset(code, newPassword)
     );
   }

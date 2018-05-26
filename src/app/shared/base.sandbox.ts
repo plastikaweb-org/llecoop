@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-
-import * as fromRoot from '../root/store';
 import * as fromActivity from '../activity/store';
 
 @Injectable()

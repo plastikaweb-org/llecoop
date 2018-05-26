@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import * as fromRouter from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { tap, withLatestFrom } from 'rxjs/operators';
 
 import * as fromActions from '../../actions';

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
-import { Subscription } from 'rxjs/Subscription';
 
 import { ActivitySandbox } from '../../activity.sandbox';
 import { SnackBarConfiguration } from '../../store/state';

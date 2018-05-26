@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
-import { DashboardFooterComponent } from './dashboard-footer.component';
-import { AppConfig } from '../../../../config/config';
 import { configMock } from '../../../shared';
+import { DashboardFooterComponent } from './dashboard-footer.component';
 
 describe('DashboardFooterComponent', () => {
   let component: DashboardFooterComponent;
@@ -12,8 +11,8 @@ describe('DashboardFooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialCovalentModule],
-      declarations: [DashboardFooterComponent]
+      imports: [ MaterialCovalentModule ],
+      declarations: [ DashboardFooterComponent ]
     }).compileComponents();
   }));
 

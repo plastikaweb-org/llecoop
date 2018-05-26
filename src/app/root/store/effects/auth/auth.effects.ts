@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
-import * as fromRouter from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
 
-import { of } from 'rxjs/observable/of';
-import { catchError, first, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import * as fromActivity from '../../../../activity/store';
 import { AuthService } from '../../../../services';
 import { Credentials } from '../../../../shared';
 import * as fromActions from '../../actions';
-import * as fromSelectors from '../../selectors';
 import * as fromState from '../../state';
 
 @Injectable()
@@ -44,7 +42,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   getAuthenticationSuccess$ = this.actions$
     .ofType(fromActions.GET_AUTHENTICATION_SUCCESS)
-    .pipe(map(() => this.router.navigate(['/'])));
+    .pipe(map(() => this.router.navigate([ '/' ])));
 
   /**
    *  when authentication is fail
@@ -65,16 +63,16 @@ export class AuthEffects {
    * (prevents to seeing for sec the home page)
    * @type {Observable<void>}
    */
-  // @Effect({ dispatch: false })
-  // routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
-  //   withLatestFrom(this.store.select(fromSelectors.getIsAuthenticated)),
-  //   first(),
-  //   map(([router, authenticated]) => {
-  //     if (!authenticated) {
-  //       this.router.navigate(['/login']);
-  //     }
-  //   })
-  // );
+    // @Effect({ dispatch: false })
+    // routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
+    //   withLatestFrom(this.store.select(fromSelectors.getIsAuthenticated)),
+    //   first(),
+    //   map(([router, authenticated]) => {
+    //     if (!authenticated) {
+    //       this.router.navigate(['/login']);
+    //     }
+    //   })
+    // );
 
   @Effect()
   login$ = this.actions$.ofType(fromActions.AUTHENTICATE).pipe(
@@ -128,7 +126,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   logoutSuccess$ = this.actions$.ofType(fromActions.LOGOUT_SUCCESS).pipe(
     map(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate([ '/login' ]);
       this.store.dispatch(new fromActivity.HideLoading());
     })
   );

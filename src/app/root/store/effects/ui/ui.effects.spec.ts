@@ -1,17 +1,13 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { inject, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { cold, hot } from 'jasmine-marbles';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
 
 import { LocalstorageService, WindowRefService } from '../../../../services';
-import { Theme, LocalStorageMock } from '../../../../shared';
+import { LocalStorageMock, Theme } from '../../../../shared';
 import * as fromActions from '../../actions';
 import { reducers } from '../../reducers';
 import * as fromEffects from './ui.effects';

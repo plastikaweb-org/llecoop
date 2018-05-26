@@ -8,8 +8,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ### Main packages
-- [Angular 5.x](https://angular.io/)
-- [Angular Material 5](https://github.com/angular/material2) and [Teradata Covalent](https://teradata.github.io/covalent/#/) as UX frameworks.
+- [Angular 6.x](https://angular.io/)
+- [Angular Material 6](https://github.com/angular/material2) and [Teradata Covalent](https://teradata.github.io/covalent/#/) as UX frameworks.
 - [@ngrx platform](https://github.com/ngrx/platform) as state control.
 - [flexbox](https://www.w3.org/TR/css-flexbox-1) as CSS3 box layout.
 - [Angular CLI](https://github.com/angular/angular-cli) to generate, serve, testing, create, and lint.
