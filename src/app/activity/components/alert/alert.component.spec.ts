@@ -1,5 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, fakeAsync, inject, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
@@ -19,9 +20,9 @@ describe('AlertComponent', () => {
 
   beforeEach(async(() => {
     sandboxStub = {
-      errorVisibility$: of(true),
+      errorVisibility$: of(false),
       errorDescription$: of(err),
-      warningVisibility$: of(false),
+      warningVisibility$: of(true),
       warningDescription$: of(warn),
       resetAlertMessage: () => of('close called')
     };
@@ -57,10 +58,11 @@ describe('AlertComponent', () => {
     component.alert$.subscribe(res => {
       description = res;
     });
+    const message = debugEl.query(By.css('.td-message'));
     fixture.detectChanges();
-    expect(visible).toBeTruthy();
+    expect(visible).toBeFalsy();
     expect(description).toEqual(err);
-    // const message = debugEl.query(By.css('.td-message')).nativeElement.attributes.getNamedItem('ng-reflect-sublabel').value;
+    expect(message).toBeNull();
     // const annex = debugEl.query(By.css('.td-message')).nativeElement.attributes.getNamedItem('ng-reflect-label').value;
     // expect(message).toBe(err.message);
     // expect(annex).toBe(err.annexMessage);
@@ -78,9 +80,11 @@ describe('AlertComponent', () => {
     component.alert$.subscribe(res => {
       description = res;
     });
+    // const message = debugEl.query(By.css('.td-message'));
     fixture.detectChanges();
-    expect(visible).toBeFalsy();
+    expect(visible).toBeTruthy();
     expect(description).toEqual(warn);
+    // expect(message).not.toBeNull();
   }));
 
   it('should call close method', inject([ ActivitySandbox ], (service: ActivitySandbox) => {
