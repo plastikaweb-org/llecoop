@@ -1,4 +1,6 @@
+import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
 import { Theme, themesMock } from '../../../shared';
 import { ThemeSelectorComponent } from './theme-selector.component';
@@ -6,23 +8,21 @@ import { ThemeSelectorComponent } from './theme-selector.component';
 describe('ThemeSelectorComponent', () => {
   let component: ThemeSelectorComponent;
   let fixture: ComponentFixture<ThemeSelectorComponent>;
-  let nativeEl: HTMLElement;
+  let debugEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ MaterialCovalentModule ],
       declarations: [ ThemeSelectorComponent ]
     }).compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ThemeSelectorComponent);
     component = fixture.componentInstance;
-    nativeEl = fixture.nativeElement;
+    debugEl = fixture.debugElement;
     component.themes = themesMock;
     component.currentTheme = themesMock[ 0 ].class;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -47,4 +47,12 @@ describe('ThemeSelectorComponent', () => {
   //   const names = nativeEl.querySelector('.theme-text').innerHTML;
   //   expect(names.length).toBe(themesMock.length);
   // });
+  xit('should show the themes texts', () => {
+    debugEl.query(By.css('button'))
+      .triggerEventHandler('click', null);
+
+    fixture.detectChanges();
+    const names = debugEl.query(By.css('.theme-text')).nativeElement.innerText;
+    expect(names.length).toEqual(themesMock.length);
+  });
 });
