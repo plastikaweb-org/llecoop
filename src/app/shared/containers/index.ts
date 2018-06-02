@@ -1,1 +1,1 @@
-export * from './shared-container.component';
+export * from './shared-container/shared-container.component';
