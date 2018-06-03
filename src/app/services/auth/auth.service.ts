@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { from } from 'rxjs/internal/observable/from';
 import { map } from 'rxjs/operators';
-import { Credentials } from '../../shared/index';
-
-export class AuthException {
-  name = 'AuthException';
-}
+import { AuthException, Credentials } from '../../shared';
 
 @Injectable()
 export class AuthService {
@@ -15,11 +11,11 @@ export class AuthService {
   isAuthenticated() {
     return this.afAuth.authState.pipe(
       map(data => {
-        if (data) {
-          return data;
-        }
-        throw new AuthException();
-      })
+          if (data) {
+            return data;
+          }
+          throw new AuthException();
+        })
     );
   }
 

@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule, MatIconModule, MatToolbarModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
@@ -16,7 +17,7 @@ describe('AuthContainerComponent', () => {
         imports: [ HttpClientModule, MatIconModule, MatToolbarModule,
           MatCardModule, StoreModule.forRoot({}) ],
         declarations: [ AuthContainerComponent ],
-        providers: [ { provide: CONFIG_TOKEN, useValue: config }, AppSandbox ]
+        providers: [ { provide: CONFIG_TOKEN, useValue: config }, AppSandbox, ChangeDetectorRef ]
       })
       .compileComponents();
   }));
@@ -27,7 +28,7 @@ describe('AuthContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

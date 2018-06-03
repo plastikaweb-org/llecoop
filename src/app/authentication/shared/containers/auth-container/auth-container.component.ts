@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { FormlyFormOptions } from '@ngx-formly/core';
 import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
 
 @Component({
@@ -9,10 +9,6 @@ import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
 })
 export class AuthContainerComponent implements AfterViewInit {
   config = this.sandbox.appConfig;
-  @Input() footer = true;
-  @Input() submitTitle: string;
-  @Input() fields: FormlyFieldConfig[];
-  @Input() model;
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
   options: FormlyFormOptions = {};
   form = new FormGroup({});
