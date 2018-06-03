@@ -33,15 +33,20 @@ export class SnackBarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.snackBarSubscription.unsubscribe();
-    this.snackBarDismissedSubscription.unsubscribe();
+    if (this.snackBarSubscription) {
+      this.snackBarSubscription.unsubscribe();
+    }
+    if (this.snackBarDismissedSubscription) {
+      this.snackBarDismissedSubscription.unsubscribe();
+    }
   }
 
   open(message: string, action: string, duration: number = 2000) {
-    const ref = this.snackBar.open(message, action, { duration });
-    this.snackBarDismissedSubscription = ref.afterDismissed().subscribe(() => {
-      this.sandbox.resetSnackBar();
-      this.snackBarDismissedSubscription.unsubscribe();
-    });
+    this.snackBarDismissedSubscription = this.snackBar
+      .open(message, action, { duration })
+      .afterDismissed().subscribe(() => {
+        this.sandbox.resetSnackBar();
+        this.snackBarDismissedSubscription.unsubscribe();
+      });
   }
 }
