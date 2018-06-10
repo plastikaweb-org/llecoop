@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppConfig, CONFIG_TOKEN, THEMES_TOKEN } from '../../../config/index';
-import * as fromStore from '../../root/store/index';
-import { Theme, UiTheme } from '../../shared/index';
+import { AppConfig, CONFIG_TOKEN, THEMES_TOKEN } from '../../../config';
+import * as fromStore from '../../root/store';
+import { Theme, UiTheme } from '../../shared';
 import { BaseSandbox } from '../../shared/base.sandbox';
 
 @Injectable()

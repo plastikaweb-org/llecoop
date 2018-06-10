@@ -72,7 +72,7 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "codeCoverageExclude": ["src/**/mocks/*", "**/sandbox/*"],
+            "codeCoverageExclude": ["src/**/mocks/*"],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
