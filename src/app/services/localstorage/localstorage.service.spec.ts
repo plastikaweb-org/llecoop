@@ -1,4 +1,4 @@
-import { inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { WindowRefService } from '../windowref/windowref.service';
 import { LocalstorageService } from './localstorage.service';
 
@@ -14,9 +14,9 @@ describe('LocalstorageService', () => {
     localstorageService = TestBed.get(LocalstorageService);
   });
 
-  it('should be created', inject([ LocalstorageService ], (service: LocalstorageService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', () => {
+    expect(localstorageService).toBeTruthy();
+  });
 
   it('should set, get and remove an item', () => {
     localstorageService.setItem('test', 'value');
