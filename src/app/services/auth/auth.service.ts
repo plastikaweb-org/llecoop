@@ -21,7 +21,7 @@ export class AuthService {
 
   login(credentials: Credentials) {
     return from(
-      this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword(
+      this.afAuth.auth.signInWithEmailAndPassword(
         credentials.email,
         credentials.password
       )

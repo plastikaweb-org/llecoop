@@ -5,11 +5,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormlyModule } from '@ngx-formly/core';
 import { of } from 'rxjs';
-import { CONFIG_TOKEN } from '../../../../../config/config';
+import { CONFIG_TOKEN } from '../../../../../config';
 import { MaterialCovalentModule } from '../../../../material-covalent/material-covalent.module';
 import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
 import { CardContentFormComponent } from '../../../../shared/components';
 import { configMock } from '../../../../shared/mocks';
+import { Credentials } from '../../../../shared/models';
 import { AuthContainerComponent } from '../../../shared/containers/auth-container/auth-container.component';
 import { LoginSandbox } from '../../sandbox/login.sandbox';
 
@@ -21,21 +22,23 @@ describe('LoginComponent', () => {
   let debugEl: DebugElement;
   let sandboxStub: any;
   let appSandboxStub: any;
+  let sandbox: LoginSandbox;
 
   beforeEach(async(() => {
     sandboxStub = {
       builder: of(),
-      login: () => of()
+      login: (credentials: Credentials) => of()
     };
     appSandboxStub = {};
 
     TestBed.configureTestingModule({
-        imports: [ MaterialCovalentModule, RouterModule.forRoot([]), ReactiveFormsModule, FormlyModule.forRoot({}) ],
+        imports: [ MaterialCovalentModule, RouterModule.forRoot([]),
+          ReactiveFormsModule, FormlyModule.forRoot({}) ],
         declarations: [ LoginComponent, CardContentFormComponent, AuthContainerComponent ],
-        providers: [ { provide: APP_BASE_HREF, useValue: '/' }, { provide: LoginSandbox, useValue: sandboxStub }, {
-          provide: AppSandbox,
-          useValue: appSandboxStub
-        }, { provide: CONFIG_TOKEN, useValue: configMock } ]
+        providers: [ { provide: APP_BASE_HREF, useValue: '/' },
+          { provide: LoginSandbox, useValue: sandboxStub },
+          { provide: AppSandbox, useValue: appSandboxStub },
+          { provide: CONFIG_TOKEN, useValue: configMock } ]
       })
       .compileComponents();
   }));
@@ -44,10 +47,17 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     debugEl = fixture.debugElement;
-    fixture.detectChanges();
+    sandbox = TestBed.get(LoginSandbox);
+
+    spyOn(sandbox, 'login').and.callThrough();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should do a login on onSubmit', () => {
+    component.onSubmit({ email: 'test@test.com', password: '_________' });
+    expect(sandbox.login).toHaveBeenCalled();
   });
 });

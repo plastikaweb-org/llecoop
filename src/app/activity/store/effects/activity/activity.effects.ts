@@ -3,7 +3,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import * as fromRouter from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { tap, withLatestFrom } from 'rxjs/operators';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 import * as fromActions from '../../actions';
 import { ActivityState } from '../../reducers';
@@ -23,7 +23,7 @@ export class ActivityEffects {
       this.store.select(fromSelectors.getErrorMessageVisible),
       this.store.select(fromSelectors.getWarningMessageVisible)
     ),
-    tap(([ router, visibleError, visibleWarning ]) => {
+    map(([ router, visibleError, visibleWarning ]) => {
       if (visibleError) {
         this.store.dispatch(new fromActions.ResetErrorMessage());
       }
@@ -43,7 +43,7 @@ export class ActivityEffects {
     .ofType(fromActions.SHOW_ERROR_MESSAGE, fromActions.SHOW_WARNING_MESSAGE)
     .pipe(
       withLatestFrom(this.store.select(fromSelectors.getLoadingStateVisibility)),
-      tap(([ router, visible ]) => {
+      map(([ router, visible ]) => {
         if (visible) {
           this.store.dispatch(new fromActions.HideLoading());
         }
