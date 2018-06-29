@@ -7,13 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    canActivate: [IsNotAuthGuard]
-    // children: [
-    //   {
-    //     path: '',
-    //     loadChildren: './rcte-list/rcte-list.module#RcteListModule'
-    //   }
-    // ]
+    canActivate: [IsNotAuthGuard],
+    children: [
+      { path: 'profile', loadChildren: '../profile/profile.module#ProfileModule' }
+    ]
   }
 ];
 

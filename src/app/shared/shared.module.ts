@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
-import { MaterialCovalentModule } from '../material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from './material-covalent/material-covalent.module';
 import { CardContentFormComponent } from './components';
 import { CapitalizePipe } from './pipes';
 
