@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppConfig, CONFIG_TOKEN, THEMES_TOKEN } from '../../../config';
+import { AppConfig, CONFIG_TOKEN, THEMES_TOKEN } from 'config';
 import * as fromStore from '../../root/store';
-import { Theme, UiTheme } from '../../shared';
-import { BaseSandbox } from '../../shared/base.sandbox';
+import { Theme, UiTheme } from '@llecoop';
+import { BaseSandbox } from '@llecoop/base.sandbox';
 
 @Injectable()
 export class DashboardSandbox extends BaseSandbox {

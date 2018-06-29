@@ -1,4 +1,4 @@
-import { Warning } from '../../../shared';
+import { Warning } from '@llecoop';
 
 export interface WarningState {
   visible: boolean;

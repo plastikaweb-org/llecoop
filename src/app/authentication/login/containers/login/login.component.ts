@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Credentials } from '../../../../shared';
+import { Credentials } from '@llecoop';
 
 import { LoginSandbox } from '../../sandbox/login.sandbox';
 

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CardContentFormComponent } from '../../../../shared';
+import { CardContentFormComponent } from '@llecoop';
 import { AuthContainerComponent } from '../../../shared/containers/auth-container/auth-container.component';
 import { ForgotComponent } from './forgot.component';
 import { RouterModule } from '@angular/router';
@@ -9,7 +9,7 @@ import { MatCardModule, MatToolbarModule, MatIconModule } from '@angular/materia
 import { APP_BASE_HREF } from '@angular/common';
 import { ForgotSandbox } from '../../sandbox/forgot.sandbox';
 import { StoreModule } from '@ngrx/store';
-import { AuthService } from '../../../../services';
+import { AuthService } from '@llecoop/services';
 
 describe('ForgotComponent', () => {
   let component: ForgotComponent;

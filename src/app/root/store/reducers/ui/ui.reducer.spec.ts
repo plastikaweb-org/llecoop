@@ -1,7 +1,7 @@
 import * as fromActions from '../../actions';
 import * as fromState from '../../state';
 import { reducer } from './ui.reducer';
-import { Theme } from '../../../../shared';
+import { Theme } from '@llecoop';
 
 describe('UI Reducer', () => {
   describe('Undefined Action', () => {

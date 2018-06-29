@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { CONFIG_TOKEN, THEMES_TOKEN } from '../../../config';
-import * as fromActions from '../../root/store/actions';
-import * as fromRoot from '../../root/store/reducers';
-import { Theme } from '../../shared';
+import { CONFIG_TOKEN, THEMES_TOKEN } from 'config';
+import * as fromActions from 'app/root/store/actions';
+import * as fromRoot from 'app/root/store/reducers';
+import { Theme } from '@llecoop';
 import { DashboardSandbox } from './dashboard.sandbox';
 
 

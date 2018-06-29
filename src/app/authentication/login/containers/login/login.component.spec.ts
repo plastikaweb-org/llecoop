@@ -5,12 +5,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormlyModule } from '@ngx-formly/core';
 import { of } from 'rxjs';
-import { CONFIG_TOKEN } from '../../../../../config';
-import { MaterialCovalentModule } from '../../../../shared/material-covalent/material-covalent.module';
+import { CONFIG_TOKEN } from 'config';
+import { MaterialCovalentModule } from '@llecoop/material-covalent/material-covalent.module';
 import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
-import { CardContentFormComponent } from '../../../../shared/components';
-import { configMock } from '../../../../shared/mocks';
-import { Credentials } from '../../../../shared/models';
+import { CardContentFormComponent } from '@llecoop/components';
+import { configMock } from '@llecoop/mocks';
+import { Credentials } from '@llecoop/models';
 import { AuthContainerComponent } from '../../../shared/containers/auth-container/auth-container.component';
 import { LoginSandbox } from '../../sandbox/login.sandbox';
 

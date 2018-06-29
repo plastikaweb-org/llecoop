@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { WarningTypes } from '../../shared/models';
+import { WarningTypes } from '@llecoop/models';
 import * as fromActions from '../store/actions';
 import * as fromActivity from '../store/reducers';
 import { ActivitySandbox } from './activity.sandbox';

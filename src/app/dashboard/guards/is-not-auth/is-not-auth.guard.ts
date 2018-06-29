@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { filter, first, map } from 'rxjs/operators';
 
 import * as fromRoot from '../../../root/store';
-import { isNil } from '../../../shared';
+import { isNil } from '@llecoop';
 
 @Injectable()
 export class IsNotAuthGuard implements CanActivate, CanActivateChild {

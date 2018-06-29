@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { routeAnimation, Theme, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '../../../shared';
+import { routeAnimation, Theme, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '@llecoop';
 import { AppSandbox } from '../../sandbox/app.sandbox';
 
 @Component({

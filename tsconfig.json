@@ -11,6 +11,11 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "paths": {
+      "@llecoop": ["@llecoop/"],
+      "app": ["app/"],
+      "config": ["config/"]
+    },
     "lib": [
       "es2017",
       "dom"

@@ -3,8 +3,8 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 
 import { Subscription } from 'rxjs';
 
-import { AuthService } from '../../../../services';
-import { User, WarningTypes, WarningTypesConfigList } from '../../../../shared';
+import { AuthService } from '@llecoop/services';
+import { User, WarningTypes, WarningTypesConfigList } from '@llecoop';
 import { ForgotSandbox } from '../../sandbox/forgot.sandbox';
 
 @Component({

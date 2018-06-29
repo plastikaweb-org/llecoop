@@ -5,8 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MaterialCovalentModule } from './material-covalent/material-covalent.module';
-import { CardContentFormComponent } from './components';
-import { CapitalizePipe } from './pipes';
+import { CardContentFormComponent } from './components/index';
+import { CapitalizePipe } from './pipes/index';
 
 export function minlengthValidationMessage(err, field) {
   return `${field.templateOptions.minLength} caràcters com a mínim`;

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Theme } from '../../../../shared';
+import { Theme } from '@llecoop';
 
 export const LOAD_THEME = '[Ui] Load UI Theme from LS';
 export const CHANGE_THEME = '[Ui] Change UI Theme';

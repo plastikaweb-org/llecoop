@@ -10,11 +10,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
-import { firebaseConf } from '../../../../../config/firebase.config';
+import { firebaseConf } from 'config/firebase.config';
 
 
-import * as fromActivity from '../../../../activity/store';
-import { AuthService } from '../../../../services';
+import * as fromActivity from 'app/activity/store';
+import { AuthService } from '@llecoop/services';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromEffects from './auth.effects';

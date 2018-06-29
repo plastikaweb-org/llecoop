@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { from } from 'rxjs/internal/observable/from';
 import { map } from 'rxjs/operators';
-import { AuthException, Credentials } from '../../shared';
+import { AuthException, Credentials } from '../../index';
 
 @Injectable()
 export class AuthService {

@@ -1,7 +1,7 @@
 import { inject, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
-import { CONFIG_TOKEN } from '../../../config';
-import { configMock } from '../../shared';
+import { CONFIG_TOKEN } from 'config';
+import { configMock } from '@llecoop';
 import { AppSandbox } from './app.sandbox';
 
 describe('AppSandbox', () => {

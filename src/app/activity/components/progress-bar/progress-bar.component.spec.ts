@@ -2,7 +2,7 @@ import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { MaterialCovalentModule } from '../../../shared/material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from '@llecoop/material-covalent/material-covalent.module';
 import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 
 import { ProgressBarComponent } from './progress-bar.component';

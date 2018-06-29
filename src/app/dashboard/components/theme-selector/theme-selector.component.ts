@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Theme, UiTheme } from '../../../shared';
+import { Theme, UiTheme } from '@llecoop';
 
 @Component({
   selector: 'app-theme-selector',

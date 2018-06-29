@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BaseSandbox } from '../../shared/base.sandbox';
-import { WarningTypes } from '../../shared/index';
+import { BaseSandbox } from '@llecoop/base.sandbox';
+import { WarningTypes } from '@llecoop/index';
 
 import * as fromStore from '../store/index';
 

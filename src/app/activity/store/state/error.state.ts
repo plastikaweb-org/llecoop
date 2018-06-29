@@ -1,4 +1,4 @@
-import { ServerError } from '../../../shared';
+import { ServerError } from '@llecoop';
 
 export interface ErrorState {
   visible: boolean;

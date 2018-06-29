@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { AppConfig } from '../../../../config';
+import { AppConfig } from 'config';
 
 @Component({
   selector: 'app-dashboard-footer',

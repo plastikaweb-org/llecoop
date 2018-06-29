@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { TdMediaService } from '@covalent/core';
-import { Theme } from '../../../shared';
+import { Theme } from '@llecoop';
 import { DashboardSandbox } from '../../sandbox/dashboard.sandbox';
 
 @Component({

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 
-import { Theme } from '../../../../shared';
+import { Theme } from '@llecoop';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromState from '../../state';

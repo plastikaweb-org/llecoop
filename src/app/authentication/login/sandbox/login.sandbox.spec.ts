@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import * as fromActions from '../../../root/store/actions';
 import * as fromRoot from '../../../root/store/reducers';
-import { Credentials } from '../../../shared/models';
+import { Credentials } from '@llecoop/models';
 import { LoginSandbox } from './login.sandbox';
 
 describe('LoginSandbox', () => {

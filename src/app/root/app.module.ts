@@ -10,12 +10,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-import { config, CONFIG_TOKEN, firebaseConf, THEMES_TOKEN, uiThemes } from '../../config';
+import { config, CONFIG_TOKEN, firebaseConf, THEMES_TOKEN, uiThemes } from 'config';
+import { SharedModule } from '@llecoop/shared.module';
 import { environment } from '../../environments/environment';
-import { ActivityModule } from '../activity/activity.module';
+import { ActivityModule } from 'app/activity/activity.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
-import { ServicesModule } from '../services/services.module';
-import { SharedModule } from '../shared/shared.module';
+import { ServicesModule } from '@llecoop/services/services.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppSandbox } from './sandbox/app.sandbox';
 import { AppComponent } from './containers';

@@ -3,10 +3,10 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppConfig, CONFIG_TOKEN } from '../../../config/config';
-import { Theme } from '../../shared/index';
+import { AppConfig, CONFIG_TOKEN } from 'config/config';
+import { Theme } from '@llecoop/index';
 
-import { BaseSandbox } from '../../shared/base.sandbox';
+import { BaseSandbox } from '@llecoop/base.sandbox';
 import * as fromStore from '../store/index';
 
 @Injectable()

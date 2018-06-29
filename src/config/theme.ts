@@ -1,5 +1,5 @@
-import { Theme, UiTheme } from '../app/shared';
 import { InjectionToken } from '@angular/core';
+import { Theme, UiTheme } from '@llecoop';
 
 export const uiThemes: UiTheme[] = [
   {

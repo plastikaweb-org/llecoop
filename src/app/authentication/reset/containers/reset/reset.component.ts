@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Subscription } from 'rxjs';
 import { pluck, switchMap } from 'rxjs/operators';
-import { AuthService } from '../../../../services';
+import { AuthService } from '@llecoop/services';
 
-import { WarningTypes, WarningTypesConfigList } from '../../../../shared';
+import { WarningTypes, WarningTypesConfigList } from '@llecoop';
 import { ResetSandbox } from '../../sandbox/reset.sandbox';
 
 @Component({

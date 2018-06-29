@@ -1,8 +1,8 @@
-<div class="full-width-and-height bgc-grey-200" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card>
+<div class="full-width-and-height bgc-grey-200" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card fxLayout="column">
     <!-- toolbar header -->
     <mat-toolbar
-      fxFlex fxLayout="column" fxLayoutAlign="center center"
+      fxLayout="row" fxLayoutAlign="center center"
       fxLayoutGap="5px" color="accent" class="text-upper">
       <div mat-card-avatar>
         <mat-icon class="full-content-size" svgIcon="llecoop"></mat-icon>
@@ -14,7 +14,7 @@
     <!-- main card content on response when some action has taken ( correctly sending a form ) -->
     <ng-content select="[postSending]"></ng-content>
     <!-- footer -->
-    <mat-card-footer fxFlex fxLayout="column" fxLayoutAlign="center center">
+    <mat-card-footer fxLayout="row" fxLayoutAlign="center center">
       <div class="mat-caption pad-top-xs">
         <a [href]="config.ownerLink" target="_blank">{{config.owner}}</a> -
         {{config.product | uppercase}} {{config.slogan}} {{config.year}}

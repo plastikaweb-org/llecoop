@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Credentials } from '../../../../shared';
+import { Credentials } from '@llecoop';
 
 export const GET_AUTHENTICATION = '[Auth] Get Authentication';
 export const GET_AUTHENTICATION_FAIL = '[Auth] Get Authentication Fail';

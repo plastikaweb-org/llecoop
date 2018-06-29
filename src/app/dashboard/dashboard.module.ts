@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@llecoop/shared.module';
 import { DashboardFooterComponent, ThemeSelectorComponent } from './components';
 import { DashboardComponent } from './containers';
 

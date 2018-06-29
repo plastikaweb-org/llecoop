@@ -1,4 +1,4 @@
-import { Theme } from '../../../shared';
+import { Theme } from '@llecoop';
 
 export interface UiState {
   theme: Theme;

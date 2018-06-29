@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
-import { User } from '../../../shared/index';
-import { BaseSandbox } from '../../../shared/base.sandbox';
+import { User } from '@llecoop/index';
+import { BaseSandbox } from '@llecoop/base.sandbox';
 import { forgotBuilder } from '../form-builders/forgot.builder';
 
 @Injectable()

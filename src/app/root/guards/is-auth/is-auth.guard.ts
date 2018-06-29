@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, first, map } from 'rxjs/operators';
 
-import { isNil } from '../../../shared/helpers';
+import { isNil } from '@llecoop/helpers';
 import * as fromRoot from '../../store';
 
 @Injectable()

@@ -1,5 +1,5 @@
 import * as fromActions from './ui.actions';
-import { Theme } from '../../../../shared';
+import { Theme } from '@llecoop';
 
 describe('Check UI Actions', () => {
   it('should create a Load Theme action', () => {

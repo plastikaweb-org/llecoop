@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ServerError, toggleAnimation, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '../../../shared';
+import { ServerError, toggleAnimation, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '@llecoop';
 
 import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 

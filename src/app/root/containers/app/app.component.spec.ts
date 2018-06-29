@@ -4,7 +4,7 @@ import { MatIconModule, MatProgressBarModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { CovalentMessageModule } from '@covalent/core';
 import { StoreModule } from '@ngrx/store';
-import { config, CONFIG_TOKEN } from '../../../../config/config';
+import { config, CONFIG_TOKEN } from 'config/config';
 import { ActivitySandbox } from '../../../activity/sandbox/activity.sandbox';
 import { AlertComponent, ProgressBarComponent } from '../../../activity/components';
 import { AppSandbox } from '../../sandbox/app.sandbox';

@@ -6,8 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
 
-import { LocalstorageService, WindowRefService } from '../../../../services';
-import { LocalStorageMock, Theme } from '../../../../shared';
+import { LocalstorageService, WindowRefService } from '@llecoop/services';
+import { LocalStorageMock, Theme } from '@llecoop';
 import * as fromActions from '../../actions';
 import { reducers } from '../../reducers';
 import * as fromEffects from './ui.effects';

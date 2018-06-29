@@ -6,9 +6,9 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
-import * as fromActivity from '../../../../activity/store';
-import { AuthService } from '../../../../services';
-import { Credentials } from '../../../../shared';
+import * as fromActivity from 'app/activity/store';
+import { AuthService } from '@llecoop/services';
+import { Credentials } from '@llecoop';
 import * as fromActions from '../../actions';
 import * as fromState from '../../state';
 

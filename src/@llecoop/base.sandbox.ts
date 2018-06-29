@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromActivity from '../activity/store';
+import * as fromActivity from '../app/activity/store/index';
 
 @Injectable()
 export abstract class BaseSandbox {

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { map } from 'rxjs/operators';
 
-import { LocalstorageService } from '../../../../services';
-import { Theme } from '../../../../shared';
+import { Theme } from '@llecoop';
+import { LocalstorageService } from '@llecoop/services';
 import * as fromActions from '../../actions';
 
 @Injectable()
