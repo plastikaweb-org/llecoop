@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormlyModule } from '@ngx-formly/core';
 import { of } from 'rxjs';
 import { CONFIG_TOKEN } from '../../../../../config';
-import { MaterialCovalentModule } from '../../../../material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from '../../../../shared/material-covalent/material-covalent.module';
 import { AppSandbox } from '../../../../root/sandbox/app.sandbox';
 import { CardContentFormComponent } from '../../../../shared/components';
 import { configMock } from '../../../../shared/mocks';

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from '../../../shared/material-covalent/material-covalent.module';
 import { configMock } from '../../../shared';
 import { DashboardFooterComponent } from './dashboard-footer.component';
 

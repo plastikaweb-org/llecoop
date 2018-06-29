@@ -3,7 +3,7 @@ import { async, ComponentFixture, fakeAsync, inject, TestBed } from '@angular/co
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from '../../../shared/material-covalent/material-covalent.module';
 import { ServerError, WarningTypes, WarningTypesConfigList } from '../../../shared/models';
 import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 

@@ -1,7 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MaterialCovalentModule } from '../../../material-covalent/material-covalent.module';
+import { MaterialCovalentModule } from '../../../shared/material-covalent/material-covalent.module';
 import { Theme, themesMock } from '../../../shared';
 import { ThemeSelectorComponent } from './theme-selector.component';
 

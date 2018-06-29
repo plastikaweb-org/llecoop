@@ -1,50 +1,66 @@
-<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'" [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'">
-  <td-navigation-drawer flex sidenavTitle="Llecoop" logo="llecoop">
-    <mat-nav-list [tdLayoutClose]="!media.query('gt-sm')">
-      <a *ngFor="let item of routes" mat-list-item>
-        <mat-icon matListIcon>{{item.icon}}</mat-icon>
-        {{item.title}}</a>
-    </mat-nav-list>
-  </td-navigation-drawer>
-  <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Llecoop' : ''" logo="llecoop" navigationRoute="/">
-    <button mat-icon-button td-menu-button tdLayoutToggle>
-      <mat-icon>menu</mat-icon>
-    </button>
+<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
+           [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '200px' : '100%'">
 
-    <div td-toolbar-content layout="row" layout-align="end center" flex>
-      <span>
-        <button mat-icon-button matTooltip="Sòcia" [matMenuTriggerFor]="notificationsMenu">
-          <mat-icon>account_circle</mat-icon>
-        </button>
-        <mat-menu #notificationsMenu="matMenu">
-          <td-menu>
-            <div td-menu-header class="mat-subhead">Carlos Matheu</div>
-            <mat-nav-list dense>
-              <a mat-list-item (click)="logout()">
-                <mat-icon matListAvatar>close</mat-icon>
-                <h4 mat-line>
-                  <span class="text-wrap">Logout</span>
-                </h4>
-                <p mat-line>Tancar sessió</p>
-              </a>
-            </mat-nav-list>
-            <button mat-button td-menu-footer>
-              <mat-icon matListAvatar>edit</mat-icon> Veure el meu perfil
-            </button>
-          </td-menu>
-        </mat-menu>
-      </span>
-      <span>
-        <!-- ui light or dark selector -->
-        <app-theme-selector 
-        (emitTheme)="changeTheme($event)" 
-        [currentTheme]="theme$ | async" 
+  <td-layout-nav-list
+    [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Llecoop' : ''" logo="llecoop"
+    navigationRoute="/" [opened]="media.registerQuery('gt-sm') | async"
+    [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
+    [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '350px' : '100%'">
+
+    <div td-toolbar-content fxFlex="row" fxFlexAlign="start center">
+      <button mat-icon-button tdLayoutNavListOpen [hideWhenOpened]="true">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span fxFlex="row"></span>
+      <button mat-icon-button matTooltip="Sòcia" [matMenuTriggerFor]="notificationsMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <mat-menu #notificationsMenu="matMenu">
+        <td-menu>
+          <div td-menu-header class="mat-subhead">Carlos Matheu</div>
+          <mat-nav-list dense>
+            <a mat-list-item (click)="logout()">
+              <mat-icon matListAvatar>close</mat-icon>
+              <h4 mat-line>
+                <span class="text-wrap">Logout</span>
+              </h4>
+              <p mat-line>Tancar sessió</p>
+            </a>
+          </mat-nav-list>
+          <a mat-button td-menu-footer routerLink="/profile">
+            <mat-icon matListAvatar>edit</mat-icon>
+            Veure el meu perfil
+          </a>
+        </td-menu>
+      </mat-menu>
+
+      <!-- ui light or dark selector -->
+      <app-theme-selector
+        (emitTheme)="changeTheme($event)"
+        [currentTheme]="theme$ | async"
         [themes]="themes"></app-theme-selector>
-      </span>
     </div>
-    <!-- footer -->
+
+    <mat-nav-list td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
+      <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="routes">
+        <a mat-list-item>
+          <img matListAvatar src="https://api.adorable.io/avatars/285/{{i}}@adorable.io.png"/>
+          <h3 matLine> {{item.title}} </h3>
+          <p matLine> Email description goes here </p>
+          <mat-icon class="tc-amber-800">fiber_new</mat-icon>
+        </a>
+        <mat-divider *ngIf="!last" mat-inset></mat-divider>
+      </ng-template>
+    </mat-nav-list>
+
+    <div tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+      <app-dashboard-content></app-dashboard-content>
+    </div>
+
     <td-layout-footer>
       <app-dashboard-footer [config]="config"></app-dashboard-footer>
     </td-layout-footer>
-  </td-layout-nav>
+
+  </td-layout-nav-list>
 </td-layout>

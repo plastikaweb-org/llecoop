@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
 import { LocalstorageService } from '../../../../services';
 import { Theme } from '../../../../shared';
 import * as fromActions from '../../actions';
-import * as fromState from '../../state';
 
 @Injectable()
 export class UiEffects {
   constructor(
     private actions$: Actions,
-    private localstorage: LocalstorageService,
-    private store: Store<fromState.UiState>
+    private localstorage: LocalstorageService
   ) {}
 
   /**

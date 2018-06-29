@@ -1,0 +1,41 @@
+<mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+  <mat-card-header>
+    <img matCardAvatar src="https://api.adorable.io/avatars/285/3@adorable.io.png"/>
+    <mat-card-title>Firstname Lastname</mat-card-title>
+    <mat-card-subtitle>Tuesday, January 3 2017 at 8:39 PM</mat-card-subtitle>
+    <span flex></span>
+    <div class="pad-top pad-right">
+      <button mat-icon-button>
+        <mat-icon>reply</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>forward</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div class="mat-padding">
+
+    <!-- routing content -->
+    <router-outlet></router-outlet>
+
+  </div>
+  <mat-divider></mat-divider>
+  <div layout="row" layout-align="space-around center" class="pad">
+    <button mat-button class="tc-grey-600">
+      <mat-icon class="pull-bottom">reply</mat-icon>
+      <div class="mat-caption">Reply</div>
+    </button>
+    <button mat-button class="tc-grey-600">
+      <mat-icon class="pull-bottom">reply_all</mat-icon>
+      <div class="mat-caption">Reply All</div>
+    </button>
+    <button mat-button class="tc-grey-600">
+      <mat-icon class="pull-bottom">forward</mat-icon>
+      <div class="mat-caption">Forward</div>
+    </button>
+  </div>
+</mat-card>
