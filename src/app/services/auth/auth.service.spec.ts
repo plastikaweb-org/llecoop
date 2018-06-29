@@ -8,7 +8,7 @@ class AngularFireAuthMock {
   isAuth = { name: 'my name' };
   authState = of(this.isAuth);
   auth = {
-    signInAndRetrieveDataWithEmailAndPassword: (email, password) => {
+    signInWithEmailAndPassword: (email, password) => {
       return new Promise(function (resolve) {
         resolve('signed in');
       });

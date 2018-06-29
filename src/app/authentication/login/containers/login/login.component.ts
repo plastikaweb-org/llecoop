@@ -29,6 +29,6 @@ export class LoginComponent {
   constructor(protected sandBox: LoginSandbox) {}
 
   onSubmit(e: Credentials) {
-    this.sandBox.login({ ...e });
+    this.sandBox.login(e);
   }
 }
