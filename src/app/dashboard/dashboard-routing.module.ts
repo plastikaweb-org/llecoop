@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    canActivate: [IsNotAuthGuard],
+    canActivate: [ IsNotAuthGuard ],
     children: [
       { path: 'profile', loadChildren: '../profile/profile.module#ProfileModule' }
     ]

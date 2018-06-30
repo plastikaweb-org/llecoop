@@ -30,6 +30,7 @@ export class DashboardComponent implements AfterViewInit {
   config = this.sandbox.appConfig;
   themes = this.sandbox.appThemes;
   theme$ = this.sandbox.theme$;
+  basicProfile$ = this.sandbox.basicProfile$;
 
   constructor(private sandbox: DashboardSandbox,
               public media: TdMediaService,

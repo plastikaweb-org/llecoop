@@ -12,13 +12,22 @@
         <mat-icon>arrow_back</mat-icon>
       </button>
       <span fxFlex="row"></span>
-      <button mat-icon-button matTooltip="Sòcia" [matMenuTriggerFor]="notificationsMenu">
-        <mat-icon>account_circle</mat-icon>
-      </button>
+      <!-- profile btn -->
+      <div *ngIf="(basicProfile$ | async); let pf;" fxLayout="row" fxLayoutGap="5px"
+           fxLayoutAlign="space-around center"
+           class="toolbar-profile pad-left-xs">
+        <img *ngIf="pf.img" [alt]="pf.fullName"
+             mat-card-avatar class="size-28 avatar-border" [src]="pf.img">
+        <div>Hola {{pf.name }}!</div>
+        <div class="divider-vertical"></div>
+        <button mat-icon-button [matMenuTriggerFor]="notificationsMenu" class="push-none">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
 
       <mat-menu #notificationsMenu="matMenu">
         <td-menu>
-          <div td-menu-header class="mat-subhead">Carlos Matheu</div>
+          <div td-menu-header class="mat-subhead">{{(basicProfile$ | async)?.fullName}}</div>
           <mat-nav-list dense>
             <a mat-list-item (click)="logout()">
               <mat-icon matListAvatar>close</mat-icon>

@@ -1,0 +1,35 @@
+@import 'theme';
+
+.theme-dark {
+  $primary-dark: mat-palette($mat-deep-orange, 900, 500, 800);
+  $accent-dark:  mat-palette($mat-blue-grey, A200, A100, A400);
+  $warn-dark:    mat-palette($mat-red);
+
+  $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+  @include angular-material-theme($theme-dark);
+  @include covalent-theme($theme-dark);
+
+  .tc-primary {
+    color: mat-color($primary-dark);
+  }
+  .tc-accent,
+  a {
+    color: mat-color($accent-dark, A400);
+  }
+  a:hover {
+    color: darken(mat-color($accent-dark, A400), 10%);
+  }
+  .tc-warn {
+    color: mat-color($warn-dark);
+  }
+  .mat-caption {
+    color: mat-color($primary-dark);
+  }
+
+  .toolbar-profile {
+    background-color: mat-color($primary-dark, 700);
+  }
+  .divider-vertical {
+    background: mat-color($primary-dark, 900);
+  }
+}

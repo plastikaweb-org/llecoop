@@ -22,7 +22,6 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles/theme.scss",
               "node_modules/@covalent/core/common/platform.scss",
               "src/styles/main.scss"
             ],
@@ -72,7 +71,9 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "codeCoverageExclude": ["src/**/mocks/*"],
+            "codeCoverageExclude": [
+              "src/**/mocks/*"
+            ],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
@@ -138,5 +139,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
   }
 }

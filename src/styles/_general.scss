@@ -1,4 +1,5 @@
 @import 'theme';
+@import 'mixins';
 
 a {
   text-decoration: none;
@@ -22,6 +23,16 @@ a {
     height: 40px;
     margin-right: 5px;
   }
+}
+.avatar-border {
+  @include border(2px, solid, mat-color($primary, 100));
+}
+.divider-vertical {
+  width: 1px;
+  height: 100%;
+  background: mat-color($primary, 400);
+  margin: 0 0 0 10px;
+  padding: 0;
 }
 
 // router transition configuration

@@ -1,17 +1,16 @@
-import * as fromAuth from '../../actions';
+import * as fromActions from '../../actions';
 import * as fromState from '../../state';
 
 export function reducer(state = fromState.initialAuthState,
-                        action: fromAuth.AuthActions): fromState.AuthState {
+                        action: fromActions.AuthActions): fromState.AuthState {
   switch (action.type) {
-    case fromAuth.GET_AUTHENTICATION_FAIL:
-    case fromAuth.AUTHENTICATE_FAIL:
-    case fromAuth.LOGOUT: {
-      return { ...state, authenticated: false };
+    case fromActions.GET_AUTHENTICATION_FAIL:
+    case fromActions.AUTHENTICATE_FAIL:
+    case fromActions.LOGOUT: {
+      return { ...state, uid: null, authenticated: false };
     }
-    case fromAuth.GET_AUTHENTICATION_SUCCESS:
-    case fromAuth.AUTHENTICATE_SUCCESS: {
-      return { ...state, authenticated: true };
+    case fromActions.GET_AUTHENTICATION_SUCCESS: {
+      return { ...state, authenticated: true, uid: action.payload };
     }
   }
   return state;

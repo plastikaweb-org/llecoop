@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Credentials } from '@llecoop';
+import { AuthService } from '@llecoop/services';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 
+import * as fromActivity from 'app/activity/store';
+
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-
-import * as fromActivity from 'app/activity/store';
-import { AuthService } from '@llecoop/services';
-import { Credentials } from '@llecoop';
 import * as fromActions from '../../actions';
 import * as fromState from '../../state';
 
@@ -29,7 +29,7 @@ export class AuthEffects {
         this.authService
           .isAuthenticated()
           .pipe(
-            map((response: any) => new fromActions.GetAuthenticationSuccess()),
+            map((uid: string) => new fromActions.GetAuthenticationSuccess(uid)),
             catchError(error => of(new fromActions.GetAuthenticationFail()))
           )
       )
@@ -42,7 +42,13 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   getAuthenticationSuccess$ = this.actions$
     .ofType(fromActions.GET_AUTHENTICATION_SUCCESS)
-    .pipe(map(() => this.router.navigate([ '/' ])));
+    .pipe(
+      map((action: fromActions.GetAuthenticationSuccess) => action.payload),
+      map((uid: string) => {
+        // when auth get user data
+        this.store.dispatch(new fromActions.GetProfile(uid));
+        this.router.navigate([ '/' ]);
+      }));
 
   /**
    *  when authentication is fail

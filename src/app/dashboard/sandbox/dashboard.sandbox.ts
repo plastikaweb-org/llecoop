@@ -9,6 +9,7 @@ import { BaseSandbox } from '@llecoop/base.sandbox';
 @Injectable()
 export class DashboardSandbox extends BaseSandbox {
   theme$ = this.store.select(fromStore.getThemeSelected);
+  basicProfile$ = this.store.select(fromStore.getBasicProfile);
 
   constructor(
     protected rootStore: Store<fromStore.RootState>,

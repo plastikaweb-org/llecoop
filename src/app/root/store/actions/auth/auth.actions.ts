@@ -1,5 +1,5 @@
-import { Action } from '@ngrx/store';
 import { Credentials } from '@llecoop';
+import { Action } from '@ngrx/store';
 
 export const GET_AUTHENTICATION = '[Auth] Get Authentication';
 export const GET_AUTHENTICATION_FAIL = '[Auth] Get Authentication Fail';
@@ -16,6 +16,8 @@ export class GetAuthenticationFail implements Action {
 
 export class GetAuthenticationSuccess implements Action {
   readonly type = GET_AUTHENTICATION_SUCCESS;
+
+  constructor(public payload: string) {}
 }
 
 // login

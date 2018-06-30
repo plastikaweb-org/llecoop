@@ -2,18 +2,21 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@llecoop/shared.module';
 import { DashboardFooterComponent, ThemeSelectorComponent } from './components';
 import { DashboardComponent } from './containers';
+import { DashboardContentComponent } from './containers/dashboard-content/dashboard-content.component';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardSandbox } from './sandbox/dashboard.sandbox';
 import { IsNotAuthGuard } from './guards';
-import { DashboardContentComponent } from './containers/dashboard-content/dashboard-content.component';
+import { DashboardSandbox } from './sandbox/dashboard.sandbox';
 
 @NgModule({
   imports: [
     SharedModule,
     DashboardRoutingModule
   ],
-  declarations: [ DashboardComponent, ThemeSelectorComponent, DashboardFooterComponent, DashboardContentComponent ],
+  declarations: [
+    DashboardComponent, ThemeSelectorComponent,
+    DashboardFooterComponent, DashboardContentComponent
+  ],
   providers: [ DashboardSandbox, IsNotAuthGuard ]
 })
 export class DashboardModule {}
