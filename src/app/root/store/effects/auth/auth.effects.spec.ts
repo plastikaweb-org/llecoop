@@ -2,19 +2,19 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '@llecoop/services';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';
 import { AngularFireModule } from 'angularfire2';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { cold, hot } from 'jasmine-marbles';
-import { Observable } from 'rxjs';
-import { firebaseConf } from 'config/firebase.config';
 
 
 import * as fromActivity from 'app/activity/store';
-import { AuthService } from '@llecoop/services';
+import { firebaseConf } from 'config/firebase.config';
+import { cold, hot } from 'jasmine-marbles';
+import { Observable } from 'rxjs';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromEffects from './auth.effects';
@@ -49,7 +49,7 @@ describe('Auth Effects', () => {
   describe('get authentication', () => {
     xit('should return authentication state', () => {
       const action = new fromActions.GetAuthentication();
-      const completion = new fromActions.GetAuthenticationSuccess();
+      const completion = new fromActions.GetAuthenticationSuccess('____');
       actions = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
 

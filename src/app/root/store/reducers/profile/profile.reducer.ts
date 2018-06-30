@@ -7,7 +7,7 @@ export function reducer(state = fromState.initialProfileState,
     case fromActions.GET_PROFILE:
       return { ...state, error: null };
     case fromActions.GET_PROFILE_FAIL:
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, profile: null };
     case fromActions.GET_PROFILE_SUCCESS:
       return { ...state, profile: action.payload };
   }
@@ -15,3 +15,4 @@ export function reducer(state = fromState.initialProfileState,
 }
 
 export const getProfileProfileState = (state: fromState.ProfileState) => state.profile;
+export const getErrorProfileState = (state: fromState.ProfileState) => state.error;

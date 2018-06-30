@@ -31,7 +31,7 @@ describe('Auth selectors', () => {
 
       expect(result).toEqual(fromState.initialAuthState.authenticated);
 
-      store.dispatch(new fromActions.GetAuthenticationSuccess());
+      store.dispatch(new fromActions.GetAuthenticationSuccess('____'));
       expect(result).toBeTruthy();
 
       store.dispatch(new fromActions.GetAuthenticationFail());

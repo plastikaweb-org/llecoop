@@ -14,11 +14,14 @@ describe('Check Authentication Actions', () => {
     });
   });
   it('should create a Get Authentication Success action', () => {
-    const payload = {};
-    const action = new fromActions.GetAuthenticationSuccess();
+    const payload = '________';
+    const action = new fromActions.GetAuthenticationSuccess(payload);
     expect({
       ...action
-    }).toEqual({ type: fromActions.GET_AUTHENTICATION_SUCCESS });
+    }).toEqual({
+      type: fromActions.GET_AUTHENTICATION_SUCCESS,
+      payload
+    });
   });
 });
 

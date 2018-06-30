@@ -22,13 +22,6 @@ describe('Auth Reducer', () => {
       );
       expect(newState.authenticated).toBeFalsy();
     });
-    it('should handle the Login Success action', () => {
-      const newState = reducer(
-        fromState.initialAuthState,
-        new fromActions.AuthenticateSuccess()
-      );
-      expect(newState.authenticated).toBeTruthy();
-    });
     it('should handle the Login Fail action', () => {
       const newState = reducer(
         fromState.initialAuthState,
@@ -42,7 +35,7 @@ describe('Auth Reducer', () => {
     it('should handle the Check Auth Success action', () => {
       const newState = reducer(
         fromState.initialAuthState,
-        new fromActions.GetAuthenticationSuccess()
+        new fromActions.GetAuthenticationSuccess('')
       );
       expect(newState.authenticated).toBeTruthy();
     });

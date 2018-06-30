@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { AuthService } from './auth.service';
 
 class AngularFireAuthMock {
-  isAuth = { name: 'my name' };
+  isAuth = { uid: '____', email: 'test@test.com' };
   authState = of(this.isAuth);
   auth = {
     signInWithEmailAndPassword: (email, password) => {
@@ -83,7 +83,7 @@ describe('AuthService', () => {
 
     tick();
 
-    expect(response).toEqual({ name: 'my name' });
+    expect(response).toEqual('____');
   }));
 
   xit('should return throw an error when authState is null', fakeAsync(() => {

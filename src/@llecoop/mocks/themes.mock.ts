@@ -1,4 +1,4 @@
-import { UiTheme, Theme } from '../models/index';
+import { UiTheme, Theme } from '@llecoop';
 
 export const themesMock: UiTheme[] = [
   { class: Theme.Light, icon: 'icon-light', text: 'light theme' },

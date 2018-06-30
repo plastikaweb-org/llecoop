@@ -19,10 +19,10 @@ module.exports = function(config) {
       dir: require('path').join(__dirname, 'coverage'), reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true,
       thresholds: {
-        statements: 87,
+        statements: 88,
         lines: 87,
-        branches: 70,
-        functions: 73
+        branches: 73,
+        functions: 72
       }
     },
     angularCli: {
