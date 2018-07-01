@@ -34,8 +34,7 @@ class AngularFireAuthMock {
       });
     }
   };
-};
-
+}
 
 describe('AuthService', () => {
   let service;
