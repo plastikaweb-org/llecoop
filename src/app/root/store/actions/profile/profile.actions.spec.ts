@@ -1,4 +1,5 @@
-import { Profile, ProfileMock } from '@llecoop';
+import { Profile } from '@llecoop';
+import { ProfileMock } from '@llecoop/mocks';
 import * as fromActions from './profile.actions';
 
 describe('Check Profile Actions', () => {

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MaterialCovalentModule } from '@llecoop/material-covalent/material-covalent.module';
-import { configMock } from '@llecoop';
+import { configMock } from '@llecoop/mocks';
 import { DashboardFooterComponent } from './dashboard-footer.component';
 
 describe('DashboardFooterComponent', () => {

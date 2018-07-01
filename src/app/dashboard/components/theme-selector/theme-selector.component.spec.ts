@@ -2,7 +2,8 @@ import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MaterialCovalentModule } from '@llecoop/material-covalent/material-covalent.module';
-import { Theme, themesMock } from '@llecoop';
+import { Theme } from '@llecoop';
+import { themesMock } from '@llecoop/mocks';
 import { ThemeSelectorComponent } from './theme-selector.component';
 
 describe('ThemeSelectorComponent', () => {

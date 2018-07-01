@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { Theme } from '@llecoop';
+import { LocalStorageMock } from '@llecoop/mocks';
+
+import { LocalstorageService, WindowRefService } from '@llecoop/services';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
-
-import { LocalstorageService, WindowRefService } from '@llecoop/services';
-import { LocalStorageMock, Theme } from '@llecoop';
 import * as fromActions from '../../actions';
 import { reducers } from '../../reducers';
 import * as fromEffects from './ui.effects';

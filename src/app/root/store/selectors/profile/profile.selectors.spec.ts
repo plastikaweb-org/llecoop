@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { ProfileMock } from '@llecoop';
+import { ProfileMock } from '@llecoop/mocks';
 import { Store, StoreModule } from '@ngrx/store';
 
 import * as fromActions from '../../actions';

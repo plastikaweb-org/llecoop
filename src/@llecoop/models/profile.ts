@@ -11,4 +11,5 @@ export interface Profile {
   phone?: string;
   role: Roles;
   active: boolean;
+  fullName?: string;
 }

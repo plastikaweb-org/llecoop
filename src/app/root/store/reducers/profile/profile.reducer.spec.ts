@@ -1,4 +1,5 @@
-import { Profile, ProfileMock } from '@llecoop';
+import { Profile } from '@llecoop';
+import { ProfileMock } from '@llecoop/mocks';
 import * as fromActions from '../../actions';
 import * as fromState from '../../state';
 import { reducer } from './profile.reducer';

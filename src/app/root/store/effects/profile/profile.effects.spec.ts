@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { Profile, ProfileMock } from '@llecoop';
+import { Profile } from '@llecoop';
+import { ProfileMock } from '@llecoop/mocks';
 import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { StoreModule } from '@ngrx/store';

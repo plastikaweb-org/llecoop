@@ -7,6 +7,7 @@ import { DashboardContentComponent } from './containers/dashboard-content/dashbo
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { IsNotAuthGuard } from './guards';
 import { DashboardSandbox } from './sandbox/dashboard.sandbox';
+import { ProfileBtnComponent } from './components/profile-btn/profile-btn.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { DashboardSandbox } from './sandbox/dashboard.sandbox';
   ],
   declarations: [
     DashboardComponent, ThemeSelectorComponent,
-    DashboardFooterComponent, DashboardContentComponent
+    DashboardFooterComponent, DashboardContentComponent, ProfileBtnComponent
   ],
   providers: [ DashboardSandbox, IsNotAuthGuard ]
 })
