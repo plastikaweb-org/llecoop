@@ -1,3 +1,9 @@
-<p>
-  profile-container works!
-</p>
+<app-card-content-form *ngIf="!resetOk" [fields]="fields"
+                       [model]="model"
+                       [submitTitle]="'Enviar'"
+                       (submit)="onSubmit($event)">
+  <!-- login with form -->
+  <div otherAction class="mat-caption pad pad-top-none text-right">
+    <a [routerLink]="['../login']">Anar al login</a>
+  </div>
+</app-card-content-form>

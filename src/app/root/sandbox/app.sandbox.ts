@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppConfig, CONFIG_TOKEN } from 'config/config';
-import { Theme } from '@llecoop/index';
+import { Theme } from '@llecoop';
 
 import { BaseSandbox } from '@llecoop/base.sandbox';
 import * as fromStore from '../store/index';

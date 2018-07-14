@@ -1,0 +1,11 @@
+<form role="form" novalidate [formGroup]="form" (ngSubmit)="onSubmit($event)">
+
+    <!-- form -->
+    <formly-form [form]="form" [options]="options" [fields]="formBuilder" [model]="model"></formly-form>
+
+    <!-- buttons -->
+    <div *ngIf="submitAvailable || resetAvailable" fxLayout="row" fxLayoutAlign="end start" fxLayoutGap="20px" class="ice-p-12">
+        <button *ngIf="submitAvailable" type="submit" mat-raised-button color="accent" [disabled]="">Enviar</button>
+        <button *ngIf="resetAvailable" type="button" mat-raised-button color="primary" (click)="onReset($event)">Resetejar</button>
+    </div>
+</form>

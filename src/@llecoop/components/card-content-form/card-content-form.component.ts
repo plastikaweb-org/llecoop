@@ -1,34 +1,10 @@
-import {
-  AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef,
-  Component, EventEmitter, Input, Output
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-card-content-form',
-  template: `
-    <form role="form"
-          novalidate
-          appAutofocus
-          [formGroup]="form"
-          (ngSubmit)="onSubmit($event)"
-          class="push-top-md">
-      <!--&lt;!&ndash; form construct &ndash;&gt;-->
-      <mat-card-content>
-        <formly-form [form]="form" [options]="options" [fields]="fields"></formly-form>
-      </mat-card-content>
-      <!-- recover pass or go to login page links if necessary -->
-        <ng-content select="[otherAction]"></ng-content>
-      <!-- buttons -->
-      <mat-card-actions>
-        <mat-toolbar color="primary" fxFlex fxLayout="column"
-                    fxLayoutAlign="center center">
-          <button color="accent" mat-button type="submit" [disabled]="!form.valid">{{submitTitle}}</button>
-        </mat-toolbar>
-      </mat-card-actions>
-    </form>
-  `,
+  templateUrl: './card-content-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardContentFormComponent implements AfterViewInit {

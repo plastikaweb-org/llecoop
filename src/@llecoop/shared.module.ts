@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CapitalizePipe, MaterialCovalentModule } from '@llecoop';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
-import { MaterialCovalentModule } from './material-covalent/material-covalent.module';
-import { CardContentFormComponent } from './components/index';
-import { CapitalizePipe } from './pipes/index';
+import { CardContentFormModule } from './components/card-content-form/card-content-form.module';
+import { FormContainerModule } from './components/form-container/form-container.module';
 
 export function minlengthValidationMessage(err, field) {
   return `${field.templateOptions.minLength} caràcters com a mínim`;
@@ -25,7 +25,7 @@ export function maxValidationMessage(err, field) {
 }
 
 @NgModule({
-  declarations: [ CardContentFormComponent, CapitalizePipe ],
+  declarations: [ CapitalizePipe ],
   imports: [
     CommonModule, ReactiveFormsModule,
     FlexLayoutModule, MaterialCovalentModule,
@@ -43,7 +43,8 @@ export function maxValidationMessage(err, field) {
   ],
   exports: [
     CommonModule, FlexLayoutModule,
-    MaterialCovalentModule, CardContentFormComponent,
+    MaterialCovalentModule, CardContentFormModule,
+    FormContainerModule,
     CapitalizePipe, ReactiveFormsModule,
     FormlyModule, FormlyMaterialModule
   ]
