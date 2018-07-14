@@ -4,11 +4,11 @@ import { AuthenticationSharedModule } from '../shared/authentication-shared.modu
 import { LoginComponent } from './containers/login/login.component';
 import { LoginSandbox } from './sandbox/login.sandbox';
 
-export const ROUTES: Routes = [{ path: '', component: LoginComponent }];
+export const ROUTES: Routes = [ { path: '', component: LoginComponent } ];
 
 @NgModule({
-  imports: [RouterModule.forChild(ROUTES), AuthenticationSharedModule],
-  declarations: [LoginComponent],
-  providers: [LoginSandbox]
+  imports: [ RouterModule.forChild(ROUTES), AuthenticationSharedModule ],
+  declarations: [ LoginComponent ],
+  providers: [ LoginSandbox ]
 })
 export class LoginModule {}
