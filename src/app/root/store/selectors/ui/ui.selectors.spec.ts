@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { Store, StoreModule } from '@ngrx/store';
 
 import { Theme } from '@llecoop';
+import { select, Store, StoreModule } from '@ngrx/store';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromState from '../../state';
@@ -27,8 +27,7 @@ describe('UI selectors', () => {
       let result;
       const payload = Theme.Dark;
 
-      store
-        .select(fromSelectors.getThemeSelected)
+      store.pipe(select(fromSelectors.getThemeSelected))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialUiState.theme);

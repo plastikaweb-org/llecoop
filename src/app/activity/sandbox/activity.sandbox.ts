@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { BaseSandbox } from '@llecoop/base.sandbox';
-import { WarningTypes } from '@llecoop/index';
+import { WarningTypes } from '@llecoop';
+import { select, Store } from '@ngrx/store';
 
 import * as fromStore from '../store/index';
 
 @Injectable()
 export class ActivitySandbox extends BaseSandbox {
   // selectors
-  snackBarVisible$ = this.store.select(fromStore.getSnackBarVisible);
-  snackBarConfiguration$ = this.store.select(fromStore.getSnackBarConfiguration);
-  progressBarVisible$ = this.store.select(fromStore.getLoadingStateVisibility);
-  errorVisibility$ = this.store.select(fromStore.getErrorMessageVisible);
-  errorDescription$ = this.store.select(fromStore.getErrorMessageDescription);
-  warningVisibility$ = this.store.select(fromStore.getWarningMessageVisible);
-  warningDescription$ = this.store.select(
-    fromStore.getWarningMessageDescription
-  );
+  snackBarVisible$ = this.store.pipe(select(fromStore.getSnackBarVisible));
+  snackBarConfiguration$ = this.store.pipe(select(fromStore.getSnackBarConfiguration));
+  progressBarVisible$ = this.store.pipe(select(fromStore.getLoadingStateVisibility));
+  errorVisibility$ = this.store.pipe(select(fromStore.getErrorMessageVisible));
+  errorDescription$ = this.store.pipe(select(fromStore.getErrorMessageDescription));
+  warningVisibility$ = this.store.pipe(select(fromStore.getWarningMessageVisible));
+  warningDescription$ = this.store.pipe(select(fromStore.getWarningMessageDescription));
 
   constructor(protected appState: Store<fromStore.ActivityState>) {
     super(appState);

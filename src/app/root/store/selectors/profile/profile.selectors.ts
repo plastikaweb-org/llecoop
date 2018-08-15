@@ -1,3 +1,4 @@
+import { Roles } from '@llecoop';
 import { Profile } from '@llecoop/models/profile';
 import { createSelector } from '@ngrx/store';
 
@@ -15,6 +16,26 @@ export const getBasicProfile = createSelector(
     if (profile) {
       const { name, secondName, img } = profile;
       return <Partial<Profile>>{ name, fullName: `${name} ${secondName}`, img };
+    }
+  }
+);
+
+export const getEditableProfile = createSelector(
+  getProfile,
+  (profile: Profile) => {
+    if (profile) {
+      const { name, secondName, city, phone, address, email, cp, active } = profile;
+      return <Partial<Profile>>{ name, secondName, city, phone, address, email, cp, active };
+    }
+  }
+);
+
+export const getHeaderCardProfile = createSelector(
+  getProfile,
+  (profile: Profile) => {
+    if (profile) {
+      const { name, secondName, img, active, role } = profile;
+      return <Partial<Profile>>{ title: `${name} ${secondName}`, img, subTitle: Roles[ role ] };
     }
   }
 );

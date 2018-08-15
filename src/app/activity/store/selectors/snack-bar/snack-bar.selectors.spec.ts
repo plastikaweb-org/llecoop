@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { combineReducers, Store, StoreModule } from '@ngrx/store';
+import { combineReducers, select, Store, StoreModule } from '@ngrx/store';
 
-import * as fromActions from '../../actions/index';
-import * as fromReducers from '../../reducers/index';
-import * as fromState from '../../state/index';
+import * as fromActions from '../../actions';
+import * as fromReducers from '../../reducers';
+import * as fromState from '../../state';
 import * as fromSelectors from './snack-bar.selectors';
 
 describe('SnackBar selectors', () => {
@@ -25,8 +25,7 @@ describe('SnackBar selectors', () => {
     it('should return visible property value', () => {
       let result;
 
-      store
-        .select(fromSelectors.getSnackBarVisible)
+      store.pipe(select(fromSelectors.getSnackBarVisible))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialSnackBarState.visible);
@@ -44,8 +43,7 @@ describe('SnackBar selectors', () => {
       const conf = { message: 'ALERT!', action: 'do something', duration: 1000 };
       let result;
 
-      store
-        .select(fromSelectors.getSnackBarConfiguration)
+      store.pipe(select(fromSelectors.getSnackBarConfiguration))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialSnackBarState.configuration);
