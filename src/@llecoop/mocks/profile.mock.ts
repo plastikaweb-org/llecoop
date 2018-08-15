@@ -1,9 +1,10 @@
 import { Profile, Roles } from '@llecoop';
 
-export const ProfileMock: Partial<Profile> = {
+export const ProfileMock: Profile = {
   name: '',
   secondName: '',
   email: '',
+  fullName: '',
   active: true,
   address: '',
   phone: '',
