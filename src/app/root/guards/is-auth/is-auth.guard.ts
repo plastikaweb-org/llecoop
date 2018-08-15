@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from '@angular/router';
-import { Store } from '@ngrx/store';
+
+import { isNil } from '@llecoop/helpers';
+import { select, Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 import { filter, first, map } from 'rxjs/operators';
-
-import { isNil } from '@llecoop/helpers';
 import * as fromRoot from '../../store';
 
 @Injectable()
@@ -19,7 +19,8 @@ export class IsAuthGuard implements CanActivate, CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.store.select(fromRoot.getIsAuthenticated).pipe(
+    return this.store.pipe(
+      select(fromRoot.getIsAuthenticated),
       filter(auth => !isNil(auth)),
       first(),
       map(auth => {

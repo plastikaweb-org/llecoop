@@ -13,6 +13,7 @@ export const environment = {
   production: false,
   imports: [
     StoreDevtoolsModule.instrument({
+      name: 'Llecoop State',
       maxAge: 25 //  Retains last 25 states
     })
   ],

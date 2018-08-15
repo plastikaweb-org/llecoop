@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as fromRouter from '@ngrx/router-store';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 
@@ -18,10 +18,11 @@ export class ActivityEffects {
    * @type {Observable<any>}
    */
   @Effect({ dispatch: false })
-  routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
+  routeGo$ = this.actions$.pipe(
+    ofType(fromRouter.ROUTER_NAVIGATION),
     withLatestFrom(
-      this.store.select(fromSelectors.getErrorMessageVisible),
-      this.store.select(fromSelectors.getWarningMessageVisible)
+      this.store.pipe(select(fromSelectors.getErrorMessageVisible)),
+      this.store.pipe(select(fromSelectors.getWarningMessageVisible))
     ),
     map(([ router, visibleError, visibleWarning ]) => {
       if (visibleError) {
@@ -39,14 +40,13 @@ export class ActivityEffects {
    * @type {Observable<any[]>}
    */
   @Effect({ dispatch: false })
-  showErrorMessage$ = this.actions$
-    .ofType(fromActions.SHOW_ERROR_MESSAGE, fromActions.SHOW_WARNING_MESSAGE)
-    .pipe(
-      withLatestFrom(this.store.select(fromSelectors.getLoadingStateVisibility)),
-      map(([ router, visible ]) => {
-        if (visible) {
-          this.store.dispatch(new fromActions.HideLoading());
-        }
-      })
-    );
+  showErrorMessage$ = this.actions$.pipe(
+    ofType(fromActions.SHOW_ERROR_MESSAGE, fromActions.SHOW_WARNING_MESSAGE),
+    withLatestFrom(this.store.pipe(select(fromSelectors.getLoadingStateVisibility))),
+    map(([ router, visible ]) => {
+      if (visible) {
+        this.store.dispatch(new fromActions.HideLoading());
+      }
+    })
+  );
 }

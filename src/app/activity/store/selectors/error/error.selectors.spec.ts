@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { combineReducers, Store, StoreModule } from '@ngrx/store';
+import { combineReducers, select, Store, StoreModule } from '@ngrx/store';
 
-import * as fromActions from '../../actions/index';
-import * as fromReducers from '../../reducers/index';
-import * as fromState from '../../state/index';
+import * as fromActions from '../../actions';
+import * as fromReducers from '../../reducers';
+import * as fromState from '../../state';
 import * as fromSelectors from './error.selectors';
 
 describe('Error selectors', () => {
@@ -25,8 +25,7 @@ describe('Error selectors', () => {
     it('should return visible property value', () => {
       let result;
 
-      store
-        .select(fromSelectors.getErrorMessageVisible)
+      store.pipe(select(fromSelectors.getErrorMessageVisible))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialErrorState.visible);
@@ -49,8 +48,7 @@ describe('Error selectors', () => {
         status: 'Not found'
       };
 
-      store
-        .select(fromSelectors.getErrorMessageDescription)
+      store.pipe(select(fromSelectors.getErrorMessageDescription))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialErrorState.description);

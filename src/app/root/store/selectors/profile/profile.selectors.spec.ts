@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ProfileMock } from '@llecoop/mocks';
-import { Store, StoreModule } from '@ngrx/store';
+import { select, Store, StoreModule } from '@ngrx/store';
 
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
@@ -26,8 +26,7 @@ describe('Profile selectors', () => {
     it('should return profile property value', () => {
       let result;
 
-      store
-        .select(fromSelectors.getProfile)
+      store.pipe(select(fromSelectors.getProfile))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialProfileState.profile);
@@ -43,8 +42,7 @@ describe('Profile selectors', () => {
   it('should return basic profile value', () => {
     let result;
 
-    store
-      .select(fromSelectors.getBasicProfile)
+    store.pipe(select(fromSelectors.getBasicProfile))
       .subscribe(value => (result = value));
 
     expect(result).toBeUndefined();
