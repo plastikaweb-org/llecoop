@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Profile } from '@llecoop/models/profile';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 import { of } from 'rxjs';
@@ -12,7 +12,8 @@ export class ProfileEffects {
   constructor(private actions$: Actions, private afs: AngularFirestore) {}
 
   @Effect()
-  getProfile$ = this.actions$.ofType(fromActions.GET_PROFILE).pipe(
+  getProfile$ = this.actions$.pipe(
+    ofType(fromActions.GET_PROFILE),
     map((action: fromActions.GetProfile) => action.payload),
     switchMap((uid: string) => {
       return this.afs.doc<Profile>(`users/${uid}`).valueChanges().pipe(

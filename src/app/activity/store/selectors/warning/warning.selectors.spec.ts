@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { combineReducers, Store, StoreModule } from '@ngrx/store';
+import { combineReducers, select, Store, StoreModule } from '@ngrx/store';
 
 import * as fromActions from '../../actions/index';
 import * as fromReducers from '../../reducers/index';
@@ -25,8 +25,7 @@ describe('Warning selectors', () => {
     it('should return visible property value', () => {
       let result;
 
-      store
-        .select(fromSelectors.getWarningMessageVisible)
+      store.pipe(select(fromSelectors.getWarningMessageVisible))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialWarningState.visible);
@@ -47,8 +46,7 @@ describe('Warning selectors', () => {
         annexMessage: 'Please, review your account'
       };
 
-      store
-        .select(fromSelectors.getWarningMessageDescription)
+      store.pipe(select(fromSelectors.getWarningMessageDescription))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialWarningState.description);

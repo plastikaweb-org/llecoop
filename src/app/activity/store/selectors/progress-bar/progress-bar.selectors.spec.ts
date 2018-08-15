@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { combineReducers, Store, StoreModule } from '@ngrx/store';
+import { combineReducers, select, Store, StoreModule } from '@ngrx/store';
 
-import * as fromActions from '../../actions/index';
-import * as fromReducers from '../../reducers/index';
-import * as fromState from '../../state/index';
+import * as fromActions from '../../actions';
+import * as fromReducers from '../../reducers';
+import * as fromState from '../../state';
 import * as fromSelectors from './progress-bar.selectors';
 
 describe('ProgressBar selectors', () => {
@@ -25,8 +25,7 @@ describe('ProgressBar selectors', () => {
     it('should return visible property value', () => {
       let result;
 
-      store
-        .select(fromSelectors.getProgressBarVisible)
+      store.pipe(select(fromSelectors.getProgressBarVisible))
         .subscribe(value => (result = value));
 
       expect(result).toEqual(fromState.initialProgressBarState.visible);

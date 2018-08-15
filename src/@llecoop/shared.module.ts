@@ -7,6 +7,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { CardContentFormModule } from './components/card-content-form/card-content-form.module';
 import { FormContainerModule } from './components/form-container/form-container.module';
+import { SectionsContainerModule } from './containers/sections-container/sections-container.module';
 
 export function minlengthValidationMessage(err, field) {
   return `${field.templateOptions.minLength} caràcters com a mínim`;
@@ -44,7 +45,7 @@ export function maxValidationMessage(err, field) {
   exports: [
     CommonModule, FlexLayoutModule,
     MaterialCovalentModule, CardContentFormModule,
-    FormContainerModule,
+    FormContainerModule, SectionsContainerModule,
     CapitalizePipe, ReactiveFormsModule,
     FormlyModule, FormlyMaterialModule
   ]

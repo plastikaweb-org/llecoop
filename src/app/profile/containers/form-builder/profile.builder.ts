@@ -5,27 +5,21 @@ export const profileBuilder: FormlyFieldConfig[] = [ {
   fieldGroup: [
     {
       className: 'flex-1',
-      key: 'title',
+      key: 'name',
       type: 'input',
-      templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.TITLE'), required: false }
+      templateOptions: { type: 'text', placeholder: 'nom', required: true }
     },
     {
       className: 'flex-1',
-      key: 'normalizedTitle',
+      key: 'secondName',
       type: 'input',
-      templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.NORMALIZED'), required: false }
+      templateOptions: { type: 'text', placeholder: 'cognom(s)', required: true }
     },
     {
       className: 'flex-1',
-      key: 'xref',
+      key: 'email',
       type: 'input',
-      templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.XREF'), required: false }
-    },
-    {
-      className: 'flex-1',
-      key: 'contributorName',
-      type: 'input',
-      templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.CONTRIBUTOR'), required: false }
+      templateOptions: { type: 'text', placeholder: 'email', required: true }
     }
   ]
 },
@@ -34,36 +28,45 @@ export const profileBuilder: FormlyFieldConfig[] = [ {
     fieldGroup: [
       {
         className: 'flex-1',
-        key: 'contributorId',
+        key: 'address',
+        type: 'input',
+        templateOptions: { type: 'text', placeholder: 'adreça', required: true }
+      },
+      {
+        className: 'flex-1',
+        key: 'city',
         type: 'input',
         templateOptions: {
           type: 'text',
-          placeholder: this.translate.instant('WORKS.CONTRIBUTOR_ID'),
-          required: false
+          placeholder: 'ciutat / barri',
+          required: true
         }
       },
       {
         className: 'flex-1',
-        key: 'publisherName',
+        key: 'cp',
         type: 'input',
-        templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.PUBLISHER'), required: false }
+        templateOptions: { type: 'text', placeholder: 'CP', required: true }
       },
       {
         className: 'flex-1',
-        key: 'publisherId',
+        key: 'phone',
         type: 'input',
         templateOptions: {
           type: 'text',
-          placeholder: this.translate.instant('WORKS.PUBLISHER_ID'),
-          required: false
+          placeholder: 'telèfon',
+          required: true
         }
-      },
-      {
-        className: 'flex-1',
-        key: 'text',
-        type: 'input',
-        templateOptions: { type: 'text', placeholder: this.translate.instant('WORKS.TEXT'), required: false }
       }
     ]
+  },
+  {
+    fieldGroupClassName: 'display-flex',
+    fieldGroup: [
+      {
+        key: 'active',
+        type: 'checkbox',
+        templateOptions: { label: 'sòcia activa', description: 'habilita que pugui fer comandes', color: 'primary' }
+      } ]
   }
 ];

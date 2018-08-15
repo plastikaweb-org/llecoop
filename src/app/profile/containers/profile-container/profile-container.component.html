@@ -1,9 +1,7 @@
-<app-card-content-form *ngIf="!resetOk" [fields]="fields"
-                       [model]="model"
-                       [submitTitle]="'Enviar'"
-                       (submit)="onSubmit($event)">
-  <!-- login with form -->
-  <div otherAction class="mat-caption pad pad-top-none text-right">
-    <a [routerLink]="['../login']">Anar al login</a>
-  </div>
-</app-card-content-form>
+<app-sections-container [headerData]="header$ | async">
+  <app-card-content-form class="card-content" [fields]="fields"
+                         [model]="model$ | async"
+                         [submitTitle]="'Enviar'"
+                         (submit)="onSubmit($event)">
+  </app-card-content-form>
+</app-sections-container>

@@ -1,11 +1,12 @@
 @import 'theme';
 @import 'dark-theme';
 // GLOBALS (typography, variables, mixins...)
-@import '_colors';
-@import '_mixins';
-@import '_sizes';
+@import 'colors';
+@import 'mixins';
+@import 'sizes';
 // GENERAL STYLES
-@import '_general';
+@import 'flex';
+@import 'general';
 // COMPONENTS STYLES
-@import '_auth';
-@import '_toolbar';
+@import 'auth';
+@import 'toolbar';

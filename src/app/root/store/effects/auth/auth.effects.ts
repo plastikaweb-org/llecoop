@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Credentials } from '@llecoop';
 import { AuthService } from '@llecoop/services';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 
 import * as fromActivity from 'app/activity/store';
@@ -22,33 +22,31 @@ export class AuthEffects {
   ) {}
 
   @Effect()
-  getAuthentication$ = this.actions$
-    .ofType(fromActions.GET_AUTHENTICATION)
-    .pipe(
-      switchMap(() =>
-        this.authService
-          .isAuthenticated()
-          .pipe(
-            map((uid: string) => new fromActions.GetAuthenticationSuccess(uid)),
-            catchError(error => of(new fromActions.GetAuthenticationFail()))
-          )
-      )
-    );
+  getAuthentication$ = this.actions$.pipe(
+    ofType(fromActions.GET_AUTHENTICATION),
+    switchMap(() =>
+      this.authService
+        .isAuthenticated()
+        .pipe(
+          map((uid: string) => new fromActions.GetAuthenticationSuccess(uid)),
+          catchError(error => of(new fromActions.GetAuthenticationFail()))
+        )
+    )
+  );
 
   /**
    *  when authentication is successful
    * @type {Observable<void>}
    */
   @Effect({ dispatch: false })
-  getAuthenticationSuccess$ = this.actions$
-    .ofType(fromActions.GET_AUTHENTICATION_SUCCESS)
-    .pipe(
-      map((action: fromActions.GetAuthenticationSuccess) => action.payload),
-      map((uid: string) => {
-        // when auth get user data
-        this.store.dispatch(new fromActions.GetProfile(uid));
-        this.router.navigate([ '/' ]);
-      }));
+  getAuthenticationSuccess$ = this.actions$.pipe(
+    ofType(fromActions.GET_AUTHENTICATION_SUCCESS),
+    map((action: fromActions.GetAuthenticationSuccess) => action.payload),
+    map((uid: string) => {
+      // when auth get user data
+      this.store.dispatch(new fromActions.GetProfile(uid));
+      this.router.navigate([ '/' ]);
+    }));
 
   /**
    *  when authentication is fail
@@ -81,7 +79,8 @@ export class AuthEffects {
     // );
 
   @Effect()
-  login$ = this.actions$.ofType(fromActions.AUTHENTICATE).pipe(
+  login$ = this.actions$.pipe(
+    ofType(fromActions.AUTHENTICATE),
     map((action: fromActions.Authenticate) => action.payload),
     switchMap((credentials: Credentials) => {
       this.store.dispatch(new fromActivity.ShowLoading());
@@ -95,7 +94,8 @@ export class AuthEffects {
   );
 
   @Effect({ dispatch: false })
-  loginSuccess$ = this.actions$.ofType(fromActions.AUTHENTICATE_SUCCESS).pipe(
+  loginSuccess$ = this.actions$.pipe(
+    ofType(fromActions.AUTHENTICATE_SUCCESS),
     map(action => {
       this.store.dispatch(new fromActivity.HideLoading());
       this.store.dispatch(new fromActions.GetAuthentication());
@@ -103,17 +103,17 @@ export class AuthEffects {
   );
 
   @Effect()
-  errorsAuth$ = this.actions$
-    .ofType(fromActions.AUTHENTICATE_FAIL)
-    .pipe(
-      map(
-        (ac: fromActions.AuthenticateFail) =>
-          new fromActivity.ShowErrorMessage(ac.payload)
-      )
-    );
+  errorsAuth$ = this.actions$.pipe(
+    ofType(fromActions.AUTHENTICATE_FAIL),
+    map(
+      (ac: fromActions.AuthenticateFail) =>
+        new fromActivity.ShowErrorMessage(ac.payload)
+    )
+  );
 
   @Effect()
-  logout$ = this.actions$.ofType(fromActions.LOGOUT).pipe(
+  logout$ = this.actions$.pipe(
+    ofType(fromActions.LOGOUT),
     switchMap(() => {
       this.store.dispatch(new fromActivity.ShowLoading());
       return this.authService
@@ -130,7 +130,8 @@ export class AuthEffects {
    * @type {Observable<void>}
    */
   @Effect({ dispatch: false })
-  logoutSuccess$ = this.actions$.ofType(fromActions.LOGOUT_SUCCESS).pipe(
+  logoutSuccess$ = this.actions$.pipe(
+    ofType(fromActions.LOGOUT_SUCCESS),
     map(() => {
       this.router.navigate([ '/login' ]);
       this.store.dispatch(new fromActivity.HideLoading());

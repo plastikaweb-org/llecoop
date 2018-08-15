@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppConfig, CONFIG_TOKEN } from 'config/config';
 import { Theme } from '@llecoop';
@@ -20,7 +20,7 @@ export class AppSandbox extends BaseSandbox {
     super(rootStore);
 
     // Selectors:
-    this.theme$ = this.store.select(fromStore.getThemeSelected);
+    this.theme$ = this.store.pipe(select(fromStore.getThemeSelected));
     // Actions:
     this.rootStore.dispatch(new fromStore.GetAuthentication());
     this.rootStore.dispatch(new fromStore.LoadTheme());
