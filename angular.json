@@ -7,6 +7,8 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "prefix": "lcp",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -76,9 +78,6 @@
             ],
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [
-              "node_modules/hammerjs/hammer.js"
-            ],
             "styles": [
               "src/styles/theme.scss",
               "node_modules/@covalent/core/common/platform.scss",
@@ -119,9 +118,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
+            "tsConfig": "e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
@@ -133,11 +130,11 @@
   "defaultProject": "llecoop",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "lcp",
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "lcp"
     }
   },
   "cli": {
