@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CardContentFormComponent } from '@llecoop';
+import { CardContentFormComponent } from '@llecoop/components/card-content-form/card-content-form.component';
 import { AuthContainerComponent } from '../../../shared/containers/auth-container/auth-container.component';
 import { ForgotComponent } from './forgot.component';
 import { RouterModule } from '@angular/router';
