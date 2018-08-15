@@ -13,8 +13,6 @@ export class SectionsContainerComponent {
   options: FormlyFormOptions = {};
   form = new FormGroup({});
 
-  constructor() { }
-
   onSubmit(e) {
     e.stopPropagation();
     if (this.form.value) {

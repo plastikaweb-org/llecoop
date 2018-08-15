@@ -13,4 +13,5 @@ export class ProfileContainerComponent {
 
   constructor(protected sandbox: ProfileSandbox) { }
 
+  onSubmit(e) {}
 }
