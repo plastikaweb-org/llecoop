@@ -1,7 +1,15 @@
-<app-sections-container [headerData]="header$ | async">
+<app-sections-container [headerData]="header$ | async"
+                        [extraCardClasses]="!(header$ | async)?.active ? extraClasses : ''">
   <app-card-content-form class="card-content" [fields]="fields"
                          [model]="model$ | async"
                          [submitTitle]="'Enviar'"
+                         [disabled]="!(header$ | async)?.active"
                          (submit)="onSubmit($event)">
   </app-card-content-form>
+  <div class="card-header-actions" *ngIf="!(header$ | async)?.active" fxLayout="row" fxLayoutAlign="end center">
+    <small class="">desactivat</small>
+    <button mat-icon-button matTooltip="El teu compte està desactivat. Fica't en contacte amb l'administrador">
+      <mat-icon color="warn" aria-label="El teu compte està desactivat">power_off</mat-icon>
+    </button>
+  </div>
 </app-sections-container>

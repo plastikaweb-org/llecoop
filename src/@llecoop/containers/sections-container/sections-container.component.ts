@@ -9,6 +9,7 @@ import { FormlyFormOptions } from '@ngx-formly/core';
 })
 export class SectionsContainerComponent {
   @Input() headerData: { title: string, subTitle: string, img: string };
+  @Input() extraCardClasses: string[] = [];
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
   options: FormlyFormOptions = {};
   form = new FormGroup({});

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialCovalentModule } from '@llecoop';
 import { CardContentFormModule } from '@llecoop/components/card-content-form/card-content-form.module';
 import { SectionsContainerModule } from '@llecoop/containers/sections-container/sections-container.module';
 import { StoreModule } from '@ngrx/store';
@@ -13,7 +14,13 @@ describe('ProfileContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [ SectionsContainerModule, BrowserAnimationsModule, CardContentFormModule, StoreModule.forRoot({}) ],
+        imports: [
+          SectionsContainerModule,
+          BrowserAnimationsModule,
+          MaterialCovalentModule,
+          CardContentFormModule,
+          StoreModule.forRoot({})
+        ],
         declarations: [ ProfileContainerComponent ],
         providers: [ ProfileSandbox ]
       })

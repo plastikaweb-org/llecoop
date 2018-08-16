@@ -13,7 +13,7 @@
   <!-- buttons -->
   <mat-card-actions>
     <mat-toolbar color="primary" fxFlex fxLayout="column"
-                 fxLayoutAlign="center center">
+                 fxLayoutAlign="center center" *ngIf="!disabled">
       <button color="accent" mat-button type="submit" [disabled]="!form.valid">{{submitTitle}}</button>
     </mat-toolbar>
   </mat-card-actions>

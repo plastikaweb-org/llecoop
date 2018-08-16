@@ -3,7 +3,7 @@
 .theme-dark {
   $primary-dark: mat-palette($mat-deep-orange, 900, 500, 800);
   $accent-dark:  mat-palette($mat-blue-grey, A200, A100, A400);
-  $warn-dark:    mat-palette($mat-red);
+  $warn-dark:    mat-palette($mat-red, 800, 600, A100);
 
   $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
   @include angular-material-theme($theme-dark);
@@ -32,4 +32,11 @@
   .divider-vertical {
     background: mat-color($primary-dark, 900);
   }
+  .mat-card {
+    &.user-not-active {
+      color: mat-color($accent-dark, 100);
+      background: mat-color($accent-dark, 300) repeating-linear-gradient(45deg, mat-color($accent-dark, 400), mat-color($accent-dark, 400) 35px, mat-color($accent-dark, 300) 35px, mat-color($accent-dark, 300) 70px);
+    }
+  }
+
 }

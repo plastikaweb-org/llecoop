@@ -79,9 +79,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "styles": [
-              "src/styles/theme.scss",
               "node_modules/@covalent/core/common/platform.scss",
               "src/styles/main.scss"
+            ],
+            "scripts": [
+              "node_modules/hammerjs/hammer.js"
             ],
             "assets": [
               "src/assets",

@@ -59,14 +59,5 @@ export const profileBuilder: FormlyFieldConfig[] = [ {
         }
       }
     ]
-  },
-  {
-    fieldGroupClassName: 'display-flex',
-    fieldGroup: [
-      {
-        key: 'active',
-        type: 'checkbox',
-        templateOptions: { label: 'sòcia activa', description: 'habilita que pugui fer comandes', color: 'primary' }
-      } ]
   }
 ];
