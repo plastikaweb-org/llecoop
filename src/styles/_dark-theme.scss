@@ -32,11 +32,14 @@
   .divider-vertical {
     background: mat-color($primary-dark, 900);
   }
+  .user-not-active {
+    color: mat-color($warn-dark, 100);
+    background: mat-color($primary-dark, 800) repeating-linear-gradient(45deg, mat-color($primary-dark, 800), mat-color($primary-dark, 800) 5px, mat-color($primary-dark, 700) 5px, mat-color($primary-dark, 700) 10px);
+  }
   .mat-card {
     &.user-not-active {
       color: mat-color($accent-dark, 100);
       background: mat-color($accent-dark, 300) repeating-linear-gradient(45deg, mat-color($accent-dark, 400), mat-color($accent-dark, 400) 35px, mat-color($accent-dark, 300) 35px, mat-color($accent-dark, 300) 70px);
     }
   }
-
 }
