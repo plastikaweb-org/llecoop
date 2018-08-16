@@ -24,8 +24,8 @@ export const getEditableProfile = createSelector(
   getProfile,
   (profile: Profile) => {
     if (profile) {
-      const { name, secondName, city, phone, address, email, cp, active } = profile;
-      return <Partial<Profile>>{ name, secondName, city, phone, address, email, cp, active };
+      const { name, secondName, city, phone, address, email, cp } = profile;
+      return <Partial<Profile>>{ name, secondName, city, phone, address, email, cp };
     }
   }
 );
@@ -35,7 +35,7 @@ export const getHeaderCardProfile = createSelector(
   (profile: Profile) => {
     if (profile) {
       const { name, secondName, img, active, role } = profile;
-      return <Partial<Profile>>{ title: `${name} ${secondName}`, img, subTitle: Roles[ role ] };
+      return <Partial<Profile>>{ title: `${name} ${secondName}`, img, active, subTitle: Roles[ role ] };
     }
   }
 );

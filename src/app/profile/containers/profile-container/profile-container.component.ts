@@ -10,6 +10,7 @@ export class ProfileContainerComponent {
   fields: Array<FormlyFieldConfig> = this.sandbox.builder;
   model$ = this.sandbox.formProfile$;
   header$ = this.sandbox.headerProfile$;
+  extraClasses = ['user-not-active'];
 
   constructor(protected sandbox: ProfileSandbox) { }
 

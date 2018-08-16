@@ -1,9 +1,11 @@
-<mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+<mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push']" [ngClass]="extraCardClasses">
   <!-- toolbar header -->
   <mat-card-header>
     <img matCardAvatar class="size-72" [src]="headerData?.img" [alt]="headerData?.title" src="">
     <mat-card-title>{{headerData?.title}}</mat-card-title>
     <mat-card-subtitle>{{headerData?.subTitle}}</mat-card-subtitle>
+    <span fxFlex="row"></span>
+    <ng-content select=".card-header-actions"></ng-content>
   </mat-card-header>
   <!-- main card content on init -->
   <ng-content select=".card-content"></ng-content>

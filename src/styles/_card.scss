@@ -1,0 +1,21 @@
+@import 'theme';
+@import 'mixins';
+
+.mat-card {
+  .mat-card-header {
+    .card-header-actions {
+      padding: 0 24px 0 0;
+      .mat-icon-button {
+        @include mat-icon-size(50px);
+        .mat-icon {
+          @include mat-icon-size(42px);
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+  &.user-not-active {
+    color: mat-color($accent, 500);
+    background: mat-color($accent, 200) repeating-linear-gradient(45deg, mat-color($accent, 200), mat-color($accent, 200) 35px, mat-color($accent, 300) 35px, mat-color($accent, 300) 70px);
+  }
+}
