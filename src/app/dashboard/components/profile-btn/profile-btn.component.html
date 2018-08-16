@@ -1,8 +1,11 @@
 <div fxLayout="row" fxLayoutGap="5px"
-     fxLayoutAlign="space-around center"
-     class="toolbar-profile pad-left-xs">
+fxLayoutAlign="space-around center"
+class="toolbar-profile pad-left-xs" [ngClass]="!basicProfile.active ? 'user-not-active' : ''">
+  <button *ngIf="!basicProfile.active" mat-icon-button matTooltip="El teu compte està desactivat. Fica't en contacte amb l'administrador">
+    <mat-icon aria-label="El teu compte està desactivat">power_off</mat-icon>
+  </button>
   <img *ngIf="basicProfile.img" [alt]="basicProfile.fullName"
-       mat-card-avatar class="size-28 avatar-border" [src]="basicProfile.img">
+  mat-card-avatar class="size-28 avatar-border" [src]="basicProfile.img">
   <div class="profile-salutation">Hola {{basicProfile.name }}!</div>
   <div class="divider-vertical"></div>
   <button mat-icon-button [matMenuTriggerFor]="profileMenu" class="push-none">

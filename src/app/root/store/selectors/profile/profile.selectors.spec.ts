@@ -51,7 +51,8 @@ describe('Profile selectors', () => {
     expect(result).toEqual({
       name: ProfileMock.name,
       img: ProfileMock.img,
-      fullName: `${ProfileMock.name} ${ProfileMock.secondName}`
+      fullName: `${ProfileMock.name} ${ProfileMock.secondName}`,
+      active: ProfileMock.active
     });
 
     store.dispatch(new fromActions.GetProfileFail('error'));

@@ -1,0 +1,7 @@
+@import 'theme';
+@import 'mixins';
+
+.user-not-active {
+  color: mat-color($primary, 100);
+  background: mat-color($primary, 600) repeating-linear-gradient(45deg, mat-color($primary, 600), mat-color($primary, 600) 5px, mat-color($primary, 700) 5px, mat-color($primary, 700) 10px);
+}

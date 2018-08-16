@@ -14,8 +14,8 @@ export const getBasicProfile = createSelector(
   getProfile,
   (profile: Profile) => {
     if (profile) {
-      const { name, secondName, img } = profile;
-      return <Partial<Profile>>{ name, fullName: `${name} ${secondName}`, img };
+      const { name, secondName, img, active } = profile;
+      return <Partial<Profile>>{ name, fullName: `${name} ${secondName}`, img, active };
     }
   }
 );
