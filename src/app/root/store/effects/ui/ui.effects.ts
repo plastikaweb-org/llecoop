@@ -8,34 +8,22 @@ import * as fromActions from '../../actions';
 
 @Injectable()
 export class UiEffects {
-  constructor(
-    private actions$: Actions,
-    private localstorage: LocalstorageService
-  ) {}
 
-  /**
-   * load the theme style from ls if present
-   * @type {Observable<void>}
-   */
   @Effect()
   loadTheme$ = this.actions$.pipe(
     ofType(fromActions.LOAD_THEME),
     map(() => this.localstorage.getItem('mat-theme')),
-    map((theme: Theme | undefined) => new fromActions.ChangeTheme(theme))
+    map((theme: Theme) => new fromActions.ChangeTheme(theme))
   );
-
-  /**
-   * store the theme style to load it next time from ls
-   * @type {Observable<void>}
-   */
   @Effect({ dispatch: false })
   changeTheme$ = this.actions$.pipe(
     ofType(fromActions.CHANGE_THEME),
     map((action: fromActions.ChangeTheme) => action.payload),
-    map((theme: Theme) => {
-      if (theme) {
-        this.localstorage.setItem('mat-theme', theme);
-      }
-    })
+    map((theme: Theme) => this.localstorage.setItem('mat-theme', theme))
   );
+
+  constructor(
+    private actions$: Actions,
+    private localstorage: LocalstorageService
+  ) {}
 }
