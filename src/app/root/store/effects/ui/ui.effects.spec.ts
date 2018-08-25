@@ -1,16 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { Theme } from '@llecoop';
 import { LocalStorageMock } from '@llecoop/mocks';
-
+import { getActions, TestActions } from '@llecoop/mocks/effect-actions.mock';
 import { LocalstorageService, WindowRefService } from '@llecoop/services';
-import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { StoreModule } from '@ngrx/store';
+import { Actions, EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
 
 import { cold, hot } from 'jasmine-marbles';
-import { Observable, of } from 'rxjs';
 import * as fromActions from '../../actions';
-import { reducers } from '../../reducers';
+import * as fromReducers from '../../reducers';
 import * as fromEffects from './ui.effects';
 
 export class ThemeMock extends LocalStorageMock {
@@ -18,25 +16,31 @@ export class ThemeMock extends LocalStorageMock {
 }
 
 describe('Auth Effects', () => {
-  let actions: Observable<any> = of({});
+  let actions$: TestActions;
   let effects: fromEffects.UiEffects;
   let metadata: EffectsMetadata<fromEffects.UiEffects>;
+  let localstorageService: LocalstorageService;
+  let store: Store<fromReducers.RootState>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot({
-          auth: reducers.auth
+          ui: fromReducers.reducers.ui
         })
       ],
       providers: [
-        provideMockActions(() => actions),
+        { provide: Actions, useFactory: getActions },
         { provide: LocalstorageService, useClass: ThemeMock },
         WindowRefService,
         fromEffects.UiEffects
       ]
     });
+    actions$ = TestBed.get(Actions);
     effects = TestBed.get(fromEffects.UiEffects);
+    localstorageService = TestBed.get(LocalstorageService);
+    store = TestBed.get(Store);
+    spyOn(store, 'dispatch').and.callThrough();
     metadata = getEffectsMetadata(effects);
   });
 
@@ -45,7 +49,7 @@ describe('Auth Effects', () => {
       const payload = Theme.Dark;
       const action = new fromActions.LoadTheme();
       const completion = new fromActions.ChangeTheme(payload);
-      actions = hot('-a', { a: action });
+      actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
 
       expect(effects.loadTheme$).toBeObservable(expected);
@@ -57,6 +61,12 @@ describe('Auth Effects', () => {
   });
 
   describe('change theme', () => {
+    it('should change theme', () => {
+      const payload = Theme.Dark;
+      store.dispatch(new fromActions.ChangeTheme(payload));
+      expect(localstorageService.getItem('mat-theme')).toEqual((payload));
+    });
+
     it('should register loadTheme$ that dispatches no action', () => {
       expect(metadata.changeTheme$).toEqual({ dispatch: false });
     });
