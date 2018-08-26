@@ -1,5 +1,5 @@
 import * as fromUi from '../../actions';
-import * as fromState from '../../state';
+import * as fromState from '../../states';
 
 export function reducer(state = fromState.initialUiState,
                         action: fromUi.UiActions): fromState.UiState {

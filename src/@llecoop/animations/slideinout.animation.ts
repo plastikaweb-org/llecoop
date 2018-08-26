@@ -3,7 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export const slideInOutAnimation =
   // trigger name for attaching this animation to an element using the [@triggerName] syntax
   trigger('slideInOutAnimation', [
-    // end state styles for route container (host)
+    // end states styles for route container (host)
     state(
       '*',
       style({

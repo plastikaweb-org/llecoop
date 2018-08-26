@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, Params, RouterStateSnapshot } from '@angular/router';
 import * as fromRouter from '@ngrx/router-store';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
-import * as fromState from '../state';
+import * as fromState from '../states';
 import * as fromAuth from './auth/auth.reducer';
 import * as fromUi from './ui/ui.reducer';
 import * as fromProfile from './profile/profile.reducer';
@@ -28,7 +28,7 @@ export const reducers: ActionReducerMap<RootState> = {
 };
 
 // Feature selectors
-export const getRouterState = createFeatureSelector<fromRouter.RouterReducerState<RouterStateUrl>>('router');
+export const getRouterFeatureState = createFeatureSelector<fromRouter.RouterReducerState<RouterStateUrl>>('router');
 export const getAuthState = createFeatureSelector<fromState.AuthState>('auth');
 export const getUiState = createFeatureSelector<fromState.UiState>('ui');
 export const getProfileState = createFeatureSelector<fromState.ProfileState>('profile');

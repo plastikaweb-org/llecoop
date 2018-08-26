@@ -3,7 +3,7 @@ import * as fromState from '../../state/index';
 import { reducer } from './progress-bar.reducer';
 
 describe('Progress Bar Reducer', () => {
-  it('should return the default state', () => {
+  it('should return the default states', () => {
     const action = {} as any;
     const newState = reducer(undefined, action);
     expect(newState).toBe(fromState.initialProgressBarState);
