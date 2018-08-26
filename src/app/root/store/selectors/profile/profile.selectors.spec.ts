@@ -4,7 +4,7 @@ import { select, Store, StoreModule } from '@ngrx/store';
 
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
-import * as fromState from '../../state';
+import * as fromState from '../../states';
 import * as fromSelectors from './profile.selectors';
 
 describe('Profile selectors', () => {

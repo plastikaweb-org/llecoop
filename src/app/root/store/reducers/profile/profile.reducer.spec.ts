@@ -1,12 +1,12 @@
 import { Profile } from '@llecoop';
 import { ProfileMock } from '@llecoop/mocks';
 import * as fromActions from '../../actions';
-import * as fromState from '../../state';
+import * as fromState from '../../states';
 import { reducer } from './profile.reducer';
 
 describe('Profile Reducer', () => {
   describe('Undefined action', () => {
-    it('should return the default state', () => {
+    it('should return the default states', () => {
       const action = {} as any;
       const newState = reducer(undefined, action);
       expect(newState).toBe(fromState.initialProfileState);

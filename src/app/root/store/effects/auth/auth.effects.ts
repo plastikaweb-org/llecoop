@@ -10,7 +10,7 @@ import * as fromActivity from 'app/activity/store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import * as fromActions from '../../actions';
-import * as fromState from '../../state';
+import * as fromState from '../../states';
 
 @Injectable()
 export class AuthEffects {
