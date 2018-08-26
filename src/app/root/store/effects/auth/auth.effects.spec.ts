@@ -47,7 +47,7 @@ describe('Auth Effects', () => {
   });
 
   describe('get authentication', () => {
-    xit('should return authentication state', () => {
+    xit('should return authentication states', () => {
       const action = new fromActions.GetAuthentication();
       const completion = new fromActions.GetAuthenticationSuccess('____');
       actions = hot('-a', { a: action });

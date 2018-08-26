@@ -1,5 +1,5 @@
 import * as fromActions from '../../actions';
-import * as fromState from '../../state';
+import * as fromState from '../../states';
 
 export function reducer(state = fromState.initialAuthState,
                         action: fromActions.AuthActions): fromState.AuthState {

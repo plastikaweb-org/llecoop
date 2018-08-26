@@ -10,7 +10,7 @@ const description = {
 };
 
 describe('Error Reducer', () => {
-  it('should return the default state', () => {
+  it('should return the default states', () => {
     const action = {} as any;
     const newState = reducer(undefined, action);
     expect(newState).toBe(fromState.initialErrorState);
