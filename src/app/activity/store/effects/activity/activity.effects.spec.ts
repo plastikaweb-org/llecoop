@@ -1,17 +1,14 @@
-import { APP_BASE_HREF } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
-import { EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
-import { provideMockActions } from '@ngrx/effects/testing';
+import { getActions, TestActions } from '@llecoop/mocks/effect-actions.mock';
+import { Actions, EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { cold, hot } from 'jasmine-marbles';
 import * as fromActions from '../../actions';
-import { reducers } from '../../index';
 import * as fromReducers from '../../reducers';
 import * as fromEffects from './activity.effects';
 
 describe('Activity Effects', () => {
-  const actions$: Observable<any> = of({});
+  let actions$: TestActions;
   let effects: fromEffects.ActivityEffects;
   let metadata: EffectsMetadata<fromEffects.ActivityEffects>;
   let store: Store<fromReducers.ActivityState>;
@@ -19,44 +16,45 @@ describe('Activity Effects', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        StoreModule.forRoot(reducers, {
-          initialState: {
-            snackBar: { visible: false },
-            progressBar: { visible: false },
-            error: { visible: false },
-            warning: { visible: false },
-            loading: { visible: false }
-          }
-        }),
-        RouterModule.forRoot([])
+        StoreModule.forRoot({
+          ...fromReducers.reducers
+        })
       ],
       providers: [
-        provideMockActions(() => actions$),
-        fromEffects.ActivityEffects,
-        { provide: APP_BASE_HREF, useValue: '/' }
+        { provide: Actions, useFactory: getActions },
+        fromEffects.ActivityEffects
       ]
     });
-    store = TestBed.get(Store);
+    actions$ = TestBed.get(Actions);
     effects = TestBed.get(fromEffects.ActivityEffects);
+    store = TestBed.get(Store);
     metadata = getEffectsMetadata(effects);
-    spyOn(store, 'dispatch').and.callThrough();
   });
 
   describe('on route go', () => {
-    it('should register routeGo$ that does not dispatch an action', () => {
-      expect(metadata.routeGo$).toEqual({ dispatch: false });
+    it('should register routeGo$ that dispatches an action', () => {
+      expect(metadata.routeGo$).toEqual({ dispatch: true });
     });
 
-    xit('should dispatch the warning action instead the error action', () => {
-      expect(store.dispatch.length).toEqual(1);
-      console.log(store.dispatch.length);
-      expect(store.dispatch).toEqual(new fromActions.ResetWarningMessage());
+    it('should dispatch the warning action instead the error action', () => {
+      // expect(store.dispatch.length).toEqual(1);
+      // console.log(store.dispatch.length);
     });
   });
 
   describe('show error message', () => {
-    it('should register showErrorMessage$ that does not dispatch an action', () => {
-      expect(metadata.showErrorMessage$).toEqual({ dispatch: false });
+    it('hide loading indicator if message is present', () => {
+
+      const action = new fromActions.ShowErrorMessage('error');
+      const completion = new fromActions.HideLoading();
+      actions$.stream = hot('-a', { a: action });
+      const expected = cold('-b', { b: completion });
+
+      expect(effects.showErrorMessage$).toBeObservable(expected);
+    });
+
+    it('should register showErrorMessage$ that dispatches an action', () => {
+      expect(metadata.showErrorMessage$).toEqual({ dispatch: true });
     });
   });
 
