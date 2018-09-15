@@ -1,39 +1,27 @@
 import { Injectable } from '@angular/core';
+import { AlertDescription } from '@llecoop';
 import { BaseSandbox } from '@llecoop/base.sandbox';
-import { WarningTypes } from '@llecoop';
 import { select, Store } from '@ngrx/store';
-
-import * as fromStore from '../store/index';
+import { Observable } from 'rxjs';
+import * as fromActivity from '../store';
 
 @Injectable()
 export class ActivitySandbox extends BaseSandbox {
-  // selectors
-  snackBarVisible$ = this.store.pipe(select(fromStore.getSnackBarVisible));
-  snackBarConfiguration$ = this.store.pipe(select(fromStore.getSnackBarConfiguration));
-  progressBarVisible$ = this.store.pipe(select(fromStore.getLoadingStateVisibility));
-  errorVisibility$ = this.store.pipe(select(fromStore.getErrorMessageVisible));
-  errorDescription$ = this.store.pipe(select(fromStore.getErrorMessageDescription));
-  warningVisibility$ = this.store.pipe(select(fromStore.getWarningMessageVisible));
-  warningDescription$ = this.store.pipe(select(fromStore.getWarningMessageDescription));
+  snackBarVisible$ = this.store.pipe(select(fromActivity.getSnackBarVisible));
+  snackBarConfiguration$ = this.store.pipe(select(fromActivity.getSnackBarConfiguration));
+  progressBarVisible$ = this.store.pipe(select(fromActivity.getLoadingStateVisibility));
+  alertDescription$: Observable<AlertDescription> = this.store.pipe(select(fromActivity.getAlertDescription));
+  alertVisibility$: Observable<boolean> = this.store.pipe(select(fromActivity.getAlertVisibility));
 
-  constructor(protected appState: Store<fromStore.ActivityState>) {
+  constructor(protected appState: Store<fromActivity.ActivityState>) {
     super(appState);
   }
 
-  // dispatchers
   resetSnackBar() {
-    this.store.dispatch(new fromStore.ResetSnackBar());
+    this.store.dispatch(new fromActivity.ResetSnackBar());
   }
 
-  resetAlertMessage(type: WarningTypes) {
-    let action;
-    switch (type) {
-      case WarningTypes.Error:
-        action = fromStore.ResetErrorMessage;
-        break;
-      case WarningTypes.Warning:
-        action = fromStore.ResetWarningMessage;
-    }
-    this.store.dispatch(new action());
+  resetAlert() {
+    this.store.dispatch(new fromActivity.ResetAlert());
   }
 }

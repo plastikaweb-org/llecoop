@@ -12,9 +12,13 @@ export function reducer(state = fromState.initialAuthState,
     case fromActions.GET_AUTHENTICATION_SUCCESS: {
       return { ...state, authenticated: true, uid: action.payload };
     }
+    case fromActions.FORGOT_SUCCESS: {
+      return { ...state, recoverPassSent: true };
+    }
   }
   return state;
 }
 
 export const getIsAuthenticatedState = (state: fromState.AuthState) =>
   state.authenticated;
+export const getRecoverPassSentState = (state: fromState.AuthState) => state.recoverPassSent;

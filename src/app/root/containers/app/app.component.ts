@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
 
-import { routeAnimation, Theme, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '@llecoop';
+import { routeAnimation, Theme } from '@llecoop';
+import { Observable } from 'rxjs';
 import { AppSandbox } from '../../sandbox/app.sandbox';
 
 @Component({
@@ -11,8 +11,8 @@ import { AppSandbox } from '../../sandbox/app.sandbox';
     <div [class]="theme$ | async">
       <!-- loading bar -->
       <app-progress-bar></app-progress-bar>
-      <!-- warning alert -->
-      <app-alert [type]="warningType"></app-alert>
+      <!-- alert -->
+      <app-alert></app-alert>
       <!-- router outlet -->
       <div [@routeAnimation]="getRouterState(o)">
         <router-outlet #o="outlet"></router-outlet>
@@ -22,7 +22,6 @@ import { AppSandbox } from '../../sandbox/app.sandbox';
 })
 export class AppComponent {
   theme$: Observable<Theme> = this.sandBox.theme$;
-  warningType: WarningTypeConfig = WarningTypesConfigList[ WarningTypes.Error ];
 
   constructor(private sandBox: AppSandbox) {}
 

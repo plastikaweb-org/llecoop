@@ -1,6 +1,6 @@
-import { Warning } from './warning';
+import { Alert } from './alert';
 
-export interface ServerError extends Warning {
+export interface ServerError extends Alert {
   code?: any;
   status?: any;
 }
