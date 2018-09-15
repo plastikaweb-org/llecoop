@@ -93,22 +93,6 @@ describe('Auth Effects', () => {
     });
   });
 
-  describe('auth error', () => {
-    const error = { message: 'Error' };
-    it('should return an error', () => {
-      const action = new fromActions.AuthenticateFail(error);
-      const completion = new fromActivity.ShowErrorMessage(error);
-      actions = hot('-a', { a: action });
-      const expected = cold('-b', { b: completion });
-
-      expect(effects.errorsAuth$).toBeObservable(expected);
-    });
-
-    it('should register errorsAuth$ that dispatches an action', () => {
-      expect(metadata.errorsAuth$).toEqual({ dispatch: true });
-    });
-  });
-
   describe('logout', () => {
     xit('should return a logout success', () => {
       const action = new fromActions.Logout();

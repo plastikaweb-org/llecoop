@@ -1,4 +1,3 @@
-import { Validators } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export const resetBuilder: FormlyFieldConfig[] = [

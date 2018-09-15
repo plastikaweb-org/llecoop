@@ -1,0 +1,9 @@
+<div *ngIf="visible$ | async" @toggleAnimation>
+  <td-message *ngIf="description$ | async as description" [label]="description.content.annexMessage"
+              [sublabel]="description.content.message" [color]="getAlertType(description.type).color"
+              [icon]="getAlertType(description.type).icon">
+    <button td-message-actions mat-icon-button (click)="close()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </td-message>
+</div>

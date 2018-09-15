@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Credentials } from '@llecoop';
+import { Credentials, User } from '@llecoop';
 import { AuthService } from '@llecoop/services';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
@@ -14,13 +14,6 @@ import * as fromState from '../../states';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private actions$: Actions,
-    private authService: AuthService,
-    private store: Store<fromState.AuthState>,
-    private router: Router
-  ) {}
-
   @Effect()
   getAuthentication$ = this.actions$.pipe(
     ofType(fromActions.GET_AUTHENTICATION),
@@ -34,10 +27,6 @@ export class AuthEffects {
     )
   );
 
-  /**
-   *  when authentication is successful
-   * @type {Observable<void>}
-   */
   @Effect({ dispatch: false })
   getAuthenticationSuccess$ = this.actions$.pipe(
     ofType(fromActions.GET_AUTHENTICATION_SUCCESS),
@@ -47,36 +36,6 @@ export class AuthEffects {
       this.store.dispatch(new fromActions.GetProfile(uid));
       this.router.navigate([ '/' ]);
     }));
-
-  /**
-   *  when authentication is fail
-   * @type {Observable<void>}
-   */
-  // @Effect({ dispatch: false })
-  // getAuthenticationFail$ = this.actions$
-  //   .ofType(fromActions.GET_AUTHENTICATION_FAIL)
-  //   .pipe(
-  //     map(() => this.router.navigate(['/login']))
-  //   );
-
-  /**
-   * force on any route change to check for authentitcation
-   * if it is not, redirect to login page
-   * with is-auth guard would be sufficient
-   * but in this way it is faster
-   * (prevents to seeing for sec the home page)
-   * @type {Observable<void>}
-   */
-    // @Effect({ dispatch: false })
-    // routeGo$ = this.actions$.ofType(fromRouter.ROUTER_NAVIGATION).pipe(
-    //   withLatestFrom(this.store.select(fromSelectors.getIsAuthenticated)),
-    //   first(),
-    //   map(([router, authenticated]) => {
-    //     if (!authenticated) {
-    //       this.router.navigate(['/login']);
-    //     }
-    //   })
-    // );
 
   @Effect()
   login$ = this.actions$.pipe(
@@ -103,15 +62,6 @@ export class AuthEffects {
   );
 
   @Effect()
-  errorsAuth$ = this.actions$.pipe(
-    ofType(fromActions.AUTHENTICATE_FAIL),
-    map(
-      (ac: fromActions.AuthenticateFail) =>
-        new fromActivity.ShowErrorMessage(ac.payload)
-    )
-  );
-
-  @Effect()
   logout$ = this.actions$.pipe(
     ofType(fromActions.LOGOUT),
     switchMap(() => {
@@ -119,16 +69,12 @@ export class AuthEffects {
       return this.authService
         .logout()
         .pipe(
-          map((response: any) => new fromActions.LogoutSuccess()),
+          map(() => new fromActions.LogoutSuccess()),
           catchError(error => of(new fromActions.LogoutFail(error)))
         );
     })
   );
 
-  /**
-   *  when authentication is fail
-   * @type {Observable<void>}
-   */
   @Effect({ dispatch: false })
   logoutSuccess$ = this.actions$.pipe(
     ofType(fromActions.LOGOUT_SUCCESS),
@@ -137,4 +83,23 @@ export class AuthEffects {
       this.store.dispatch(new fromActivity.HideLoading());
     })
   );
+
+  @Effect()
+  forgotPassword$ = this.actions$.pipe(
+    ofType(fromActions.FORGOT),
+    map((action: fromActions.Forgot) => action.payload),
+    switchMap((email: string) => {
+      return this.authService.resetPassword(email).pipe(
+        map(() => new fromActions.ForgotSuccess()),
+        catchError(error => of(new fromActions.ForgotFail(error)))
+      );
+    })
+  );
+
+  constructor(
+    private actions$: Actions,
+    private authService: AuthService,
+    private store: Store<fromState.AuthState>,
+    private router: Router
+  ) {}
 }

@@ -2,7 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { getActions, TestActions } from '@llecoop/mocks/effect-actions.mock';
 import { Actions, EffectsMetadata, getEffectsMetadata } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
+import * as fromRoot from 'app/root/store';
 import { cold, hot } from 'jasmine-marbles';
+import { of } from 'rxjs';
 import * as fromActions from '../../actions';
 import * as fromReducers from '../../reducers';
 import * as fromEffects from './activity.effects';
@@ -28,6 +30,8 @@ describe('Activity Effects', () => {
     actions$ = TestBed.get(Actions);
     effects = TestBed.get(fromEffects.ActivityEffects);
     store = TestBed.get(Store);
+    spyOn(store, 'dispatch').and.callThrough();
+    spyOn(store, 'select').and.returnValue(of(true));
     metadata = getEffectsMetadata(effects);
   });
 
@@ -36,16 +40,20 @@ describe('Activity Effects', () => {
       expect(metadata.routeGo$).toEqual({ dispatch: true });
     });
 
-    it('should dispatch the warning action instead the error action', () => {
-      // expect(store.dispatch.length).toEqual(1);
-      // console.log(store.dispatch.length);
+    xit('should dispatch the alert action instead the error action', () => {
+      const action = new fromRoot.Go({ path: [ '/' ] });
+      const completion = new fromActions.ResetAlert();
+      actions$.stream = hot('-a', { a: action });
+      const expected = cold('-b', { b: completion });
+
+      expect(effects.routeGo$).toBeObservable(expected);
     });
   });
 
   describe('show error message', () => {
     it('hide loading indicator if message is present', () => {
 
-      const action = new fromActions.ShowErrorMessage('error');
+      const action = new fromActions.ShowAlert(null);
       const completion = new fromActions.HideLoading();
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
