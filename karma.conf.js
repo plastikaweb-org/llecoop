@@ -19,9 +19,9 @@ module.exports = function(config) {
       dir: require('path').join(__dirname, 'coverage'), reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true,
       thresholds: {
-        statements: 87,
+        statements: 86,
         lines: 87,
-        branches: 68,
+        branches: 64,
         functions: 70
       }
     },
