@@ -1,52 +1,54 @@
 import { Injectable } from '@angular/core';
+import { AlertTypes } from '@llecoop';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as fromRouter from '@ngrx/router-store';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import * as fromRootActions from 'app/root/store/actions';
+import { map } from 'rxjs/operators';
 
 import * as fromActions from '../../actions';
-import { ActivityState } from '../../reducers';
-import * as fromSelectors from '../../selectors';
+import { showErrorActions, showErrorTypes } from './show-alert';
 
 @Injectable()
 export class ActivityEffects {
-  constructor(private actions$: Actions, private store: Store<ActivityState>) {}
-
-  /**
-   * on change route, if any alert message is visible, reset it
-   * @type {Observable<any>}
-   */
-  @Effect({ dispatch: false })
+  @Effect()
   routeGo$ = this.actions$.pipe(
     ofType(fromRouter.ROUTER_NAVIGATION),
-    withLatestFrom(
-      this.store.pipe(select(fromSelectors.getErrorMessageVisible)),
-      this.store.pipe(select(fromSelectors.getWarningMessageVisible))
-    ),
-    map(([ router, visibleError, visibleWarning ]) => {
-      if (visibleError) {
-        this.store.dispatch(new fromActions.ResetErrorMessage());
+    map(() => new fromActions.ResetAlert())
+  );
+
+  @Effect()
+  showErrorMessage$ = this.actions$.pipe(
+    ofType(fromActions.SHOW_ALERT),
+    map(() => new fromActions.HideLoading())
+  );
+
+  @Effect()
+  showAlert$ = this.actions$.pipe(
+    ofType<showErrorTypes>(...showErrorActions),
+    map(action => {
+      const message = action.payload;
+      let annexMessage = '';
+      const type = AlertTypes.Error;
+      switch (action.type) {
+        case fromRootActions.AUTHENTICATE_FAIL:
+          annexMessage = 'Revisa les teves dades';
+          break;
+        case fromRootActions.LOGOUT_FAIL:
+          annexMessage = 'Torna a provar-ho';
+          break;
+        case fromRootActions.GET_PROFILE_FAIL:
+          annexMessage = 'Error recuperant les teves dades';
+          break;
+        case fromRootActions.FORGOT_FAIL:
+          annexMessage = 'Error intentant regenerar una nova clau';
+          break;
       }
-      if (visibleWarning) {
-        this.store.dispatch(new fromActions.ResetWarningMessage());
-      }
+      return new fromActions.ShowAlert({
+        content: { message, annexMessage },
+        type
+      });
     })
   );
 
-  /**
-   * prevent if alert is shown, the visibility of progress bar
-   * bug when on first load, there is no api connection
-   * @type {Observable<any[]>}
-   */
-  @Effect({ dispatch: false })
-  showErrorMessage$ = this.actions$.pipe(
-    ofType(fromActions.SHOW_ERROR_MESSAGE, fromActions.SHOW_WARNING_MESSAGE),
-    withLatestFrom(this.store.pipe(select(fromSelectors.getLoadingStateVisibility))),
-    map(([ router, visible ]) => {
-      if (visible) {
-        this.store.dispatch(new fromActions.HideLoading());
-      }
-    })
-  );
+  constructor(private actions$: Actions) {}
 }

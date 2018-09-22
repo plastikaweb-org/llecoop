@@ -1,11 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@llecoop/services';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Subscription } from 'rxjs';
 import { pluck, switchMap } from 'rxjs/operators';
-import { AuthService } from '@llecoop/services';
-
-import { WarningTypes, WarningTypesConfigList } from '@llecoop';
 import { ResetSandbox } from '../../sandbox/reset.sandbox';
 
 @Component({
@@ -39,7 +37,6 @@ export class ResetComponent implements OnInit, OnDestroy {
   resetOk: boolean;
   email: string;
   model = '' as String;
-  type = WarningTypesConfigList[ WarningTypes.Error ];
   resetSubscription: Subscription;
   emailSubscription: Subscription;
 
@@ -60,8 +57,7 @@ export class ResetComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe(
-        (email: string) => (this.email = email),
-        err => this.sandBox.showError(err)
+        (email: string) => (this.email = email)
       );
   }
 
@@ -75,8 +71,7 @@ export class ResetComponent implements OnInit, OnDestroy {
     this.resetSubscription = this.authService
       .confirmPasswordReset(this.sandBox.oobCode, this.sandBox.pass)
       .subscribe(
-        () => (this.resetOk = true),
-        err => this.sandBox.showError(err)
+        () => (this.resetOk = true)
       );
   }
 }

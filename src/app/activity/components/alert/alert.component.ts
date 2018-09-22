@@ -1,45 +1,26 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AlertDescription, AlertTypes, AlertTypesConfigList, toggleAnimation } from '@llecoop';
 import { Observable } from 'rxjs';
-import { ServerError, toggleAnimation, WarningTypeConfig, WarningTypes, WarningTypesConfigList } from '@llecoop';
 
 import { ActivitySandbox } from '../../sandbox/activity.sandbox';
 
 @Component({
   selector: 'app-alert',
-  template: `
-    <div *ngIf="visible$ | async" @toggleAnimation>
-      <td-message [label]="(alert$ | async)?.annexMessage"
-                  [sublabel]="(alert$ | async)?.message" [color]="type.color" [icon]="type.icon">
-        <button td-message-actions mat-icon-button (click)="close()">
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </td-message>
-    </div>
-  `,
+  templateUrl: './alert.component.html',
   animations: [ toggleAnimation ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AlertComponent implements OnInit {
-  visible$: Observable<boolean>;
-  alert$: Observable<ServerError>;
-  @Input() type: WarningTypeConfig = WarningTypesConfigList[ WarningTypes.Error ];
+export class AlertComponent {
+  visible$: Observable<boolean> = this.sandbox.alertVisibility$;
+  description$: Observable<AlertDescription> = this.sandbox.alertDescription$;
 
   constructor(private sandbox: ActivitySandbox) {}
 
-  ngOnInit() {
-    switch (this.type.type) {
-      case WarningTypes.Error:
-        this.visible$ = this.sandbox.errorVisibility$;
-        this.alert$ = this.sandbox.errorDescription$;
-        break;
-      case WarningTypes.Warning:
-        this.visible$ = this.sandbox.warningVisibility$;
-        this.alert$ = this.sandbox.warningDescription$;
-        break;
-    }
+  close() {
+    this.sandbox.resetAlert();
   }
 
-  close() {
-    this.sandbox.resetAlertMessage(this.type.type);
+  getAlertType(type: AlertTypes) {
+    return AlertTypesConfigList[ type ];
   }
 }
