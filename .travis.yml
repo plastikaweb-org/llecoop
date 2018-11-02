@@ -22,6 +22,8 @@ before_install:
   - sudo apt-get install -y -qq yarn
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
+install:
+  - wget https://yarnpkg.com/latest.tar.gz && tar -xf latest.tar.gz && dist/bin/yarn
   - yarn global add codecov -g
   - yarn global add firebase-tools
   - yarn global add @angular/cli
