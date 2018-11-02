@@ -70,12 +70,17 @@ Build with AOT and build-optimizer `flags`.
 ```sh
 yarn test
 ```
-To execute the unit tests via [Karma](https://karma-runner.github.io).
+To execute the unit tests via [Jest](https://jestjs.io/).
 
 ```sh
-yarn test:single
+yarn test:coverage
 ```
-To execute the unit tests once, not in `watch` mode.
+To execute the unit tests with coverage report.
+
+```sh
+yarn test:watch
+```
+To execute the unit tests in watch for changes mode.
 
 ```sh
 yarn e2e
@@ -91,11 +96,6 @@ To execute the code lint via tslint.
 yarn reinstall
 ```
 Reinstall dependencies.
-
-```sh
-yarn compodoc
-```
-To install documentation via [Compodoc](https://github.com/compodoc/compodoc).
 
 ## Further help
 

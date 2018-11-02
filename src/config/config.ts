@@ -16,7 +16,7 @@ export const config: AppConfig = {
     dev: {},
     production: {}
   },
-  product: 'llecoop',
+  product: '@llecoop',
   owner: 'El Llevat',
   ownerLink: 'http://www.llevat.org',
   slogan: 'Eina Cooperativa',
