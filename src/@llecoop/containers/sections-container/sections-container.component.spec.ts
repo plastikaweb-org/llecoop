@@ -24,7 +24,6 @@ describe('SectionsContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SectionsContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

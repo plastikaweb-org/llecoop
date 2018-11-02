@@ -24,7 +24,7 @@ export class AppSandbox extends BaseSandbox {
 
     // Register icons:
     this.iconRegistry
-      .addSvgIcon('llecoop', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/client-logo.svg'));
+      .addSvgIcon('@llecoop', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/client-logo.svg'));
 
   }
 }

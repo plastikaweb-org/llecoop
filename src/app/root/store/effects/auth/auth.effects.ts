@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Credentials, User } from '@llecoop';
+import { Credentials } from '@llecoop';
 import { AuthService } from '@llecoop/services';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';

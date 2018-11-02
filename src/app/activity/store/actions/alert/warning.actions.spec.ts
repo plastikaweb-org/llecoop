@@ -11,14 +11,14 @@ describe('Check Alert Actions', () => {
       }
     };
     const action = new fromActions.ShowAlert(payload);
-    expect({ ...action }).toEqual({
+    expect(action).toEqual({
       type: fromActions.SHOW_ALERT,
       payload
     });
   });
   it('should create a Reset Alert Message action', () => {
     const action = new fromActions.ResetAlert();
-    expect({ ...action }).toEqual({
+    expect(action).toEqual({
       type: fromActions.RESET_ALERT
     });
   });

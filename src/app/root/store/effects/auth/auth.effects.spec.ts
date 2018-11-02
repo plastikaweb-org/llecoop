@@ -9,9 +9,6 @@ import { StoreModule } from '@ngrx/store';
 import { AngularFireModule } from 'angularfire2';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
-import * as fromActivity from 'app/activity/store';
 import { firebaseConf } from 'config/firebase.config';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable } from 'rxjs';
