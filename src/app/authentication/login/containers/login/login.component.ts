@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Credentials } from '@llecoop';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 import { LoginSandbox } from '../../sandbox/login.sandbox';
 
@@ -29,6 +29,6 @@ export class LoginComponent {
   constructor(protected sandBox: LoginSandbox) {}
 
   onSubmit(e: Credentials) {
-    this.sandBox.login(e);
+    this.sandBox.login({ ...e });
   }
 }

@@ -7,3 +7,8 @@ export const getIsAuthenticated = createSelector(
   fromFeature.getAuthState,
   fromAuth.getIsAuthenticatedState
 );
+
+export const getRecoverPassSent = createSelector(
+  fromFeature.getAuthState,
+  fromAuth.getRecoverPassSentState
+);

@@ -1,4 +1,4 @@
-import { Credentials } from '@llecoop';
+import { Credentials, User } from '@llecoop';
 import { Action } from '@ngrx/store';
 
 export const GET_AUTHENTICATION = '[Auth] Get Authentication';
@@ -41,6 +41,27 @@ export class AuthenticateSuccess implements Action {
   readonly type = AUTHENTICATE_SUCCESS;
 }
 
+// forgot
+export const FORGOT = '[Auth] Forgot';
+export const FORGOT_FAIL = '[Auth] Forgot Fail';
+export const FORGOT_SUCCESS = '[Auth] Forgot success';
+
+export class Forgot implements Action {
+  readonly type = FORGOT;
+
+  constructor(public payload: string) {}
+}
+
+export class ForgotFail implements Action {
+  readonly type = FORGOT_FAIL;
+
+  constructor(public payload: any) {}
+}
+
+export class ForgotSuccess implements Action {
+  readonly type = FORGOT_SUCCESS;
+}
+
 // logout
 export const LOGOUT = '[Authentication] Logout';
 export const LOGOUT_FAIL = '[Authentication] Logout Error';
@@ -67,6 +88,9 @@ export type AuthActions =
   | Authenticate
   | AuthenticateFail
   | AuthenticateSuccess
+  | Forgot
+  | ForgotFail
+  | ForgotSuccess
   | Logout
   | LogoutFail
   | LogoutSuccess;
