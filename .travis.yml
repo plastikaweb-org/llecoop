@@ -39,7 +39,7 @@ script:
   - ./ci/test.sh
 after_success:
   - codecov
-  - npm run report-coverage
+  - yarn report-coverage
   - 'if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then ./ci/deploy.sh; fi'
 branches:
   only:
