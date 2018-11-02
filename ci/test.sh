@@ -2,8 +2,8 @@
 
 set -ev
 
-ng lint
-ng test --code-coverage --watch false
-ng e2e
+yarn run lint
+yarn run test:coverage
+yarn run e2e
 
 exit 0

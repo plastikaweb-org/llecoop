@@ -2,7 +2,7 @@
 
 set -ev
 
-ng build --prod --build-optimizer
+yarn build
 firebase deploy --project $FIREBASE_APP --token $FIREBASE_TOKEN --non-interactive
 
 exit 0
