@@ -2,7 +2,6 @@ language: node_js
 node_js:
   - "9.8"
 cache:
-  yarn: true
   directories:
     - node_modules
 notifications:
@@ -10,14 +9,17 @@ notifications:
 sudo: required
 dist: trusty
 group: edge
+cache:
+  directories:
+  - $HOME/.yarn-cache
 before_install:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sudo apt-get update
   - sudo apt-get install -y libappindicator1 fonts-liberation
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
+install:
+  - wget https://yarnpkg.com/latest.tar.gz && tar -xf latest.tar.gz && dist/bin/yarn
   - yarn global add codecov -g
   - yarn global add firebase-tools
   - yarn global add @angular/cli
